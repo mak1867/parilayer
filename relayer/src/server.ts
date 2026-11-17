@@ -3,7 +3,8 @@ import { PROGRAM_ID } from "@pmec/sdk";
 import { PublicKey } from "@solana/web3.js";
 import Fastify, { type FastifyInstance } from "fastify";
 import type { ChainApi } from "./chain";
-import type { GeminiMock } from "./gemini/client";
+import type { GeminiMock, GeminiSource } from "./gemini/client";
+import { type CuratedPair, type LegRef, PairError, type PairService, legChoices } from "./pairs";
 import type { Relayer } from "./relayer";
 import type { MarketMeta, Store } from "./store";
 
@@ -17,6 +18,8 @@ export interface ServerDeps {
   faucet?: { usdc: number; cooldownMs: number; drip: (wallet: PublicKey, usdc: number) => Promise<{ signature: string; sol: number }> };
   /** Present only in mock mode: lets a demo simulate Gemini settling a contract. */
   mock?: GeminiMock;
+  /** Pair joint pools. */
+  pairs?: { service: PairService; curated: CuratedPair[]; gemini: GeminiSource };
 }
 
 const HEX64 = /^[0-9a-f]{64}$/;
@@ -124,6 +127,51 @@ export async function buildServer(deps: ServerDeps): Promise<FastifyInstance> {
       return reply.code(502).send({ error: `faucet transaction failed: ${(e as Error).message}` });
     }
   });
+
+  if (deps.pairs) {
+    const { service, curated, gemini } = deps.pairs;
+    const fail = (reply: { code: (n: number) => { send: (b: unknown) => unknown } }, e: unknown) =>
+      e instanceof PairError ? reply.code(e.status).send({ error: e.message }) : reply.code(502).send({ error: `Could not reach Gemini or the chain: ${(e as Error).message}` });
+
+    /** Curated correlated pairs with live leg prices, seed odds and Gemini's combo price. */
+    app.get("/pairs/curated", async () => service.curated(curated));
+
+    /** Contracts that can be a leg: every tradable contract of the events behind our binary markets. */
+    app.get("/pairs/legs", async () => {
+      const events = deps.store.listMarkets().flatMap((m) => (m.source.type === "binary" ? [m.source.eventTicker] : []));
+      return legChoices(gemini, events);
+    });
+
+    /** What the pool over two legs would be, or is. Creates nothing. */
+    app.post<{ Body: { a?: LegRef; b?: LegRef } }>("/pairs/preview", async (req, reply) => {
+      try {
+        return await service.preview(req.body?.a as LegRef, req.body?.b as LegRef);
+      } catch (e) {
+        return fail(reply, e);
+      }
+    });
+
+    /** Step 1 of creating a pair: returns the first-buy transaction for the buyer to sign. */
+    app.post<{ Body: { a?: LegRef; b?: LegRef; buyer?: string; outcome?: number; usdcIn?: string } }>("/pairs/prepare", async (req, reply) => {
+      try {
+        const b = req.body ?? {};
+        return await service.prepare(b.a as LegRef, b.b as LegRef, b.buyer ?? "", Number(b.outcome), b.usdcIn ?? "");
+      } catch (e) {
+        return fail(reply, e);
+      }
+    });
+
+    /** Step 2: the signed first buy comes back; the pool is created and the buy submitted. */
+    app.post<{ Body: { prepareId?: string; tx?: string } }>("/pairs", async (req, reply) => {
+      try {
+        const out = await service.create(req.body?.prepareId ?? "", req.body?.tx ?? "");
+        await deps.relayer.refresh();
+        return out;
+      } catch (e) {
+        return fail(reply, e);
+      }
+    });
+  }
 
   if (deps.mock) {
     const mock = deps.mock;

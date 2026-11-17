@@ -11,10 +11,11 @@ import { join } from "node:path";
 import { PPM, UNIT, probPpm } from "@pmec/sdk";
 import { Connection, LAMPORTS_PER_SOL, SystemProgram, Transaction, sendAndConfirmTransaction } from "@solana/web3.js";
 import { SolanaChain } from "./chain";
-import { type Config, loadConfig, loadKeypair, loadMirrorConfig } from "./config";
+import { type Config, loadConfig, loadKeypair, loadMirrorConfig, loadPairsConfig } from "./config";
 import { GeminiHttp, GeminiMock, type GeminiSource } from "./gemini/client";
 import { Indexer } from "./indexer";
 import { midPrice } from "./mapping";
+import { PairService } from "./pairs";
 import { Relayer } from "./relayer";
 import { buildServer } from "./server";
 import { AuditLog, Store } from "./store";
@@ -161,6 +162,11 @@ async function serve(cfg: Config) {
     seedUsdc: cfg.seedUsdc,
     ...(chain.admin ? { faucet: { usdc: cfg.faucetUsdc, cooldownMs: 60 * 60 * 1000, drip: (w, usdc) => chain.faucet(w, usdc) } } : {}),
     ...(mock ? { mock } : {}),
+    pairs: {
+      service: new PairService({ relayer, gemini: source, chain, store, seedUsdc: cfg.seedUsdc }),
+      curated: loadPairsConfig(cfg.pairsConfigPath),
+      gemini: source,
+    },
   });
   await app.listen({ port: cfg.port, host: "127.0.0.1" });
   log(`relayer listening on http://127.0.0.1:${cfg.port}  (Gemini: ${cfg.mock ? "MOCK fixtures" : "live"}, RPC: ${cfg.rpcUrl})`);

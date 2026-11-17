@@ -1,0 +1,14 @@
+{
+  "pairs": [
+    {
+      "a": { "event": "NBA-2611180030-NYK-TOR-M", "contract": "GEMI-NBA-2611180030-NYK-TOR-M-TOR" },
+      "b": { "event": "NBA-2611180100-POR-MIN-M", "contract": "GEMI-NBA-2611180100-POR-MIN-M-POR" },
+      "note": "Two underdogs on the same night. Gemini lists its own combo on these two legs."
+    },
+    {
+      "a": { "event": "NBA-2611180030-NYK-TOR-M", "contract": "GEMI-NBA-2611180030-NYK-TOR-M-TOR" },
+      "b": { "event": "NBA-2611180030-NYK-TOR-T", "contract": "GEMI-NBA-2611180030-NYK-TOR-T-O216" },
+      "note": "Same game: Toronto to win, and more than 216.5 points scored."
+    }
+  ]
+}

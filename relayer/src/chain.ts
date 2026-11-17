@@ -63,6 +63,11 @@ export interface ChainApi {
   unhalt(market: PublicKey): Promise<string>;
   /** Redeems the treasury's seed shares of one outcome. Returns null if there is nothing to redeem. */
   redeemSeed(market: PublicKey, outcome: number): Promise<string | null>;
+  /** A wallet's USDC balance, base units. */
+  usdcBalance(owner: PublicKey): Promise<bigint>;
+  latestBlockhash(): Promise<{ blockhash: string; lastValidBlockHeight: number }>;
+  /** Sends a transaction someone else signed and waits for confirmation. */
+  submitRaw(raw: Uint8Array): Promise<string>;
 }
 
 /** Outcome mints created per transaction; 6 keeps the transaction well under the size limit. */
@@ -157,6 +162,22 @@ export class SolanaChain implements ChainApi {
     if (BigInt(shares.value.amount) === 0n) return null;
     const ix = await redeemSeedIx(this.program, { market, usdcMint: await this.usdc(), outcome });
     return this.send([ix], [this.oracle]);
+  }
+
+  async usdcBalance(owner: PublicKey): Promise<bigint> {
+    const info = await this.connection.getAccountInfo(ata(await this.usdc(), owner), "confirmed");
+    return info && info.data.length >= 72 ? info.data.readBigUInt64LE(64) : 0n;
+  }
+
+  latestBlockhash(): Promise<{ blockhash: string; lastValidBlockHeight: number }> {
+    return this.connection.getLatestBlockhash("confirmed");
+  }
+
+  async submitRaw(raw: Uint8Array): Promise<string> {
+    const signature = await this.connection.sendRawTransaction(raw, { preflightCommitment: "confirmed" });
+    const result = await this.connection.confirmTransaction(signature, "confirmed");
+    if (result.value.err) throw new Error(`transaction failed: ${JSON.stringify(result.value.err)}`);
+    return signature;
   }
 
   // ------------------------------------------------------------------ setup and faucet (admin key)

@@ -16,6 +16,7 @@ export interface Config {
   fixturesDir: string;
   dataDir: string;
   mirrorConfigPath: string;
+  pairsConfigPath: string;
   /** Seed per market in whole USDC. */
   seedUsdc: number;
   oracleKeypairPath: string;
@@ -46,6 +47,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     fixturesDir: fromRoot(env.GEMINI_FIXTURES_DIR || "relayer/fixtures"),
     dataDir: fromRoot(env.RELAYER_DATA_DIR || "relayer/data"),
     mirrorConfigPath: fromRoot(env.MIRROR_CONFIG || "relayer/config/mirror.json"),
+    pairsConfigPath: fromRoot(env.PAIRS_CONFIG || "relayer/config/pairs.json"),
     seedUsdc: num("SEED_USDC", 500),
     oracleKeypairPath: fromRoot(env.ORACLE_KEYPAIR || "keys/oracle.json"),
     adminKeypairPath: fromRoot(env.ADMIN_KEYPAIR || "keys/admin.json"),
@@ -79,4 +81,12 @@ export function loadMirrorConfig(path: string): MirrorConfig {
     if (m.kind === "binary" && typeof m.contract !== "string") throw new Error(`${path}: binary entry needs "contract"`);
   }
   return cfg;
+}
+
+/** Curated correlated pairs for the pair builder. A missing file means none. */
+export function loadPairsConfig(path: string): { a: { event: string; contract: string }; b: { event: string; contract: string }; note?: string }[] {
+  if (!existsSync(path)) return [];
+  const cfg = JSON.parse(readFileSync(path, "utf8")) as { pairs?: unknown };
+  if (!Array.isArray(cfg.pairs)) throw new Error(`${path}: "pairs" must be a list`);
+  return cfg.pairs as { a: { event: string; contract: string }; b: { event: string; contract: string }; note?: string }[];
 }

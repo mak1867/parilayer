@@ -124,6 +124,28 @@ export class FakeChain implements ChainApi {
     return this.nextSig();
   }
 
+  /** USDC per wallet, for the pair first-buy checks. */
+  readonly usdc = new Map<string, bigint>();
+  /** Raw transactions handed to submitRaw. */
+  readonly submitted: Uint8Array[] = [];
+
+  async usdcBalance(owner: PublicKey): Promise<bigint> {
+    return this.usdc.get(owner.toBase58()) ?? 0n;
+  }
+
+  async latestBlockhash(): Promise<{ blockhash: string; lastValidBlockHeight: number }> {
+    return { blockhash: Keypair.generate().publicKey.toBase58(), lastValidBlockHeight: 1000 };
+  }
+
+  async submitRaw(raw: Uint8Array): Promise<string> {
+    if (this.failNext > 0) {
+      this.failNext--;
+      throw new Error("simulated RPC failure");
+    }
+    this.submitted.push(raw);
+    return this.nextSig();
+  }
+
   async redeemSeed(market: PublicKey, outcome: number): Promise<string | null> {
     const m = this.byAddress(market);
     if (m.burned[outcome]! > 0n) return null;

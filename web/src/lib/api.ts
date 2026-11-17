@@ -94,3 +94,55 @@ export async function requestFaucet(wallet: string): Promise<{ signature: string
   }
   return body;
 }
+
+// ------------------------------------------------------------------ pair pools
+
+export interface LegRef {
+  event: string;
+  contract: string;
+}
+
+export interface LegChoice extends LegRef {
+  label: string;
+  yes: number | null;
+}
+
+export interface PairPreview {
+  idHex: string;
+  address: string;
+  exists: boolean;
+  title: string;
+  outcomes: string[];
+  legs: PairReference["legs"];
+  /** Event and contract of each leg, in the same order as `legs`. */
+  legRefs: LegRef[];
+  probsPpm: number[];
+  combo: PairReference["combo"];
+  seedUsdc: number;
+  minFirstBuyUsdc: number;
+  note?: string | null;
+}
+
+export interface PairPrepared extends Omit<PairPreview, "exists" | "seedUsdc" | "minFirstBuyUsdc" | "legRefs"> {
+  prepareId: string;
+  outcome: number;
+  usdcIn: string;
+  shares: string;
+  minSharesOut: string;
+  tx: string;
+}
+
+async function post<T>(path: string, body: unknown): Promise<T> {
+  const res = await fetch(RELAYER_URL + path, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+  const json = (await res.json()) as T & { error?: string };
+  if (!res.ok) throw new Error(json.error ?? `Request failed (HTTP ${res.status})`);
+  return json;
+}
+
+export const getCuratedPairs = () => get<PairPreview[]>("/pairs/curated");
+export const getPairLegs = () => get<LegChoice[]>("/pairs/legs");
+export const previewPair = (a: LegRef, b: LegRef) => post<PairPreview>("/pairs/preview", { a, b });
+export const preparePair = (a: LegRef, b: LegRef, buyer: string, outcome: number, usdcIn: bigint) =>
+  post<PairPrepared>("/pairs/prepare", { a, b, buyer, outcome, usdcIn: usdcIn.toString() });
+export const createPair = (prepareId: string, tx: string) =>
+  post<{ idHex: string; address: string; buySignature: string | null; buyError: string | null }>("/pairs", { prepareId, tx });
