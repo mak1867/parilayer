@@ -76,15 +76,27 @@ export class Indexer {
     this.busy = true;
     let added = 0;
     try {
-      const until = this.store.get("indexer:last") ?? undefined;
       // Newest first; walk back until we reach what we already have.
-      const fresh: { signature: string; slot: number; blockTime?: number | null; err: unknown }[] = [];
-      let before: string | undefined;
-      for (;;) {
-        const page = await this.connection.getSignaturesForAddress(PROGRAM_ID, { limit: 200, ...(until ? { until } : {}), ...(before ? { before } : {}) }, "confirmed");
-        fresh.push(...page);
-        if (page.length < 200) break;
-        before = page[page.length - 1]!.signature;
+      const walk = async (until: string | undefined) => {
+        const found: { signature: string; slot: number; blockTime?: number | null; err: unknown }[] = [];
+        let before: string | undefined;
+        for (;;) {
+          const page = await this.connection.getSignaturesForAddress(PROGRAM_ID, { limit: 200, ...(until ? { until } : {}), ...(before ? { before } : {}) }, "confirmed");
+          found.push(...page);
+          if (page.length < 200) break;
+          before = page[page.length - 1]!.signature;
+        }
+        return found;
+      };
+      const cursor = this.store.get("indexer:last") ?? undefined;
+      let fresh: Awaited<ReturnType<typeof walk>>;
+      try {
+        fresh = await walk(cursor);
+      } catch (e) {
+        // The node no longer has the cursor transaction (short history, e.g. a
+        // local validator). Rescan what it does have; inserts are idempotent.
+        if (!cursor) throw e;
+        fresh = await walk(undefined);
       }
       // Oldest first, so the cursor only moves past transactions that were stored.
       for (const s of fresh.reverse()) {

@@ -1,0 +1,29 @@
+{
+  "name": "@pmec/rfq",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "PMEC Exchange secondary market: private request-for-quote, atomic settlement, public trade tape",
+  "scripts": {
+    "serve": "tsx src/main.ts",
+    "bot": "tsx src/bot.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@noble/curves": "^1.9.0",
+    "@pmec/sdk": "*",
+    "@solana/spl-token": "^0.4.15",
+    "@solana/web3.js": "^1.98.4",
+    "fastify": "^5.12.8",
+    "tsx": "^4.23.15",
+    "ws": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "@types/ws": "^8.18.1",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.0"
+  }
+}

@@ -5,6 +5,7 @@ import { useMemo, type ReactNode } from "react";
 import { BurnerWalletAdapter } from "@/lib/burner";
 import { DataProvider } from "@/lib/data";
 import { RPC_URL } from "@/lib/env";
+import { RfqProvider } from "@/lib/rfq";
 
 export function Providers({ children }: { children: ReactNode }) {
   // Browser wallets that support the Wallet Standard (Phantom, Solflare, Backpack...)
@@ -13,7 +14,9 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <ConnectionProvider endpoint={RPC_URL} config={{ commitment: "confirmed" }}>
       <WalletProvider wallets={wallets} autoConnect>
-        <DataProvider>{children}</DataProvider>
+        <DataProvider>
+          <RfqProvider>{children}</RfqProvider>
+        </DataProvider>
       </WalletProvider>
     </ConnectionProvider>
   );

@@ -704,9 +704,41 @@ table {
 
 /* ---------- the buy slip: a tote ticket ---------- */
 
-.slip {
+.trade-col {
   position: sticky;
   top: 1rem;
+}
+
+@media (max-width: 960px) {
+  .trade-col {
+    position: static;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.tabs button {
+  flex: 1;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.5rem 0.4rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid var(--slip-line);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.tabs button.on {
+  color: var(--turf);
+  border-bottom-color: var(--turf);
+}
+
+.slip {
   background: #fffdf6;
   border: 1px solid var(--slip-line);
   border-radius: 4px;
@@ -715,12 +747,6 @@ table {
   -webkit-mask: radial-gradient(circle 7px at 10px 0, transparent 98%, #000) -10px 0 / 20px 100%;
   mask: radial-gradient(circle 7px at 10px 0, transparent 98%, #000) -10px 0 / 20px 100%;
   filter: drop-shadow(0 2px 0 var(--slip-line));
-}
-
-@media (max-width: 960px) {
-  .slip {
-    position: static;
-  }
 }
 
 .slip-head h2 {
@@ -928,6 +954,185 @@ table {
   margin-top: 1rem;
   padding-top: 0.8rem;
   border-top: 1px dashed var(--slip-line);
+}
+
+/* ---------- secondary market ---------- */
+
+.rfq-box {
+  margin-top: 1.1rem;
+  padding: 0.9rem;
+  background: var(--slip);
+  border-radius: 6px;
+}
+
+.rfq-box > p + p,
+.rfq-box > .side + .side,
+.rfq-box > .btn-quiet {
+  margin-top: 0.6rem;
+}
+
+.rfq-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.15;
+}
+
+.rfq-count {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.rfq-count .num {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--turf);
+}
+
+.side {
+  background: #fffdf6;
+  border: 1px solid var(--slip-line);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-top: 0.7rem;
+}
+
+.side-empty {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.side-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.side-lines {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin: 0.4rem 0 0.1rem;
+}
+
+.side .btn-block {
+  margin-top: 0.6rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+}
+
+.btn-quiet {
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: 600;
+  background: transparent;
+  border: 1.5px solid var(--slip-line);
+  border-radius: 5px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.btn-quiet:hover {
+  border-color: var(--turf);
+}
+
+.link {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--turf);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.check {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.check input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--turf);
+  transform: translateY(0.15rem);
+}
+
+.text-input,
+.field.inline select,
+.quote-inputs input {
+  font: inherit;
+  width: 100%;
+  border: 1.5px solid var(--slip-line);
+  border-radius: 5px;
+  padding: 0.45rem 0.55rem;
+  background: #fff;
+  color: var(--ink);
+  margin-top: 0.4rem;
+}
+
+.text-input[aria-invalid="true"] {
+  border-color: var(--flag);
+}
+
+.quoter {
+  margin-top: 1.3rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--slip-line);
+}
+
+.quoter > small {
+  margin-top: 0.3rem;
+}
+
+.field.inline {
+  font-size: var(--step--1);
+}
+
+.quote-card {
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  background: var(--slip);
+  border-radius: 6px;
+  border-left: 4px solid var(--turf);
+}
+
+.quote-card.done {
+  border-left-color: var(--slip-line);
+  font-size: 0.9375rem;
+}
+
+.quote-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin: 0.5rem 0 0.4rem;
+}
+
+.quote-inputs span {
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.quote-inputs input {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.quote-card .btn-block {
+  margin-top: 0.6rem;
+  padding: 0.55rem 1rem;
+  font-size: 1rem;
 }
 
 /* ---------- portfolio ---------- */

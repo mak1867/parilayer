@@ -21,6 +21,7 @@ A full README (architecture, trust assumptions, prior art) lands with milestone 
 | `programs/pmec` | The Anchor program (Solana devnet) and its integration tests |
 | `packages/sdk` | Shared TypeScript: program interface (IDL), addresses, instruction builders, the pool math in BigInt |
 | `relayer` | Gemini relayer: mirrors events as markets, posts resolutions, serves reference prices, indexes trades, mock-USDC faucet |
+| `rfq` | Secondary market: private request-for-quote over WebSocket, atomic settlement, public trade tape, quoter bot |
 | `web` | Next.js frontend: markets, market page with pool / Gemini / secondary prices, buy slip, portfolio |
 | `scripts` | Local validator and setup scripts |
 
@@ -32,7 +33,8 @@ Needs Rust, the Solana CLI 4.1.x, Anchor 1.2.x and Node 22.
 anchor test               # builds the program, then runs every Rust test
 cargo test -p pmec-math   # just the math
 npm install
-npm test                  # SDK and relayer tests
+npm test                  # SDK, relayer and RFQ tests
+E2E_RPC_URL=http://127.0.0.1:8899 npm test -w rfq   # also runs the RFQ end-to-end tests on a local validator
 ```
 
 ## Run the relayer
@@ -48,6 +50,13 @@ npm run serve -w relayer             # HTTP API on :8787 + reference and settlem
 ```
 
 Set `GEMINI_MOCK=1` to serve Gemini data from the recorded fixtures instead of the network.
+
+## Run the secondary market
+
+```sh
+npm run serve -w rfq                          # RFQ service on :8788 (needs no keys)
+BOT_KEYPAIR=keys/bot.json npm run bot -w rfq  # optional: a bot that quotes every request
+```
 
 ## Run the frontend
 
@@ -66,5 +75,6 @@ anchor build
 ./scripts/local-validator.sh                      # terminal 1
 ./scripts/local-setup.sh                          # terminal 2 (GEMINI_MOCK=1 for offline)
 SOLANA_RPC_URL=http://127.0.0.1:8899 RELAYER_DATA_DIR=relayer/data-local npm run serve -w relayer
+SOLANA_RPC_URL=http://127.0.0.1:8899 RFQ_DATA_DIR=rfq/data-local npm run serve -w rfq
 NEXT_PUBLIC_RPC_URL=http://127.0.0.1:8899 npm run dev -w web
 ```

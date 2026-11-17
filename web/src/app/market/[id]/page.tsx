@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BuySlip } from "@/components/BuySlip";
-import { PriceTable } from "@/components/PriceTable";
+import { PriceTable, type SecondaryMark } from "@/components/PriceTable";
+import { SecondaryPanel } from "@/components/SecondaryPanel";
 import { type PoolTrade, getActivity } from "@/lib/api";
 import { useData } from "@/lib/data";
 import { explorerTx } from "@/lib/env";
-import { fmtPct, fmtShares, fmtUsdc, fmtWhole, shortKey, timeAgo } from "@/lib/format";
+import { fmtPct, fmtPrice, fmtShares, fmtUsdc, fmtWhole, shortKey, timeAgo } from "@/lib/format";
 import { KIND_LABEL, isThin, leadingOutcome, statusLabel } from "@/lib/market";
+import { useRfq, useTape } from "@/lib/rfq";
 
 export default function MarketPage() {
   const { id } = useParams<{ id: string }>();
@@ -17,7 +19,16 @@ export default function MarketPage() {
   const view = markets.find((v) => v.meta.idHex === id);
   const [selected, setSelected] = useState<number | null>(null);
   const [tape, setTape] = useState<PoolTrade[]>([]);
+  const [tab, setTab] = useState<"pool" | "secondary">("pool");
   const pot = view?.chain?.pot;
+  const { fillTick } = useRfq();
+  const { tape: fills, available: rfqUp } = useTape(id, fillTick);
+  // Last secondary trade per outcome (the tape is newest first).
+  const secondary = useMemo(() => {
+    const marks = new Map<number, SecondaryMark>();
+    for (const f of fills) if (!marks.has(f.outcome)) marks.set(f.outcome, { priceE6: Number(f.priceE6), ts: f.ts });
+    return marks;
+  }, [fills]);
 
   useEffect(() => {
     if (!id) return;
@@ -81,7 +92,44 @@ export default function MarketPage() {
 
       <div className="market-grid">
         <div>
-          <PriceTable view={view} selected={outcome} onSelect={setSelected} />
+          <PriceTable view={view} selected={outcome} onSelect={setSelected} secondary={secondary} />
+
+          <section aria-labelledby="sec-h" className="sub">
+            <h2 id="sec-h">Secondary trades</h2>
+            {!rfqUp ? (
+              <p className="msg">The secondary market service is not reachable right now.</p>
+            ) : fills.length === 0 ? (
+              <p className="msg">No shares have changed hands between traders in this market yet.</p>
+            ) : (
+              <table className="tape">
+                <thead>
+                  <tr>
+                    <th scope="col">When</th>
+                    <th scope="col">Outcome</th>
+                    <th scope="col" className="r">Price</th>
+                    <th scope="col" className="r">Shares</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {fills.slice(0, 10).map((f) => (
+                    <tr key={f.signature}>
+                      <td>
+                        <a href={explorerTx(f.signature)} target="_blank" rel="noreferrer">
+                          {timeAgo(f.ts)}
+                        </a>
+                      </td>
+                      <td>{view.meta.outcomes[f.outcome]}</td>
+                      <td className="r num">{fmtPrice(Number(f.priceE6))}</td>
+                      <td className="r num">{fmtShares(BigInt(f.size))}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+            <p className="table-note">
+              Requests and quotes are private. A trade appears here, and on-chain, only after it has settled: price, size and time.
+            </p>
+          </section>
 
           <section aria-labelledby="tape-h" className="sub">
             <h2 id="tape-h">Recent pool buys</h2>
@@ -147,7 +195,21 @@ export default function MarketPage() {
           </section>
         </div>
 
-        <BuySlip key={`${view.meta.idHex}:${outcome}`} view={view} outcome={outcome} />
+        <div className="trade-col">
+          <div className="tabs" role="tablist" aria-label="How to trade">
+            <button role="tab" aria-selected={tab === "pool"} className={tab === "pool" ? "on" : undefined} onClick={() => setTab("pool")}>
+              Buy from the pool
+            </button>
+            <button role="tab" aria-selected={tab === "secondary"} className={tab === "secondary" ? "on" : undefined} onClick={() => setTab("secondary")}>
+              Trade with traders
+            </button>
+          </div>
+          {tab === "pool" ? (
+            <BuySlip key={`${view.meta.idHex}:${outcome}`} view={view} outcome={outcome} />
+          ) : (
+            <SecondaryPanel view={view} outcome={outcome} />
+          )}
+        </div>
       </div>
     </div>
   );

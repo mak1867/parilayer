@@ -6,16 +6,26 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { type PositionHistory, getPositionHistory } from "@/lib/api";
 import { type MarketView, useData } from "@/lib/data";
-import { explorerTx } from "@/lib/env";
+import { RFQ_URL, explorerTx } from "@/lib/env";
 import { fmtShares, fmtUsdc } from "@/lib/format";
 import { explainError, sendIxs } from "@/lib/tx";
+
+interface SecondaryFill {
+  marketId: string;
+  outcome: number;
+  size: string;
+  value: string;
+  side: "buy" | "sell";
+}
 
 interface Position {
   view: MarketView;
   chain: MarketState;
   outcome: number;
   shares: bigint;
-  history: PositionHistory | null;
+  /** Everything this wallet bought of this outcome (pool and secondary) and what it paid. */
+  bought: bigint;
+  paid: bigint;
 }
 
 /** What `shares` of `outcome` can be redeemed for right now, or null if nothing can be redeemed yet. */
@@ -30,6 +40,7 @@ export default function PortfolioPage() {
   const wallet = useWallet();
   const { markets, tokens, usdc, usdcMint, program, refresh, refreshWallet } = useData();
   const [history, setHistory] = useState<PositionHistory[]>([]);
+  const [secondary, setSecondary] = useState<SecondaryFill[]>([]);
   const [busy, setBusy] = useState<string | null>(null);
   const [note, setNote] = useState<{ kind: "ok" | "error"; text: string; sig?: string } | null>(null);
   const owner = wallet.publicKey?.toBase58();
@@ -39,6 +50,10 @@ export default function PortfolioPage() {
     let live = true;
     getPositionHistory(owner)
       .then((h) => live && setHistory(h))
+      .catch(() => undefined);
+    fetch(`${RFQ_URL}/fills/${owner}`)
+      .then((r) => r.json())
+      .then((f: SecondaryFill[]) => live && setSecondary(f))
       .catch(() => undefined);
     return () => {
       live = false;
@@ -53,12 +68,21 @@ export default function PortfolioPage() {
       for (let i = 0; i < chain.n; i++) {
         const shares = tokens.get(outcomeMintPda(chain.address, i).toBase58()) ?? 0n;
         if (shares === 0n) continue;
-        const h = history.find((x) => x.market === view.meta.address && x.outcome === i) ?? null;
-        out.push({ view, chain, outcome: i, shares, history: h });
+        // Cost basis: pool buys from on-chain history plus secondary buys from the trade tape.
+        const h = history.find((x) => x.market === view.meta.address && x.outcome === i);
+        let bought = h ? BigInt(h.boughtShares) : 0n;
+        let paid = h ? BigInt(h.boughtUsdc) : 0n;
+        for (const f of secondary) {
+          if (f.marketId === view.meta.idHex && f.outcome === i && f.side === "buy") {
+            bought += BigInt(f.size);
+            paid += BigInt(f.value);
+          }
+        }
+        out.push({ view, chain, outcome: i, shares, bought, paid });
       }
     }
     return out;
-  }, [markets, tokens, history]);
+  }, [markets, tokens, history, secondary]);
 
   const redeem = async (p: Position) => {
     if (!wallet.publicKey || !usdcMint) return;
@@ -147,11 +171,11 @@ export default function PortfolioPage() {
                 const live = m.status === "open" || m.status === "halted";
                 const now = redeemValue(p.shares, payoutRateE12(m.pot, m.q[p.outcome]!));
                 const claim = redeemable(m, p.outcome, p.shares);
-                // Cost basis from on-chain history: what this wallet paid the pool per share, applied to what it still holds.
-                const h = p.history;
-                const bought = h ? BigInt(h.boughtShares) : 0n;
-                const cost = h && bought > 0n ? (BigInt(h.boughtUsdc) * (p.shares < bought ? p.shares : bought)) / bought : null;
-                const partial = h !== null && bought > 0n && p.shares > bought;
+                // Average cost of this wallet's buys, applied to the shares it still holds.
+                const bought = p.bought;
+                const covered = p.shares < bought ? p.shares : bought;
+                const cost = bought > 0n ? (p.paid * covered) / bought : null;
+                const partial = bought > 0n && p.shares > bought;
                 return (
                   <tr key={key}>
                     <th scope="row">
@@ -163,8 +187,8 @@ export default function PortfolioPage() {
                       <span className="num">{cost === null ? "–" : fmtUsdc(cost)}</span>
                       <small>
                         {cost === null
-                          ? "not bought from the pool by this wallet"
-                          : `${(Number(cost) / Number(p.shares < bought ? p.shares : bought)).toFixed(3)} a share${partial ? ", pool buys only" : ""}`}
+                          ? "no buys on record for this wallet"
+                          : `${(Number(cost) / Number(covered)).toFixed(3)} a share${partial ? ", for the part bought here" : ""}`}
                       </small>
                     </td>
                     <td className="r">
@@ -202,8 +226,8 @@ export default function PortfolioPage() {
             </tbody>
           </table>
           <p className="table-note">
-            “Pays at least” is the guarantee: 1 USDC for every share if that outcome wins. Cost comes from this wallet’s on-chain
-            buys from the pool, fee included.
+            “Pays at least” is the guarantee: 1 USDC for every share if that outcome wins. Cost is the average this wallet paid,
+            from its on-chain pool buys (fee included) and its secondary trades.
           </p>
         </div>
       )}

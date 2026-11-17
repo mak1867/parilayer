@@ -60,6 +60,23 @@ jobs:
       - name: Golden vectors are up to date
         run: cargo run -q -p pmec-math --example vectors | diff - packages/sdk/test/vectors.json
 
+      # End to end on a real validator: the RFQ service settles a trade between
+      # two wallets, and a swap with one failing leg moves nothing.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Start a local validator with the program
+        run: |
+          ./scripts/local-validator.sh > validator.log 2>&1 &
+          for i in $(seq 1 60); do solana cluster-version -u http://127.0.0.1:8899 >/dev/null 2>&1 && break; sleep 1; done
+          solana cluster-version -u http://127.0.0.1:8899
+      - name: Set up markets from recorded Gemini fixtures
+        run: GEMINI_MOCK=1 ./scripts/local-setup.sh
+      - name: RFQ end-to-end test
+        run: E2E_RPC_URL=http://127.0.0.1:8899 npm test -w rfq
+
   node:
     name: sdk + services tests
     runs-on: ubuntu-latest
