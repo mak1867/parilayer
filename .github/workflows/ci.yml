@@ -1,0 +1,56 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  SOLANA_VERSION: "4.1.2"
+  CARGO_TERM_COLOR: always
+
+jobs:
+  program:
+    name: program build + tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache cargo and Solana tools
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.local/share/solana
+            ~/.cache/solana
+            target
+          key: program-${{ runner.os }}-${{ env.SOLANA_VERSION }}-${{ hashFiles('Cargo.lock', 'rust-toolchain.toml') }}
+          restore-keys: |
+            program-${{ runner.os }}-${{ env.SOLANA_VERSION }}-
+
+      - name: Install Solana CLI
+        run: |
+          if [ ! -x "$HOME/.local/share/solana/install/active_release/bin/cargo-build-sbf" ]; then
+            sh -c "$(curl -sSfL https://release.anza.xyz/v${SOLANA_VERSION}/install)"
+          fi
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
+
+      - name: Versions
+        run: |
+          rustc --version
+          solana --version
+          cargo-build-sbf --version
+
+      # `anchor test` = build the program for the Solana VM, then `cargo test`.
+      # CI runs the same two steps directly so it does not need the Anchor CLI.
+      - name: Build program (SBF)
+        run: cargo build-sbf --manifest-path programs/pmec/Cargo.toml
+
+      - name: Test (math property tests + program tests in LiteSVM)
+        run: cargo test --workspace

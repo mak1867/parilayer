@@ -1,0 +1,15 @@
+[package]
+name = "pmec-math"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+description = "Integer math for the PMEC dynamic parimutuel pool (cost function C(q) = ||q||_2)"
+license = "MIT"
+
+[lib]
+name = "pmec_math"
+
+[dependencies]
+
+[dev-dependencies]
+proptest = "1"

@@ -1,0 +1,31 @@
+# secrets and keys: never commit
+.env
+.env.*
+!.env.example
+*-keypair.json
+keys/
+*.pem
+
+# Rust / Anchor
+target/
+.anchor/
+test-ledger/
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+
+# local data
+*.sqlite
+*.sqlite-journal
+*.db
+relayer/data/
+rfq/data/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
