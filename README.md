@@ -20,7 +20,9 @@ A full README (architecture, trust assumptions, prior art) lands with milestone 
 | `crates/pmec-math` | Pure integer pool math and its property tests |
 | `programs/pmec` | The Anchor program (Solana devnet) and its integration tests |
 | `packages/sdk` | Shared TypeScript: program interface (IDL), addresses, instruction builders, the pool math in BigInt |
-| `relayer` | Gemini relayer: mirrors events as markets, posts resolutions, serves reference prices, mock-USDC faucet |
+| `relayer` | Gemini relayer: mirrors events as markets, posts resolutions, serves reference prices, indexes trades, mock-USDC faucet |
+| `web` | Next.js frontend: markets, market page with pool / Gemini / secondary prices, buy slip, portfolio |
+| `scripts` | Local validator and setup scripts |
 
 ## Run the tests
 
@@ -46,3 +48,23 @@ npm run serve -w relayer             # HTTP API on :8787 + reference and settlem
 ```
 
 Set `GEMINI_MOCK=1` to serve Gemini data from the recorded fixtures instead of the network.
+
+## Run the frontend
+
+```sh
+cp web/.env.example web/.env.local   # RPC and relayer URLs (public values only)
+npm run dev -w web                   # http://localhost:3000
+```
+
+Connect any Solana wallet set to devnet, or pick "Burner wallet" (a throwaway devnet
+wallet made in your browser), then use "Get test USDC" in the wallet menu.
+
+## Run everything on a local validator
+
+```sh
+anchor build
+./scripts/local-validator.sh                      # terminal 1
+./scripts/local-setup.sh                          # terminal 2 (GEMINI_MOCK=1 for offline)
+SOLANA_RPC_URL=http://127.0.0.1:8899 RELAYER_DATA_DIR=relayer/data-local npm run serve -w relayer
+NEXT_PUBLIC_RPC_URL=http://127.0.0.1:8899 npm run dev -w web
+```

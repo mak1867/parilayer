@@ -21,11 +21,14 @@ export const MIN_SEED = UNIT;
 export const MAX_OUTCOMES = 32;
 export const NO_WINNER = 255;
 
+const bytes = (s: string) => new TextEncoder().encode(s);
+
+/** PDA seeds. Plain byte arrays so this file works in the browser without a Buffer polyfill. */
 export const SEEDS = {
-  config: Buffer.from("config"),
-  treasury: Buffer.from("fees"),
-  market: Buffer.from("market"),
-  mint: Buffer.from("mint"),
-  vault: Buffer.from("vault"),
-  seedShares: Buffer.from("seed_shares"),
+  config: bytes("config"),
+  treasury: bytes("fees"),
+  market: bytes("market"),
+  mint: bytes("mint"),
+  vault: bytes("vault"),
+  seedShares: bytes("seed_shares"),
 } as const;

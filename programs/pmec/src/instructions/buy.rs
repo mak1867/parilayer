@@ -143,6 +143,7 @@ pub fn handle_buy(ctx: Context<Buy>, outcome: u8, usdc_in: u64, min_shares_out: 
     emit!(BuyEvent {
         market: market_key,
         buyer: ctx.accounts.buyer.key(),
+        recipient: ctx.accounts.recipient_shares.owner,
         outcome,
         usdc_in,
         fee: out.fee,

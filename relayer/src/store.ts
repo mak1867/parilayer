@@ -29,6 +29,41 @@ export interface MarketMeta {
   creator?: string;
 }
 
+/** One buy from the pool or one redemption, read from the program's on-chain events. */
+export interface PoolTrade {
+  signature: string;
+  /** Position of the event inside its transaction. */
+  idx: number;
+  slot: number;
+  blockTime: number | null;
+  /** Market account address (base58). */
+  market: string;
+  kind: "buy" | "redeem";
+  /** Wallet that received the shares (buy) or redeemed them. */
+  wallet: string;
+  /** Wallet that paid for a buy. */
+  payer: string;
+  outcome: number;
+  /** USDC paid (buy, fee included) or received (redeem), base units as a string. */
+  usdc: string;
+  fee: string;
+  shares: string;
+  priceAfter: string | null;
+  probAfter: number | null;
+  potAfter: string | null;
+}
+
+/** What a wallet has done in one outcome of one market, from on-chain history. */
+export interface PositionHistory {
+  market: string;
+  outcome: number;
+  /** Shares bought from the pool and what they cost (fee included). */
+  boughtShares: string;
+  boughtUsdc: string;
+  redeemedShares: string;
+  redeemedUsdc: string;
+}
+
 /** Small SQLite store. Pass ":memory:" in tests. */
 export class Store {
   private readonly db: DatabaseSync;
@@ -41,7 +76,67 @@ export class Store {
       CREATE TABLE IF NOT EXISTS pair_creations (id_hex TEXT PRIMARY KEY, creator TEXT NOT NULL, ts INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS faucet (wallet TEXT PRIMARY KEY, ts INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT NOT NULL);
+      CREATE TABLE IF NOT EXISTS pool_trades (
+        signature TEXT NOT NULL, idx INTEGER NOT NULL, slot INTEGER NOT NULL, block_time INTEGER,
+        market TEXT NOT NULL, kind TEXT NOT NULL, wallet TEXT NOT NULL, json TEXT NOT NULL,
+        PRIMARY KEY (signature, idx)
+      );
+      CREATE INDEX IF NOT EXISTS pool_trades_market ON pool_trades (market, slot);
+      CREATE INDEX IF NOT EXISTS pool_trades_wallet ON pool_trades (wallet);
     `);
+  }
+
+  /** Idempotent: re-indexing the same transaction changes nothing. */
+  insertTrade(t: PoolTrade): void {
+    this.db
+      .prepare(
+        "INSERT OR IGNORE INTO pool_trades (signature, idx, slot, block_time, market, kind, wallet, json) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+      )
+      .run(t.signature, t.idx, t.slot, t.blockTime, t.market, t.kind, t.wallet, JSON.stringify(t));
+  }
+
+  /** Most recent pool trades, newest first. */
+  listTrades(filter: { market?: string; wallet?: string; limit?: number } = {}): PoolTrade[] {
+    const where: string[] = [];
+    const params: (string | number)[] = [];
+    if (filter.market) {
+      where.push("market = ?");
+      params.push(filter.market);
+    }
+    if (filter.wallet) {
+      where.push("wallet = ?");
+      params.push(filter.wallet);
+    }
+    const sql = `SELECT json FROM pool_trades ${where.length ? "WHERE " + where.join(" AND ") : ""} ORDER BY slot DESC, signature, idx DESC LIMIT ?`;
+    const rows = this.db.prepare(sql).all(...params, Math.min(filter.limit ?? 50, 500)) as { json: string }[];
+    return rows.map((r) => JSON.parse(r.json) as PoolTrade);
+  }
+
+  /** Totals per (market, outcome) for one wallet: the basis for cost basis. */
+  positionHistory(wallet: string): PositionHistory[] {
+    const rows = this.db.prepare("SELECT json FROM pool_trades WHERE wallet = ?").all(wallet) as { json: string }[];
+    const acc = new Map<string, { market: string; outcome: number; bs: bigint; bu: bigint; rs: bigint; ru: bigint }>();
+    for (const r of rows) {
+      const t = JSON.parse(r.json) as PoolTrade;
+      const key = `${t.market}:${t.outcome}`;
+      const a = acc.get(key) ?? { market: t.market, outcome: t.outcome, bs: 0n, bu: 0n, rs: 0n, ru: 0n };
+      if (t.kind === "buy") {
+        a.bs += BigInt(t.shares);
+        a.bu += BigInt(t.usdc);
+      } else {
+        a.rs += BigInt(t.shares);
+        a.ru += BigInt(t.usdc);
+      }
+      acc.set(key, a);
+    }
+    return [...acc.values()].map((a) => ({
+      market: a.market,
+      outcome: a.outcome,
+      boughtShares: a.bs.toString(),
+      boughtUsdc: a.bu.toString(),
+      redeemedShares: a.rs.toString(),
+      redeemedUsdc: a.ru.toString(),
+    }));
   }
 
   upsertMarket(meta: MarketMeta): void {

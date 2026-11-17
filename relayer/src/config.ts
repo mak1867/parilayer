@@ -25,6 +25,7 @@ export interface Config {
   faucetUsdc: number;
   referencePollMs: number;
   settlementPollMs: number;
+  indexerPollMs: number;
 }
 
 /** Reads settings from the environment (and the repo's .env, if present). Secrets are file paths, never values. */
@@ -52,6 +53,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     faucetUsdc: num("FAUCET_USDC", 1000),
     referencePollMs: num("REFERENCE_POLL_MS", 30_000),
     settlementPollMs: num("SETTLEMENT_POLL_MS", 60_000),
+    indexerPollMs: num("INDEXER_POLL_MS", 10_000),
   };
 }
 

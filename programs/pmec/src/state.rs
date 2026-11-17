@@ -113,7 +113,10 @@ pub struct MarketCreated {
 #[event]
 pub struct BuyEvent {
     pub market: Pubkey,
+    /// Wallet that paid.
     pub buyer: Pubkey,
+    /// Wallet that owns the token account the shares went to (usually the buyer).
+    pub recipient: Pubkey,
     pub outcome: u8,
     /// Gross USDC paid, fee included.
     pub usdc_in: u64,

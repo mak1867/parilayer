@@ -29,3 +29,9 @@ rfq/data/
 .DS_Store
 .idea/
 .vscode/
+
+# local development
+.local-ledger/
+relayer/data-local/
+rfq/data-local/
+next-env.d.ts

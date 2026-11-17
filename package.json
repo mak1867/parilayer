@@ -6,7 +6,7 @@
     "packages/*",
     "relayer",
     "rfq",
-    "app"
+    "web"
   ],
   "scripts": {
     "idl": "cp target/idl/pmec.json packages/sdk/src/idl/pmec.json && cp target/types/pmec.ts packages/sdk/src/idl/pmec.ts",

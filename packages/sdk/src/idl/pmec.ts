@@ -1422,6 +1422,16 @@ export type Pmec = {
           },
           {
             "name": "buyer",
+            "docs": [
+              "Wallet that paid."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient",
+            "docs": [
+              "Wallet that owns the token account the shares went to (usually the buyer)."
+            ],
             "type": "pubkey"
           },
           {

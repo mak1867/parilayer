@@ -13,6 +13,7 @@ import { Connection, LAMPORTS_PER_SOL, SystemProgram, Transaction, sendAndConfir
 import { SolanaChain } from "./chain";
 import { type Config, loadConfig, loadKeypair, loadMirrorConfig } from "./config";
 import { GeminiHttp, GeminiMock, type GeminiSource } from "./gemini/client";
+import { Indexer } from "./indexer";
 import { midPrice } from "./mapping";
 import { Relayer } from "./relayer";
 import { buildServer } from "./server";
@@ -164,8 +165,11 @@ async function serve(cfg: Config) {
   await app.listen({ port: cfg.port, host: "127.0.0.1" });
   log(`relayer listening on http://127.0.0.1:${cfg.port}  (Gemini: ${cfg.mock ? "MOCK fixtures" : "live"}, RPC: ${cfg.rpcUrl})`);
   relayer.start(cfg.referencePollMs, cfg.settlementPollMs);
+  const indexer = new Indexer(chain.connection, store, log);
+  indexer.start(cfg.indexerPollMs);
   const shutdown = () => {
     relayer.stop();
+    indexer.stop();
     void app.close().then(() => process.exit(0));
   };
   process.on("SIGINT", shutdown);

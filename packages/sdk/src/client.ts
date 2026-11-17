@@ -128,6 +128,13 @@ export async function fetchMarketById(program: PmecProgram, marketId: Uint8Array
   return fetchMarket(program, marketPda(marketId));
 }
 
+/** Reads several markets in one RPC call. Missing accounts are skipped. */
+export async function fetchMarkets(program: PmecProgram, addresses: PublicKey[]): Promise<MarketState[]> {
+  if (addresses.length === 0) return [];
+  const raws = await program.account.market.fetchMultiple(addresses);
+  return raws.flatMap((raw, i) => (raw ? [decodeMarket(addresses[i]!, raw)] : []));
+}
+
 export async function fetchAllMarkets(program: PmecProgram): Promise<MarketState[]> {
   const all = await program.account.market.all();
   return all.map((a) => decodeMarket(a.publicKey, a.account)).sort((a, b) => a.createdAt - b.createdAt);

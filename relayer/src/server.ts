@@ -77,6 +77,28 @@ export async function buildServer(deps: ServerDeps): Promise<FastifyInstance> {
     };
   });
 
+  /** Pool trade tape: recent buys and redemptions, newest first. `market` is a market id (hex). */
+  app.get<{ Querystring: { market?: string; limit?: string } }>("/activity", async (req, reply) => {
+    let market: string | undefined;
+    if (req.query.market) {
+      const meta = HEX64.test(req.query.market) ? deps.store.getMarket(req.query.market) : null;
+      if (!meta) return reply.code(404).send({ error: "unknown market" });
+      market = meta.address;
+    }
+    const limit = Math.max(1, Math.min(Number(req.query.limit) || 50, 500));
+    return deps.store.listTrades({ ...(market ? { market } : {}), limit });
+  });
+
+  /** What a wallet bought from the pool and redeemed, per market and outcome (for cost basis). */
+  app.get<{ Params: { wallet: string } }>("/positions/:wallet", async (req, reply) => {
+    try {
+      new PublicKey(req.params.wallet);
+    } catch {
+      return reply.code(400).send({ error: "wallet must be a Solana address" });
+    }
+    return deps.store.positionHistory(req.params.wallet);
+  });
+
   /** Mock USDC for a wallet, once per cooldown. */
   app.post<{ Body: { wallet?: string } }>("/faucet", async (req, reply) => {
     if (!deps.faucet) return reply.code(503).send({ error: "faucet is not enabled on this relayer" });
