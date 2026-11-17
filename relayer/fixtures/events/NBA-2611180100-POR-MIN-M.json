@@ -1,0 +1,119 @@
+{
+ "id": "462493",
+ "title": "Portland vs Minnesota",
+ "slug": "portland-vs-minnesota",
+ "type": "categorical",
+ "category": "Sports",
+ "ticker": "NBA-2611180100-POR-MIN-M",
+ "status": "active",
+ "createdAt": "2026-11-15T00:01:12.310Z",
+ "contracts": [
+  {
+   "id": "462493-1150827",
+   "label": "Minnesota",
+   "prices": {
+    "buy": {
+     "yes": "0.56",
+     "no": "0.45"
+    },
+    "sell": {
+     "yes": "0.55",
+     "no": "0.44"
+    },
+    "bestBid": "0.55",
+    "bestAsk": "0.56",
+    "lastTradePrice": "0.57"
+   },
+   "status": "active",
+   "createdAt": "2026-11-15T00:01:12.310Z",
+   "ticker": "MIN",
+   "instrumentSymbol": "GEMI-NBA-2611180100-POR-MIN-M-MIN",
+   "marketState": "open",
+   "abbreviatedName": "MIN",
+   "expiryDate": "2026-11-19T13:00:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 2,
+   "sportsSide": "home",
+   "teamId": "583eca2f-fb46-11e1-82cb-f4ce4684ea4c",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "462493-1150824",
+   "label": "Portland",
+   "prices": {
+    "buy": {
+     "yes": "0.45",
+     "no": "0.57"
+    },
+    "sell": {
+     "yes": "0.43",
+     "no": "0.55"
+    },
+    "bestBid": "0.43",
+    "bestAsk": "0.45",
+    "lastTradePrice": "0.45"
+   },
+   "status": "active",
+   "createdAt": "2026-11-15T00:01:12.310Z",
+   "ticker": "POR",
+   "instrumentSymbol": "GEMI-NBA-2611180100-POR-MIN-M-POR",
+   "marketState": "open",
+   "abbreviatedName": "POR",
+   "expiryDate": "2026-11-19T13:00:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 1,
+   "sportsSide": "away",
+   "teamId": "583ed056-fb46-11e1-82cb-f4ce4684ea4c",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  }
+ ],
+ "effectiveDate": "2026-11-15T00:01:12.310Z",
+ "isLive": false,
+ "volume": "974.18",
+ "volume24h": "974.18",
+ "tags": [
+  "Pro Basketball"
+ ],
+ "expiryDate": "2026-11-19T13:00:00.000Z",
+ "startTime": "2026-11-18T01:00:00.000Z",
+ "subcategory": {
+  "id": 14,
+  "slug": "sports_pro-basketball",
+  "name": "Pro Basketball",
+  "path": [
+   "Sports",
+   "Pro Basketball"
+  ]
+ },
+ "gameId": "0f884e37-80d6-4ed6-8f43-6210a9674dc3",
+ "sourceDetails": {
+  "agency": "statscore-rest-api",
+  "index": "Basketball"
+ },
+ "volumeDelta24hPct": "0",
+ "sportsMarket": {
+  "sport": "basketball",
+  "type": "moneyline",
+  "subject": "contest",
+  "scope": {
+   "type": "full_contest"
+  },
+  "team": {
+   "symbol": "MIN",
+   "name": "Minnesota Timberwolves",
+   "externalIds": {
+    "sportradarId": "583eca2f-fb46-11e1-82cb-f4ce4684ea4c"
+   }
+  }
+ }
+}

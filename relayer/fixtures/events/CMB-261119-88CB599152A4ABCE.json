@@ -1,0 +1,58 @@
+{
+ "id": "472665",
+ "title": "Toronto Yes + Portland Yes",
+ "slug": "toronto-yes-portland-yes",
+ "type": "binary",
+ "category": "Sports",
+ "ticker": "CMB-261119-88CB599152A4ABCE",
+ "status": "active",
+ "createdAt": "2026-11-17T04:30:11.496Z",
+ "contracts": [
+  {
+   "id": "472665-1184562",
+   "label": "Toronto Yes + Portland Yes",
+   "prices": {
+    "buy": {
+     "yes": "0.2",
+     "no": "0.8"
+    },
+    "sell": {
+     "yes": "0.2",
+     "no": "0.8"
+    },
+    "lastTradePrice": "0.2"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T04:30:11.496Z",
+   "ticker": "CMB",
+   "instrumentSymbol": "GEMI-CMB-261119-88CB599152A4ABCE-CMB",
+   "marketState": "closed",
+   "expiryDate": "2026-11-19T13:00:00.000Z",
+   "effectiveDate": "2026-11-17T04:30:11.000Z",
+   "isCombo": true,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.0001",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.0001"
+  }
+ ],
+ "effectiveDate": "2026-11-17T04:30:11.496Z",
+ "isLive": false,
+ "volume": "1500",
+ "volume24h": "1500",
+ "tags": [
+  "Pro Basketball"
+ ],
+ "expiryDate": "2026-11-19T13:00:00.000Z",
+ "subcategory": {
+  "id": 14,
+  "slug": "sports_pro-basketball",
+  "name": "Pro Basketball",
+  "path": [
+   "Sports",
+   "Pro Basketball"
+  ]
+ },
+ "volumeDelta24hPct": "0"
+}

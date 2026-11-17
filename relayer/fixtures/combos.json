@@ -1,0 +1,6410 @@
+{
+ "combos": [
+  {
+   "contract": {
+    "contractId": "1184887",
+    "contractName": "Houston Yes + Florida Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261120-176867E2C5554931",
+    "eventName": "",
+    "category": "College Basketball",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261120-176867E2C5554931-CMB",
+    "expiryDate": "2026-11-20T00:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184887,
+     "legIndex": 0,
+     "contractId": "1150982",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150982",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NCAAM-2611171900-RUT-HOU-M",
+      "eventName": "Rutgers vs Houston",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611171900-RUT-HOU-M-HOU",
+      "expiryDate": "2026-11-19T19:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "404ca1c2-41d6-4089-817b-febcde39e48b",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184887,
+     "legIndex": 1,
+     "contractId": "1150986",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150986",
+      "contractName": "Florida",
+      "contractTicker": "FLA",
+      "eventTicker": "NCAAM-2611172130-ND-FLA-M",
+      "eventName": "Notre Dame vs Florida",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611172130-ND-FLA-M-FLA",
+      "expiryDate": "2026-11-19T21:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "a40e7486-f3c4-4038-be5a-b2ade12abd0b",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184887,
+     "legIndex": 2,
+     "contractId": "1150998",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150998",
+      "contractName": "Purdue",
+      "contractTicker": "PUR",
+      "eventTicker": "NCAAM-2611172330-LIP-PUR-M",
+      "eventName": "Lipscomb vs Purdue",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611172330-LIP-PUR-M-PUR",
+      "expiryDate": "2026-11-19T23:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3ebedb44-49e6-49f2-88f2-10530f9b86b6",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184887,
+     "legIndex": 3,
+     "contractId": "1151029",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1151029",
+      "contractName": "Georgia Tech",
+      "contractTicker": "GT",
+      "eventTicker": "NCAAM-2611180000-NORF-GT-M",
+      "eventName": "Norfolk State vs Georgia Tech",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611180000-NORF-GT-M-GT",
+      "expiryDate": "2026-11-20T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "993f929d-9cf6-4bb2-bdd2-ef1389b61ab1",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184887,
+     "legIndex": 4,
+     "contractId": "1151047",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1151047",
+      "contractName": "Florida State",
+      "contractTicker": "FSU",
+      "eventTicker": "NCAAM-2611180000-BALL-FSU-M",
+      "eventName": "Ball State vs Florida State",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611180000-BALL-FSU-M-FSU",
+      "expiryDate": "2026-11-20T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4fad5d07-c321-40c0-a3d8-95ad7b66fe7e",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184887,
+     "legIndex": 5,
+     "contractId": "1167225",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167225",
+      "contractName": "Alabama",
+      "contractTicker": "BAMA",
+      "eventTicker": "NCAAM-2611180030-KENN-BAMA-M",
+      "eventName": "Kennesaw State vs Alabama",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611180030-KENN-BAMA-M-BAMA",
+      "expiryDate": "2026-11-20T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "aff35cab-43fe-493c-ae26-7783bfa9206e",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1184878",
+    "contractName": "Houston wins by more than 9.5 points Yes + Miami (OH) Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-C2D156C90DBE5CB6",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-C2D156C90DBE5CB6-CMB",
+    "expiryDate": "2026-11-22T01:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184878,
+     "legIndex": 0,
+     "contractId": "1137085",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1137085",
+      "contractName": "Houston wins by more than 9.5 points",
+      "contractTicker": "HOU9",
+      "eventTicker": "NFL-2611200115-IND-HOU-S",
+      "eventName": "Indianapolis vs Houston: Point Spread",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-S-HOU9",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 6,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "spread",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    },
+    {
+     "comboId": 1184878,
+     "legIndex": 1,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184878,
+     "legIndex": 2,
+     "contractId": "1116431",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1116431",
+      "contractName": "Ohio wins by more than 11.5 points",
+      "contractTicker": "OHI11",
+      "eventTicker": "NCAAF-2611180000-BALL-OHI-S",
+      "eventName": "Ball State vs Ohio: Point Spread",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-BALL-OHI-S-OHI11",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 12,
+      "gameId": "395cc62a-371f-42f7-9518-c6c253cb3ab0",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "spread",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    },
+    {
+     "comboId": 1184878,
+     "legIndex": 3,
+     "contractId": "1150809",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150809",
+      "contractName": "Duke",
+      "contractTicker": "DUK",
+      "eventTicker": "NCAAF-2611210030-CLE-DUK-M",
+      "eventName": "Clemson vs Duke",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-CLE-DUK-M-DUK",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "8bd7ef9b-90bf-4f2e-91e7-e81cc2617fcb",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184878,
+     "legIndex": 4,
+     "contractId": "1150823",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150823",
+      "contractName": "Toledo",
+      "contractTicker": "TOL",
+      "eventTicker": "NCAAF-2611210030-BGU-TOL-M",
+      "eventName": "Bowling Green vs Toledo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-BGU-TOL-M-TOL",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "a7757eac-a035-4f81-96fa-d1c77f29cc53",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184878,
+     "legIndex": 5,
+     "contractId": "1150836",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150836",
+      "contractName": "Oregon",
+      "contractTicker": "ORE",
+      "eventTicker": "NCAAF-2611210100-ORE-MSU-M",
+      "eventName": "Oregon vs Michigan State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210100-ORE-MSU-M-ORE",
+      "expiryDate": "2026-11-22T01:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "44cf3771-cf49-4768-96bf-495e2f57baee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1184562",
+    "contractName": "Toronto Yes + Portland Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-88CB599152A4ABCE",
+    "eventName": "",
+    "category": "Pro Basketball",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-88CB599152A4ABCE-CMB",
+    "expiryDate": "2026-11-19T13:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184562,
+     "legIndex": 0,
+     "contractId": "1150810",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150810",
+      "contractName": "Toronto",
+      "contractTicker": "TOR",
+      "eventTicker": "NBA-2611180030-NYK-TOR-M",
+      "eventName": "New York vs Toronto",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-M-TOR",
+      "expiryDate": "2026-11-19T12:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "39ea68e3-9082-4078-8203-59dfc95be33f",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184562,
+     "legIndex": 1,
+     "contractId": "1150824",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150824",
+      "contractName": "Portland",
+      "contractTicker": "POR",
+      "eventTicker": "NBA-2611180100-POR-MIN-M",
+      "eventName": "Portland vs Minnesota",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180100-POR-MIN-M-POR",
+      "expiryDate": "2026-11-19T13:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "0f884e37-80d6-4ed6-8f43-6210a9674dc3",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1184561",
+    "contractName": "Vancouver Yes + Los Angeles C Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-9A7CD1A7A3311CB4",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-9A7CD1A7A3311CB4-CMB",
+    "expiryDate": "2026-11-19T15:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184561,
+     "legIndex": 0,
+     "contractId": "1130293",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130293",
+      "contractName": "Vancouver",
+      "contractTicker": "VAN",
+      "eventTicker": "NHL-2611170230-VAN-UTA-M",
+      "eventName": "Vancouver vs Utah",
+      "category": "Pro Hockey",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611170230-VAN-UTA-M-VAN",
+      "expiryDate": "2026-11-18T14:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "4b2cdfc6-7cbe-4113-9e25-cbe4cce2d0ba",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184561,
+     "legIndex": 1,
+     "contractId": "1150833",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150833",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NBA-2611180330-UTA-LAC-M",
+      "eventName": "Utah vs Los Angeles C",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180330-UTA-LAC-M-LAC",
+      "expiryDate": "2026-11-19T15:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "d3a39159-81df-4b52-a1c4-f341884f61d8",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1184455",
+    "contractName": "Massachusetts Yes + Villanova Yes + 3 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261123-AEF217CD12534E97",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261123-AEF217CD12534E97-CMB",
+    "expiryDate": "2026-11-23T02:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184455,
+     "legIndex": 0,
+     "contractId": "1105649",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1105649",
+      "contractName": "Massachusetts",
+      "contractTicker": "MAS",
+      "eventTicker": "NCAAF-2611190000-AKR-MAS-M",
+      "eventName": "Akron vs Massachusetts",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190000-AKR-MAS-M-MAS",
+      "expiryDate": "2026-11-20T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "bdd07f6e-ded6-4f19-b35f-6a20dca00cee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184455,
+     "legIndex": 1,
+     "contractId": "1151031",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1151031",
+      "contractName": "Villanova",
+      "contractTicker": "VILL",
+      "eventTicker": "NCAAM-2611180000-VILL-PITT-M",
+      "eventName": "Villanova vs Pittsburgh",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611180000-VILL-PITT-M-VILL",
+      "expiryDate": "2026-11-20T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "78f2e182-5ee9-46b6-a9f6-92754f749ac0",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184455,
+     "legIndex": 2,
+     "contractId": "1180283",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1180283",
+      "contractName": "BYU",
+      "contractTicker": "BYU",
+      "eventTicker": "NCAAF-2611211700-BYU-KAN-M",
+      "eventName": "BYU vs Kansas",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-BYU-KAN-M-BYU",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "6ef6100b-ab8f-4872-88f9-34fb576d9e83",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184455,
+     "legIndex": 3,
+     "contractId": "1167150",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167150",
+      "contractName": "Indiana",
+      "contractTicker": "IND",
+      "eventTicker": "NCAAF-2611212030-IND-WAS-M",
+      "eventName": "Indiana vs Washington",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-IND-WAS-M-IND",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "1c6f5da8-a6a1-433d-a2bf-5b81e818c688",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184455,
+     "legIndex": 4,
+     "contractId": "1167272",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167272",
+      "contractName": "Utah",
+      "contractTicker": "UTA",
+      "eventTicker": "NCAAF-2611220200-UTA-TCU-M",
+      "eventName": "Utah vs TCU",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611220200-UTA-TCU-M-UTA",
+      "expiryDate": "2026-11-23T02:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "ae702837-e7d3-487d-9044-3bf35888d786",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1184442",
+    "contractName": "Los Angeles C Yes + Saint Mary's Yes + 3 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-E278F67555583C5A",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-E278F67555583C5A-CMB",
+    "expiryDate": "2026-11-19T03:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184442,
+     "legIndex": 0,
+     "contractId": "1063252",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:28:15.751Z",
+     "contract": {
+      "contractId": "1063252",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NFL-2611170115-LAC-BAL-M",
+      "eventName": "Los Angeles C vs Baltimore",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-M-LAC",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:26:27.807Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184442,
+     "legIndex": 1,
+     "contractId": "1150966",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T05:06:07.210Z",
+     "contract": {
+      "contractId": "1150966",
+      "contractName": "Saint Mary's",
+      "contractTicker": "SMC",
+      "eventTicker": "NCAAM-2611170300-PRST-SMC-M",
+      "eventName": "Portland State vs Saint Mary's",
+      "category": "College Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611170300-PRST-SMC-M-SMC",
+      "expiryDate": "2026-11-19T03:00:00.000Z",
+      "resolvedAt": "2026-11-17T05:04:26.037Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "bc444163-9cb4-46b2-b7da-1dcac1741900",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184442,
+     "legIndex": 2,
+     "contractId": "1150963",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:38:08.988Z",
+     "contract": {
+      "contractId": "1150963",
+      "contractName": "Oregon State",
+      "contractTicker": "ORST",
+      "eventTicker": "NCAAM-2611170230-ETAM-ORST-M",
+      "eventName": "East Texas A&M vs Oregon State",
+      "category": "College Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611170230-ETAM-ORST-M-ORST",
+      "expiryDate": "2026-11-19T02:30:00.000Z",
+      "resolvedAt": "2026-11-17T04:36:45.369Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "ef535f7f-2f21-46e7-ada2-84af4e8b349e",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184442,
+     "legIndex": 3,
+     "contractId": "1150974",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150974",
+      "contractName": "UCLA",
+      "contractTicker": "UCLA",
+      "eventTicker": "NCAAM-2611170300-LBSU-UCLA-M",
+      "eventName": "Long Beach State vs UCLA",
+      "category": "College Basketball",
+      "contractStatus": "Under Review",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611170300-LBSU-UCLA-M-UCLA",
+      "expiryDate": "2026-11-19T03:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "180680fe-da12-4161-991b-24d20b704b22",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184442,
+     "legIndex": 4,
+     "contractId": "1150971",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150971",
+      "contractName": "UC San Diego",
+      "contractTicker": "UCSD",
+      "eventTicker": "NCAAM-2611170300-TXSO-UCSD-M",
+      "eventName": "Texas Southern vs UC San Diego",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611170300-TXSO-UCSD-M-UCSD",
+      "expiryDate": "2026-11-19T03:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "67fc04bc-2c00-4097-ab44-1c5ce915df41",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1184438",
+    "contractName": "Toronto Yes + Detroit Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-3F037E6235A11F68",
+    "eventName": "",
+    "category": "Pro Basketball",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-3F037E6235A11F68-CMB",
+    "expiryDate": "2026-11-19T16:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184438,
+     "legIndex": 0,
+     "contractId": "1150810",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150810",
+      "contractName": "Toronto",
+      "contractTicker": "TOR",
+      "eventTicker": "NBA-2611180030-NYK-TOR-M",
+      "eventName": "New York vs Toronto",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-M-TOR",
+      "expiryDate": "2026-11-19T12:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "39ea68e3-9082-4078-8203-59dfc95be33f",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184438,
+     "legIndex": 1,
+     "contractId": "1150816",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150816",
+      "contractName": "Detroit",
+      "contractTicker": "DET",
+      "eventTicker": "NBA-2611180100-DET-SAS-M",
+      "eventName": "Detroit vs San Antonio",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180100-DET-SAS-M-DET",
+      "expiryDate": "2026-11-19T13:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "4b045c0e-cba1-465b-b93f-a8819a0a7c28",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184438,
+     "legIndex": 2,
+     "contractId": "1150827",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150827",
+      "contractName": "Minnesota",
+      "contractTicker": "MIN",
+      "eventTicker": "NBA-2611180100-POR-MIN-M",
+      "eventName": "Portland vs Minnesota",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180100-POR-MIN-M-MIN",
+      "expiryDate": "2026-11-19T13:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "0f884e37-80d6-4ed6-8f43-6210a9674dc3",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184438,
+     "legIndex": 3,
+     "contractId": "1150833",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150833",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NBA-2611180330-UTA-LAC-M",
+      "eventName": "Utah vs Los Angeles C",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180330-UTA-LAC-M-LAC",
+      "expiryDate": "2026-11-19T15:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "d3a39159-81df-4b52-a1c4-f341884f61d8",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184438,
+     "legIndex": 4,
+     "contractId": "1150844",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150844",
+      "contractName": "Los Angeles L",
+      "contractTicker": "LAL",
+      "eventTicker": "NBA-2611180400-CHA-LAL-M",
+      "eventName": "Charlotte vs Los Angeles L",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180400-CHA-LAL-M-LAL",
+      "expiryDate": "2026-11-19T16:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "40a9b530-5264-4d67-be28-71984eb5d1a4",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184438,
+     "legIndex": 5,
+     "contractId": "1136828",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:32:14.369Z",
+     "contract": {
+      "contractId": "1136828",
+      "contractName": "Phoenix",
+      "contractTicker": "PHX",
+      "eventTicker": "NBA-2611170200-PHX-DEN-M",
+      "eventName": "Phoenix vs Denver",
+      "category": "Pro Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611170200-PHX-DEN-M-PHX",
+      "expiryDate": "2026-11-18T14:00:00.000Z",
+      "resolvedAt": "2026-11-17T04:30:25.989Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "e72a8a56-49b2-4de1-8e71-b063f993d3f9",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1184340",
+    "contractName": "Houston scores more than 28.5 points Yes + C.J. Stroud 200+ Passing Yards Yes + 3 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261121-5E18D37B1C204C80",
+    "eventName": "",
+    "category": "Pro Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261121-5E18D37B1C204C80-CMB",
+    "expiryDate": "2026-11-21T13:15:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184340,
+     "legIndex": 0,
+     "contractId": "1172584",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1172584",
+      "contractName": "Houston scores more than 28.5 points",
+      "contractTicker": "HOUO28",
+      "eventTicker": "NFL-2611200115-IND-HOU-TT",
+      "eventName": "Indianapolis vs Houston: Team Total",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-TT-HOUO28",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "total",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    },
+    {
+     "comboId": 1184340,
+     "legIndex": 1,
+     "contractId": "1171249",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171249",
+      "contractName": "C.J. Stroud 200+ Passing Yards",
+      "contractTicker": "STROUDO199",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPYDS",
+      "eventName": "Indianapolis vs Houston: Quarterback Passing Yards",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPYDS-STROUDO199",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 1,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "passing_yards"
+      }
+     }
+    },
+    {
+     "comboId": 1184340,
+     "legIndex": 2,
+     "contractId": "1171820",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171820",
+      "contractName": "Dalton Schultz 10+ Receiving Yards",
+      "contractTicker": "SCHULTZO9",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPRECY",
+      "eventName": "Indianapolis vs Houston: Player Receiving Yards",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPRECY-SCHULTZO9",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 50,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "receiving_yards"
+      }
+     }
+    },
+    {
+     "comboId": 1184340,
+     "legIndex": 3,
+     "contractId": "1171841",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171841",
+      "contractName": "Nico Collins 70+ Receiving Yards",
+      "contractTicker": "NCOLLINSO69",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPRECY",
+      "eventName": "Indianapolis vs Houston: Player Receiving Yards",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPRECY-NCOLLINSO69",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 65,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "receiving_yards"
+      }
+     }
+    },
+    {
+     "comboId": 1184340,
+     "legIndex": 4,
+     "contractId": "1171264",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171264",
+      "contractName": "C.J. Stroud 10+ Rushing Yards",
+      "contractTicker": "STROUDO9",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPRYDS",
+      "eventName": "Indianapolis vs Houston: Player Rushing Yards",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPRYDS-STROUDO9",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 0,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "rushing_yards"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1184028",
+    "contractName": "Saint Mary's Yes + UC San Diego Yes + UCLA Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-B82123B50FFA1163",
+    "eventName": "",
+    "category": "College Basketball",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-B82123B50FFA1163-CMB",
+    "expiryDate": "2026-11-19T03:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1184028,
+     "legIndex": 0,
+     "contractId": "1150966",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T05:06:06.801Z",
+     "contract": {
+      "contractId": "1150966",
+      "contractName": "Saint Mary's",
+      "contractTicker": "SMC",
+      "eventTicker": "NCAAM-2611170300-PRST-SMC-M",
+      "eventName": "Portland State vs Saint Mary's",
+      "category": "College Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611170300-PRST-SMC-M-SMC",
+      "expiryDate": "2026-11-19T03:00:00.000Z",
+      "resolvedAt": "2026-11-17T05:04:26.037Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "bc444163-9cb4-46b2-b7da-1dcac1741900",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184028,
+     "legIndex": 1,
+     "contractId": "1150971",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150971",
+      "contractName": "UC San Diego",
+      "contractTicker": "UCSD",
+      "eventTicker": "NCAAM-2611170300-TXSO-UCSD-M",
+      "eventName": "Texas Southern vs UC San Diego",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611170300-TXSO-UCSD-M-UCSD",
+      "expiryDate": "2026-11-19T03:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "67fc04bc-2c00-4097-ab44-1c5ce915df41",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1184028,
+     "legIndex": 2,
+     "contractId": "1150974",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150974",
+      "contractName": "UCLA",
+      "contractTicker": "UCLA",
+      "eventTicker": "NCAAM-2611170300-LBSU-UCLA-M",
+      "eventName": "Long Beach State vs UCLA",
+      "category": "College Basketball",
+      "contractStatus": "Under Review",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611170300-LBSU-UCLA-M-UCLA",
+      "expiryDate": "2026-11-19T03:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "180680fe-da12-4161-991b-24d20b704b22",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1183991",
+    "contractName": "Edmonton Yes + San Antonio Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261120-01B0DBFA822F2BB2",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261120-01B0DBFA822F2BB2-CMB",
+    "expiryDate": "2026-11-20T12:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1183991,
+     "legIndex": 0,
+     "contractId": "1166964",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1166964",
+      "contractName": "Edmonton",
+      "contractTicker": "EDM",
+      "eventTicker": "NHL-2611180000-EDM-FLA-M",
+      "eventName": "Edmonton vs Florida",
+      "category": "Pro Hockey",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611180000-EDM-FLA-M-EDM",
+      "expiryDate": "2026-11-19T12:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "0689108f-a600-4d41-b213-04280057e82d",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183991,
+     "legIndex": 1,
+     "contractId": "1150820",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150820",
+      "contractName": "San Antonio",
+      "contractTicker": "SAS",
+      "eventTicker": "NBA-2611180100-DET-SAS-M",
+      "eventName": "Detroit vs San Antonio",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180100-DET-SAS-M-SAS",
+      "expiryDate": "2026-11-19T13:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b045c0e-cba1-465b-b93f-a8819a0a7c28",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183991,
+     "legIndex": 2,
+     "contractId": "1150844",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150844",
+      "contractName": "Los Angeles L",
+      "contractTicker": "LAL",
+      "eventTicker": "NBA-2611180400-CHA-LAL-M",
+      "eventName": "Charlotte vs Los Angeles L",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180400-CHA-LAL-M-LAL",
+      "expiryDate": "2026-11-19T16:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "40a9b530-5264-4d67-be28-71984eb5d1a4",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183991,
+     "legIndex": 3,
+     "contractId": "1150870",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150870",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NBA-2611190000-HOU-IND-M",
+      "eventName": "Houston vs Indiana",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611190000-HOU-IND-M-HOU",
+      "expiryDate": "2026-11-20T12:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "66ac3c2b-413d-4ad3-b590-605c6fc51fae",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183991,
+     "legIndex": 4,
+     "contractId": "1150877",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150877",
+      "contractName": "Miami",
+      "contractTicker": "MIA",
+      "eventTicker": "NBA-2611190000-MIL-MIA-M",
+      "eventName": "Milwaukee vs Miami",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611190000-MIL-MIA-M-MIA",
+      "expiryDate": "2026-11-20T12:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "2de2dc8c-ff3d-470a-9c80-086cec566418",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183991,
+     "legIndex": 5,
+     "contractId": "1150971",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150971",
+      "contractName": "UC San Diego",
+      "contractTicker": "UCSD",
+      "eventTicker": "NCAAM-2611170300-TXSO-UCSD-M",
+      "eventName": "Texas Southern vs UC San Diego",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611170300-TXSO-UCSD-M-UCSD",
+      "expiryDate": "2026-11-19T03:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "67fc04bc-2c00-4097-ab44-1c5ce915df41",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1183914",
+    "contractName": "Jonathan Taylor 1+ Touchdowns scored Yes + Tank Dell 1+ Touchdowns scored Yes + 3 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261121-C45507EF7B731BD9",
+    "eventName": "",
+    "category": "Pro Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261121-C45507EF7B731BD9-CMB",
+    "expiryDate": "2026-11-21T13:15:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1183914,
+     "legIndex": 0,
+     "contractId": "1171811",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171811",
+      "contractName": "Jonathan Taylor 1+ Touchdowns scored",
+      "contractTicker": "JTAYLOR2O0",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPTD",
+      "eventName": "Indianapolis vs Houston: Player Touchdowns",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPTD-JTAYLOR2O0",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 23,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "touchdowns"
+      }
+     }
+    },
+    {
+     "comboId": 1183914,
+     "legIndex": 1,
+     "contractId": "1171780",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171780",
+      "contractName": "Tank Dell 1+ Touchdowns scored",
+      "contractTicker": "DELLO0",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPTD",
+      "eventName": "Indianapolis vs Houston: Player Touchdowns",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPTD-DELLO0",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 21,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "touchdowns"
+      }
+     }
+    },
+    {
+     "comboId": 1183914,
+     "legIndex": 2,
+     "contractId": "1171251",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171251",
+      "contractName": "C.J. Stroud 250+ Passing Yards",
+      "contractTicker": "STROUDO249",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPYDS",
+      "eventName": "Indianapolis vs Houston: Quarterback Passing Yards",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPYDS-STROUDO249",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 3,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "passing_yards"
+      }
+     }
+    },
+    {
+     "comboId": 1183914,
+     "legIndex": 3,
+     "contractId": "1171837",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171837",
+      "contractName": "Nico Collins 50+ Receiving Yards",
+      "contractTicker": "NCOLLINSO49",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPRECY",
+      "eventName": "Indianapolis vs Houston: Player Receiving Yards",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPRECY-NCOLLINSO49",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 63,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "receiving_yards"
+      }
+     }
+    },
+    {
+     "comboId": 1183914,
+     "legIndex": 4,
+     "contractId": "1171280",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1171280",
+      "contractName": "Jonathan Taylor 50+ Rushing Yards",
+      "contractTicker": "JTAYLOR2O49",
+      "eventTicker": "NFL-2611200115-IND-HOU-PPRYDS",
+      "eventName": "Indianapolis vs Houston: Player Rushing Yards",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-PPRYDS-JTAYLOR2O49",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 15,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "rushing_yards"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1183894",
+    "contractName": "Oregon Yes + Boise State Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261123-42317CC3A72BD4F6",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261123-42317CC3A72BD4F6-CMB",
+    "expiryDate": "2026-11-23T02:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1183894,
+     "legIndex": 0,
+     "contractId": "1150836",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150836",
+      "contractName": "Oregon",
+      "contractTicker": "ORE",
+      "eventTicker": "NCAAF-2611210100-ORE-MSU-M",
+      "eventName": "Oregon vs Michigan State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210100-ORE-MSU-M-ORE",
+      "expiryDate": "2026-11-22T01:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "44cf3771-cf49-4768-96bf-495e2f57baee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183894,
+     "legIndex": 1,
+     "contractId": "1167278",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167278",
+      "contractName": "Boise State",
+      "contractTicker": "BSU",
+      "eventTicker": "NCAAF-2611220230-SDS-BSU-M",
+      "eventName": "San Diego State vs Boise State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611220230-SDS-BSU-M-BSU",
+      "expiryDate": "2026-11-23T02:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "5ca3491c-2c5f-4968-8c03-f26456298acc",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183894,
+     "legIndex": 2,
+     "contractId": "1136831",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136831",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NFL-2611200115-IND-HOU-M",
+      "eventName": "Indianapolis vs Houston",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-M-HOU",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 2,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183894,
+     "legIndex": 3,
+     "contractId": "1150844",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150844",
+      "contractName": "Los Angeles L",
+      "contractTicker": "LAL",
+      "eventTicker": "NBA-2611180400-CHA-LAL-M",
+      "eventName": "Charlotte vs Los Angeles L",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180400-CHA-LAL-M-LAL",
+      "expiryDate": "2026-11-19T16:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "40a9b530-5264-4d67-be28-71984eb5d1a4",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183894,
+     "legIndex": 4,
+     "contractId": "1150982",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150982",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NCAAM-2611171900-RUT-HOU-M",
+      "eventName": "Rutgers vs Houston",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611171900-RUT-HOU-M-HOU",
+      "expiryDate": "2026-11-19T19:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "404ca1c2-41d6-4089-817b-febcde39e48b",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183894,
+     "legIndex": 5,
+     "contractId": "1078821",
+     "requiredOutcome": "No",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:28:14.876Z",
+     "contract": {
+      "contractId": "1078821",
+      "contractName": "Los Angeles C wins by more than 10.5 points",
+      "contractTicker": "LAC10",
+      "eventTicker": "NFL-2611170115-LAC-BAL-S",
+      "eventName": "Los Angeles C vs Baltimore: Point Spread",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-S-LAC10",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:26:30.967Z",
+      "resolutionSide": "no",
+      "sortOrder": 3,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "spread",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1183800",
+    "contractName": "San Antonio Yes + Los Angeles C Yes + Los Angeles L Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-C192DD729F932D1E",
+    "eventName": "",
+    "category": "Pro Basketball",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-C192DD729F932D1E-CMB",
+    "expiryDate": "2026-11-19T16:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1183800,
+     "legIndex": 0,
+     "contractId": "1150820",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150820",
+      "contractName": "San Antonio",
+      "contractTicker": "SAS",
+      "eventTicker": "NBA-2611180100-DET-SAS-M",
+      "eventName": "Detroit vs San Antonio",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180100-DET-SAS-M-SAS",
+      "expiryDate": "2026-11-19T13:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b045c0e-cba1-465b-b93f-a8819a0a7c28",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183800,
+     "legIndex": 1,
+     "contractId": "1150833",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150833",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NBA-2611180330-UTA-LAC-M",
+      "eventName": "Utah vs Los Angeles C",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180330-UTA-LAC-M-LAC",
+      "expiryDate": "2026-11-19T15:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "d3a39159-81df-4b52-a1c4-f341884f61d8",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183800,
+     "legIndex": 2,
+     "contractId": "1150844",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150844",
+      "contractName": "Los Angeles L",
+      "contractTicker": "LAL",
+      "eventTicker": "NBA-2611180400-CHA-LAL-M",
+      "eventName": "Charlotte vs Los Angeles L",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180400-CHA-LAL-M-LAL",
+      "expiryDate": "2026-11-19T16:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "40a9b530-5264-4d67-be28-71984eb5d1a4",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1183673",
+    "contractName": "New York R Yes + Utah Yes + New Orleans Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261118-0F8569A608F2E3DD",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261118-0F8569A608F2E3DD-CMB",
+    "expiryDate": "2026-11-18T14:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1183673,
+     "legIndex": 0,
+     "contractId": "1130291",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T03:32:19.192Z",
+     "contract": {
+      "contractId": "1130291",
+      "contractName": "New York R",
+      "contractTicker": "NYR",
+      "eventTicker": "NHL-2611170030-MTL-NYR-M",
+      "eventName": "Montreal vs New York R",
+      "category": "Pro Hockey",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611170030-MTL-NYR-M-NYR",
+      "expiryDate": "2026-11-18T12:30:00.000Z",
+      "resolvedAt": "2026-11-17T03:30:27.414Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "8e80d55e-e785-4629-a3cf-0f0a7b1ef23a",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183673,
+     "legIndex": 1,
+     "contractId": "1130295",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130295",
+      "contractName": "Utah",
+      "contractTicker": "UTA",
+      "eventTicker": "NHL-2611170230-VAN-UTA-M",
+      "eventName": "Vancouver vs Utah",
+      "category": "Pro Hockey",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611170230-VAN-UTA-M-UTA",
+      "expiryDate": "2026-11-18T14:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b2cdfc6-7cbe-4113-9e25-cbe4cce2d0ba",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183673,
+     "legIndex": 2,
+     "contractId": "1136817",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T03:32:19.192Z",
+     "contract": {
+      "contractId": "1136817",
+      "contractName": "New Orleans",
+      "contractTicker": "NOP",
+      "eventTicker": "NBA-2611170100-GSW-NOP-M",
+      "eventName": "Golden State vs New Orleans",
+      "category": "Pro Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611170100-GSW-NOP-M-NOP",
+      "expiryDate": "2026-11-18T13:00:00.000Z",
+      "resolvedAt": "2026-11-17T03:30:45.370Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "ae983667-500a-4c97-8873-1782da79414d",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1183462",
+    "contractName": "Clemson Yes + Iowa State Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-0C6F715680EDD495",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-0C6F715680EDD495-CMB",
+    "expiryDate": "2026-11-22T00:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1183462,
+     "legIndex": 0,
+     "contractId": "1150805",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150805",
+      "contractName": "Clemson",
+      "contractTicker": "CLE",
+      "eventTicker": "NCAAF-2611210030-CLE-DUK-M",
+      "eventName": "Clemson vs Duke",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-CLE-DUK-M-CLE",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "8bd7ef9b-90bf-4f2e-91e7-e81cc2617fcb",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183462,
+     "legIndex": 1,
+     "contractId": "1136869",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136869",
+      "contractName": "Iowa State",
+      "contractTicker": "ISU",
+      "eventTicker": "NCAAF-2611202300-ISU-UCF-M",
+      "eventName": "Iowa State vs UCF",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611202300-ISU-UCF-M-ISU",
+      "expiryDate": "2026-11-21T23:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "e8679097-f40e-4f6e-852c-4772f6f6f865",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1183363",
+    "contractName": "Tennessee Yes + SMU Yes + Utah Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261123-6F3DE24228BF64F7",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261123-6F3DE24228BF64F7-CMB",
+    "expiryDate": "2026-11-23T02:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1183363,
+     "legIndex": 0,
+     "contractId": "1150992",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150992",
+      "contractName": "Tennessee",
+      "contractTicker": "TEN",
+      "eventTicker": "NCAAF-2611212030-LSU-TEN-M",
+      "eventName": "LSU vs Tennessee",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-LSU-TEN-M-TEN",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "cd00a9c5-9d02-4be6-957d-96d8ef43da44",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183363,
+     "legIndex": 1,
+     "contractId": "1167259",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167259",
+      "contractName": "SMU",
+      "contractTicker": "SMU",
+      "eventTicker": "NCAAF-2611220030-SMU-NDU-M",
+      "eventName": "SMU vs Notre Dame",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611220030-SMU-NDU-M-SMU",
+      "expiryDate": "2026-11-23T00:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "8235f1ca-fc5a-4a9d-98ce-80bd2142e7b6",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1183363,
+     "legIndex": 2,
+     "contractId": "1167272",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167272",
+      "contractName": "Utah",
+      "contractTicker": "UTA",
+      "eventTicker": "NCAAF-2611220200-UTA-TCU-M",
+      "eventName": "Utah vs TCU",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611220200-UTA-TCU-M-UTA",
+      "expiryDate": "2026-11-23T02:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "ae702837-e7d3-487d-9044-3bf35888d786",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1182967",
+    "contractName": "Oregon Yes + New Mexico Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-E531C172DA78572E",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-E531C172DA78572E-CMB",
+    "expiryDate": "2026-11-22T17:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1182967,
+     "legIndex": 0,
+     "contractId": "1150836",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150836",
+      "contractName": "Oregon",
+      "contractTicker": "ORE",
+      "eventTicker": "NCAAF-2611210100-ORE-MSU-M",
+      "eventName": "Oregon vs Michigan State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210100-ORE-MSU-M-ORE",
+      "expiryDate": "2026-11-22T01:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "44cf3771-cf49-4768-96bf-495e2f57baee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182967,
+     "legIndex": 1,
+     "contractId": "1150851",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150851",
+      "contractName": "New Mexico",
+      "contractTicker": "NMU",
+      "eventTicker": "NCAAF-2611210200-NMU-WYO-M",
+      "eventName": "New Mexico vs Wyoming",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210200-NMU-WYO-M-NMU",
+      "expiryDate": "2026-11-22T02:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2147b3c2-66af-450a-953f-91990def8bb4",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182967,
+     "legIndex": 2,
+     "contractId": "1150880",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150880",
+      "contractName": "Florida",
+      "contractTicker": "FLA",
+      "eventTicker": "NCAAF-2611211700-VAN-FLA-M",
+      "eventName": "Vanderbilt vs Florida",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-VAN-FLA-M-FLA",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "71433c02-cdda-49fa-ae23-4f37db7ca607",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182967,
+     "legIndex": 3,
+     "contractId": "1150882",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150882",
+      "contractName": "Wisconsin",
+      "contractTicker": "WIS",
+      "eventTicker": "NCAAF-2611211700-WIS-PUR-M",
+      "eventName": "Wisconsin vs Purdue",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-WIS-PUR-M-WIS",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "809fbc5c-ea0f-472b-9eb4-24cfdba3a779",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182967,
+     "legIndex": 4,
+     "contractId": "1150894",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150894",
+      "contractName": "Army",
+      "contractTicker": "ARM",
+      "eventTicker": "NCAAF-2611211700-ECU-ARM-M",
+      "eventName": "East Carolina vs Army",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-ECU-ARM-M-ARM",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "b400255e-1bec-4ec3-8537-befad48fcd82",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182967,
+     "legIndex": 5,
+     "contractId": "1167030",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167030",
+      "contractName": "Ohio State",
+      "contractTicker": "OSU",
+      "eventTicker": "NCAAF-2611211700-OSU-NEB-M",
+      "eventName": "Ohio State vs Nebraska",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-OSU-NEB-M-OSU",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "ad0cce61-798d-4d09-bb64-443dc60fee17",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1182958",
+    "contractName": "Miami Yes + Baltimore Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261118-A931104F5F183E38",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261118-A931104F5F183E38-CMB",
+    "expiryDate": "2026-11-18T13:15:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1182958,
+     "legIndex": 0,
+     "contractId": "1136812",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T03:00:20.257Z",
+     "contract": {
+      "contractId": "1136812",
+      "contractName": "Miami",
+      "contractTicker": "MIA",
+      "eventTicker": "NBA-2611170030-HOU-MIA-M",
+      "eventName": "Houston vs Miami",
+      "category": "Pro Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611170030-HOU-MIA-M-MIA",
+      "expiryDate": "2026-11-18T12:30:00.000Z",
+      "resolvedAt": "2026-11-17T02:58:45.287Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "dd1cbeb3-b78b-44de-999f-f223d6e63b33",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182958,
+     "legIndex": 1,
+     "contractId": "1063256",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1063256",
+      "contractName": "Baltimore",
+      "contractTicker": "BAL",
+      "eventTicker": "NFL-2611170115-LAC-BAL-M",
+      "eventName": "Los Angeles C vs Baltimore",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-M-BAL",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:26:27.378Z",
+      "resolutionSide": "no",
+      "sortOrder": 2,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1182938",
+    "contractName": "Man City Yes + Arsenal Yes + 2 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261123-8E1179F45678EB8E",
+    "eventName": "",
+    "category": "Soccer",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261123-8E1179F45678EB8E-CMB",
+    "expiryDate": "2026-11-23T08:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1182938,
+     "legIndex": 0,
+     "contractId": "1072391",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1072391",
+      "contractName": "Man City",
+      "contractTicker": "MCI",
+      "eventTicker": "EPL-2611211230-FUL-MCI-M",
+      "eventName": "Fulham vs Man City",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211230-FUL-MCI-M-MCI",
+      "expiryDate": "2026-11-23T00:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72221406",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182938,
+     "legIndex": 1,
+     "contractId": "1130334",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130334",
+      "contractName": "Arsenal",
+      "contractTicker": "ARS",
+      "eventTicker": "EPL-2611211730-ARS-NEW-M",
+      "eventName": "Arsenal vs Newcastle",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211730-ARS-NEW-M-ARS",
+      "expiryDate": "2026-11-23T05:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "sr:sport_event:72221408",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182938,
+     "legIndex": 2,
+     "contractId": "1130378",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130378",
+      "contractName": "Real Madrid",
+      "contractTicker": "RMA",
+      "eventTicker": "LALIGA-2611212000-CEL-RMA-M",
+      "eventName": "Celta vs Real Madrid",
+      "category": "La Liga",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-LALIGA-2611212000-CEL-RMA-M-RMA",
+      "expiryDate": "2026-11-23T08:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72478722",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182938,
+     "legIndex": 3,
+     "contractId": "1132437",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1132437",
+      "contractName": "Miami",
+      "contractTicker": "MIA",
+      "eventTicker": "MLS-2611212300-CLB-MIA-A",
+      "eventName": "Columbus vs Miami",
+      "category": "MLS",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-MLS-2611212300-CLB-MIA-A-MIA",
+      "expiryDate": "2026-11-22T23:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:76609136",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "to_advance",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1182935",
+    "contractName": "Western Michigan Yes + Miami (OH) Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-72F6AEFC3B21DC02",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-72F6AEFC3B21DC02-CMB",
+    "expiryDate": "2026-11-19T16:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1182935,
+     "legIndex": 0,
+     "contractId": "1093089",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093089",
+      "contractName": "Western Michigan",
+      "contractTicker": "WMI",
+      "eventTicker": "NCAAF-2611180000-EMN-WMI-M",
+      "eventName": "Eastern Michigan vs Western Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-EMN-WMI-M-WMI",
+      "expiryDate": "2026-11-18T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3eda4b4a-9a69-4616-80f2-0198da692d6a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182935,
+     "legIndex": 1,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182935,
+     "legIndex": 2,
+     "contractId": "1093087",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093087",
+      "contractName": "Ohio",
+      "contractTicker": "OHI",
+      "eventTicker": "NCAAF-2611180000-BALL-OHI-M",
+      "eventName": "Ball State vs Ohio",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-BALL-OHI-M-OHI",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "395cc62a-371f-42f7-9518-c6c253cb3ab0",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182935,
+     "legIndex": 3,
+     "contractId": "1150820",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150820",
+      "contractName": "San Antonio",
+      "contractTicker": "SAS",
+      "eventTicker": "NBA-2611180100-DET-SAS-M",
+      "eventName": "Detroit vs San Antonio",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180100-DET-SAS-M-SAS",
+      "expiryDate": "2026-11-19T13:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b045c0e-cba1-465b-b93f-a8819a0a7c28",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182935,
+     "legIndex": 4,
+     "contractId": "1150844",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150844",
+      "contractName": "Los Angeles L",
+      "contractTicker": "LAL",
+      "eventTicker": "NBA-2611180400-CHA-LAL-M",
+      "eventName": "Charlotte vs Los Angeles L",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180400-CHA-LAL-M-LAL",
+      "expiryDate": "2026-11-19T16:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "40a9b530-5264-4d67-be28-71984eb5d1a4",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182935,
+     "legIndex": 5,
+     "contractId": "1150833",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150833",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NBA-2611180330-UTA-LAC-M",
+      "eventName": "Utah vs Los Angeles C",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180330-UTA-LAC-M-LAC",
+      "expiryDate": "2026-11-19T15:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "d3a39159-81df-4b52-a1c4-f341884f61d8",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1182349",
+    "contractName": "Bowling Green Yes + Miami (OH) Yes + 2 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-9908859A3B8FF573",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-9908859A3B8FF573-CMB",
+    "expiryDate": "2026-11-22T00:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1182349,
+     "legIndex": 0,
+     "contractId": "1150818",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150818",
+      "contractName": "Bowling Green",
+      "contractTicker": "BGU",
+      "eventTicker": "NCAAF-2611210030-BGU-TOL-M",
+      "eventName": "Bowling Green vs Toledo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-BGU-TOL-M-BGU",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "a7757eac-a035-4f81-96fa-d1c77f29cc53",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182349,
+     "legIndex": 1,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182349,
+     "legIndex": 2,
+     "contractId": "1136831",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136831",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NFL-2611200115-IND-HOU-M",
+      "eventName": "Indianapolis vs Houston",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-M-HOU",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 2,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1182349,
+     "legIndex": 3,
+     "contractId": "1063252",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:28:12.777Z",
+     "contract": {
+      "contractId": "1063252",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NFL-2611170115-LAC-BAL-M",
+      "eventName": "Los Angeles C vs Baltimore",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-M-LAC",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:26:27.807Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1181745",
+    "contractName": "Baltimore wins by more than 4.5 points No + Utah Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261118-3BCE0462979AB3C0",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261118-3BCE0462979AB3C0-CMB",
+    "expiryDate": "2026-11-18T14:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1181745,
+     "legIndex": 0,
+     "contractId": "1078828",
+     "requiredOutcome": "No",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:28:12.359Z",
+     "contract": {
+      "contractId": "1078828",
+      "contractName": "Baltimore wins by more than 4.5 points",
+      "contractTicker": "BAL4",
+      "eventTicker": "NFL-2611170115-LAC-BAL-S",
+      "eventName": "Los Angeles C vs Baltimore: Point Spread",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-S-BAL4",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:26:31.403Z",
+      "resolutionSide": "no",
+      "sortOrder": 10,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "spread",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    },
+    {
+     "comboId": 1181745,
+     "legIndex": 1,
+     "contractId": "1130295",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130295",
+      "contractName": "Utah",
+      "contractTicker": "UTA",
+      "eventTicker": "NHL-2611170230-VAN-UTA-M",
+      "eventName": "Vancouver vs Utah",
+      "category": "Pro Hockey",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611170230-VAN-UTA-M-UTA",
+      "expiryDate": "2026-11-18T14:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b2cdfc6-7cbe-4113-9e25-cbe4cce2d0ba",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1178017",
+    "contractName": "Houston Yes + Miami (OH) Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261121-AA413F8C6CF7EB7A",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261121-AA413F8C6CF7EB7A-CMB",
+    "expiryDate": "2026-11-21T13:15:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1178017,
+     "legIndex": 0,
+     "contractId": "1136831",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136831",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NFL-2611200115-IND-HOU-M",
+      "eventName": "Indianapolis vs Houston",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-M-HOU",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 2,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1178017,
+     "legIndex": 1,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1178017,
+     "legIndex": 2,
+     "contractId": "1093087",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093087",
+      "contractName": "Ohio",
+      "contractTicker": "OHI",
+      "eventTicker": "NCAAF-2611180000-BALL-OHI-M",
+      "eventName": "Ball State vs Ohio",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-BALL-OHI-M-OHI",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "395cc62a-371f-42f7-9518-c6c253cb3ab0",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1178017,
+     "legIndex": 3,
+     "contractId": "1093089",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093089",
+      "contractName": "Western Michigan",
+      "contractTicker": "WMI",
+      "eventTicker": "NCAAF-2611180000-EMN-WMI-M",
+      "eventName": "Eastern Michigan vs Western Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-EMN-WMI-M-WMI",
+      "expiryDate": "2026-11-18T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3eda4b4a-9a69-4616-80f2-0198da692d6a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1178017,
+     "legIndex": 4,
+     "contractId": "1150806",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150806",
+      "contractName": "New York",
+      "contractTicker": "NYK",
+      "eventTicker": "NBA-2611180030-NYK-TOR-M",
+      "eventName": "New York vs Toronto",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-M-NYK",
+      "expiryDate": "2026-11-19T12:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "39ea68e3-9082-4078-8203-59dfc95be33f",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1178017,
+     "legIndex": 5,
+     "contractId": "1150820",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150820",
+      "contractName": "San Antonio",
+      "contractTicker": "SAS",
+      "eventTicker": "NBA-2611180100-DET-SAS-M",
+      "eventName": "Detroit vs San Antonio",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180100-DET-SAS-M-SAS",
+      "expiryDate": "2026-11-19T13:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b045c0e-cba1-465b-b93f-a8819a0a7c28",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1177722",
+    "contractName": "Northwestern Yes + Ohio State Yes + Indiana Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-6B35BAB33D448359",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-6B35BAB33D448359-CMB",
+    "expiryDate": "2026-11-22T20:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1177722,
+     "legIndex": 0,
+     "contractId": "1150873",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150873",
+      "contractName": "Northwestern",
+      "contractTicker": "NUW",
+      "eventTicker": "NCAAF-2611211700-NUW-MIN-M",
+      "eventName": "Northwestern vs Minnesota",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-NUW-MIN-M-NUW",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "699df3bd-47ce-49c3-9b1a-b70c3cdfe257",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1177722,
+     "legIndex": 1,
+     "contractId": "1167030",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167030",
+      "contractName": "Ohio State",
+      "contractTicker": "OSU",
+      "eventTicker": "NCAAF-2611211700-OSU-NEB-M",
+      "eventName": "Ohio State vs Nebraska",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-OSU-NEB-M-OSU",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "ad0cce61-798d-4d09-bb64-443dc60fee17",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1177722,
+     "legIndex": 2,
+     "contractId": "1167150",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167150",
+      "contractName": "Indiana",
+      "contractTicker": "IND",
+      "eventTicker": "NCAAF-2611212030-IND-WAS-M",
+      "eventName": "Indiana vs Washington",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-IND-WAS-M-IND",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "1c6f5da8-a6a1-433d-a2bf-5b81e818c688",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1177173",
+    "contractName": "Derrick Henry 2+ Touchdowns scored Yes + Vancouver Yes + Philadelphia wins by more than 7.5 points Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261118-D81702D65DE08ACB",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261118-D81702D65DE08ACB-CMB",
+    "expiryDate": "2026-11-18T14:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1177173,
+     "legIndex": 0,
+     "contractId": "1107156",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:36:06.184Z",
+     "contract": {
+      "contractId": "1107156",
+      "contractName": "Derrick Henry 2+ Touchdowns scored",
+      "contractTicker": "DHENRYO1",
+      "eventTicker": "NFL-2611170115-LAC-BAL-PPTD",
+      "eventName": "Los Angeles C vs Baltimore: Player Touchdowns",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-PPTD-DHENRYO1",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:34:26.541Z",
+      "resolutionSide": "yes",
+      "sortOrder": 3,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "prop",
+       "subject": "player",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "touchdowns"
+      }
+     }
+    },
+    {
+     "comboId": 1177173,
+     "legIndex": 1,
+     "contractId": "1130293",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130293",
+      "contractName": "Vancouver",
+      "contractTicker": "VAN",
+      "eventTicker": "NHL-2611170230-VAN-UTA-M",
+      "eventName": "Vancouver vs Utah",
+      "category": "Pro Hockey",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611170230-VAN-UTA-M-VAN",
+      "expiryDate": "2026-11-18T14:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "4b2cdfc6-7cbe-4113-9e25-cbe4cce2d0ba",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1177173,
+     "legIndex": 2,
+     "contractId": "1171041",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T03:20:11.493Z",
+     "contract": {
+      "contractId": "1171041",
+      "contractName": "Philadelphia wins by more than 7.5 points",
+      "contractTicker": "PHI7",
+      "eventTicker": "NBA-2611170030-PHI-BKN-S",
+      "eventName": "Philadelphia vs Brooklyn: Point Spread",
+      "category": "Pro Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611170030-PHI-BKN-S-PHI7",
+      "expiryDate": "2026-11-18T12:30:00.000Z",
+      "resolvedAt": "2026-11-17T03:18:26.860Z",
+      "resolutionSide": "yes",
+      "sortOrder": 7,
+      "gameId": "f09fdf06-5bd1-443a-940c-526291f8cddc",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "spread",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1177167",
+    "contractName": "New York R Yes + Utah Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261118-69264D7CE7EDF679",
+    "eventName": "",
+    "category": "Pro Hockey",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261118-69264D7CE7EDF679-CMB",
+    "expiryDate": "2026-11-18T14:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1177167,
+     "legIndex": 0,
+     "contractId": "1130291",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T03:32:10.335Z",
+     "contract": {
+      "contractId": "1130291",
+      "contractName": "New York R",
+      "contractTicker": "NYR",
+      "eventTicker": "NHL-2611170030-MTL-NYR-M",
+      "eventName": "Montreal vs New York R",
+      "category": "Pro Hockey",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611170030-MTL-NYR-M-NYR",
+      "expiryDate": "2026-11-18T12:30:00.000Z",
+      "resolvedAt": "2026-11-17T03:30:27.414Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "8e80d55e-e785-4629-a3cf-0f0a7b1ef23a",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1177167,
+     "legIndex": 1,
+     "contractId": "1130295",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130295",
+      "contractName": "Utah",
+      "contractTicker": "UTA",
+      "eventTicker": "NHL-2611170230-VAN-UTA-M",
+      "eventName": "Vancouver vs Utah",
+      "category": "Pro Hockey",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611170230-VAN-UTA-M-UTA",
+      "expiryDate": "2026-11-18T14:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b2cdfc6-7cbe-4113-9e25-cbe4cce2d0ba",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1175885",
+    "contractName": "Utah Yes + Boston Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-103F7AE32E1B61B6",
+    "eventName": "",
+    "category": "Pro Hockey",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-103F7AE32E1B61B6-CMB",
+    "expiryDate": "2026-11-19T12:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1175885,
+     "legIndex": 0,
+     "contractId": "1130295",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130295",
+      "contractName": "Utah",
+      "contractTicker": "UTA",
+      "eventTicker": "NHL-2611170230-VAN-UTA-M",
+      "eventName": "Vancouver vs Utah",
+      "category": "Pro Hockey",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611170230-VAN-UTA-M-UTA",
+      "expiryDate": "2026-11-18T14:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b2cdfc6-7cbe-4113-9e25-cbe4cce2d0ba",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1175885,
+     "legIndex": 1,
+     "contractId": "1166992",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1166992",
+      "contractName": "Boston",
+      "contractTicker": "BOS",
+      "eventTicker": "NHL-2611180000-LAK-BOS-M",
+      "eventName": "Los Angeles vs Boston",
+      "category": "Pro Hockey",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NHL-2611180000-LAK-BOS-M-BOS",
+      "expiryDate": "2026-11-19T12:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "2d9c3007-ee9c-4a4c-9bec-131c27ccbd93",
+      "sportsMarket": {
+       "sport": "hockey",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1175756",
+    "contractName": "Man City Yes + Aston Villa Yes + 3 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261123-86A8A8BAAFCD3410",
+    "eventName": "",
+    "category": "EPL",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261123-86A8A8BAAFCD3410-CMB",
+    "expiryDate": "2026-11-23T05:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1175756,
+     "legIndex": 0,
+     "contractId": "1072391",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1072391",
+      "contractName": "Man City",
+      "contractTicker": "MCI",
+      "eventTicker": "EPL-2611211230-FUL-MCI-M",
+      "eventName": "Fulham vs Man City",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211230-FUL-MCI-M-MCI",
+      "expiryDate": "2026-11-23T00:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72221406",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1175756,
+     "legIndex": 1,
+     "contractId": "1072397",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1072397",
+      "contractName": "Aston Villa",
+      "contractTicker": "AVL",
+      "eventTicker": "EPL-2611211500-SUN-AVL-M",
+      "eventName": "Sunderland vs Aston Villa",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211500-SUN-AVL-M-AVL",
+      "expiryDate": "2026-11-23T03:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72221392",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1175756,
+     "legIndex": 2,
+     "contractId": "1130314",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130314",
+      "contractName": "Chelsea",
+      "contractTicker": "CHE",
+      "eventTicker": "EPL-2611211500-LEE-CHE-M",
+      "eventName": "Leeds vs Chelsea",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211500-LEE-CHE-M-CHE",
+      "expiryDate": "2026-11-23T03:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72221398",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1175756,
+     "legIndex": 3,
+     "contractId": "1130326",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130326",
+      "contractName": "Tottenham",
+      "contractTicker": "TOT",
+      "eventTicker": "EPL-2611211500-IPS-TOT-M",
+      "eventName": "Ipswich vs Tottenham",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211500-IPS-TOT-M-TOT",
+      "expiryDate": "2026-11-23T03:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72221410",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1175756,
+     "legIndex": 4,
+     "contractId": "1130334",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130334",
+      "contractName": "Arsenal",
+      "contractTicker": "ARS",
+      "eventTicker": "EPL-2611211730-ARS-NEW-M",
+      "eventName": "Arsenal vs Newcastle",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211730-ARS-NEW-M-ARS",
+      "expiryDate": "2026-11-23T05:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "sr:sport_event:72221408",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1173450",
+    "contractName": "Western Michigan Yes + Buffalo Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-ECF9BC0A2A95F770",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-ECF9BC0A2A95F770-CMB",
+    "expiryDate": "2026-11-22T20:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1173450,
+     "legIndex": 0,
+     "contractId": "1093089",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093089",
+      "contractName": "Western Michigan",
+      "contractTicker": "WMI",
+      "eventTicker": "NCAAF-2611180000-EMN-WMI-M",
+      "eventName": "Eastern Michigan vs Western Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-EMN-WMI-M-WMI",
+      "expiryDate": "2026-11-18T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3eda4b4a-9a69-4616-80f2-0198da692d6a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1173450,
+     "legIndex": 1,
+     "contractId": "1118780",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1118780",
+      "contractName": "Buffalo",
+      "contractTicker": "BUF",
+      "eventTicker": "NCAAF-2611190030-CMN-BUF-M",
+      "eventName": "Central Michigan vs Buffalo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190030-CMN-BUF-M-BUF",
+      "expiryDate": "2026-11-20T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "5d11f5be-082b-456d-8261-e8cb62c2895c",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1173450,
+     "legIndex": 2,
+     "contractId": "1137100",
+     "requiredOutcome": "No",
+     "contract": {
+      "contractId": "1137100",
+      "contractName": "Houston wins by more than 14.5 points",
+      "contractTicker": "HOU14",
+      "eventTicker": "NFL-2611200115-IND-HOU-S",
+      "eventName": "Indianapolis vs Houston: Point Spread",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-S-HOU14",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 17,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "spread",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    },
+    {
+     "comboId": 1173450,
+     "legIndex": 3,
+     "contractId": "1150809",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150809",
+      "contractName": "Duke",
+      "contractTicker": "DUK",
+      "eventTicker": "NCAAF-2611210030-CLE-DUK-M",
+      "eventName": "Clemson vs Duke",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-CLE-DUK-M-DUK",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "8bd7ef9b-90bf-4f2e-91e7-e81cc2617fcb",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1173450,
+     "legIndex": 4,
+     "contractId": "1150880",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150880",
+      "contractName": "Florida",
+      "contractTicker": "FLA",
+      "eventTicker": "NCAAF-2611211700-VAN-FLA-M",
+      "eventName": "Vanderbilt vs Florida",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-VAN-FLA-M-FLA",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "71433c02-cdda-49fa-ae23-4f37db7ca607",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1173450,
+     "legIndex": 5,
+     "contractId": "1150992",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150992",
+      "contractName": "Tennessee",
+      "contractTicker": "TEN",
+      "eventTicker": "NCAAF-2611212030-LSU-TEN-M",
+      "eventName": "LSU vs Tennessee",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-LSU-TEN-M-TEN",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "cd00a9c5-9d02-4be6-957d-96d8ef43da44",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1173113",
+    "contractName": "San Antonio Yes + Los Angeles L Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-AE86A87D08F0B91E",
+    "eventName": "",
+    "category": "Pro Basketball",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-AE86A87D08F0B91E-CMB",
+    "expiryDate": "2026-11-19T16:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1173113,
+     "legIndex": 0,
+     "contractId": "1150820",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150820",
+      "contractName": "San Antonio",
+      "contractTicker": "SAS",
+      "eventTicker": "NBA-2611180100-DET-SAS-M",
+      "eventName": "Detroit vs San Antonio",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180100-DET-SAS-M-SAS",
+      "expiryDate": "2026-11-19T13:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "4b045c0e-cba1-465b-b93f-a8819a0a7c28",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1173113,
+     "legIndex": 1,
+     "contractId": "1150844",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150844",
+      "contractName": "Los Angeles L",
+      "contractTicker": "LAL",
+      "eventTicker": "NBA-2611180400-CHA-LAL-M",
+      "eventName": "Charlotte vs Los Angeles L",
+      "category": "Pro Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611180400-CHA-LAL-M-LAL",
+      "expiryDate": "2026-11-19T16:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "40a9b530-5264-4d67-be28-71984eb5d1a4",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1172271",
+    "contractName": "Indianapolis Yes + Los Angeles C Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261121-E626EF3B53C386EF",
+    "eventName": "",
+    "category": "Pro Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261121-E626EF3B53C386EF-CMB",
+    "expiryDate": "2026-11-21T13:15:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1172271,
+     "legIndex": 0,
+     "contractId": "1136827",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136827",
+      "contractName": "Indianapolis",
+      "contractTicker": "IND",
+      "eventTicker": "NFL-2611200115-IND-HOU-M",
+      "eventName": "Indianapolis vs Houston",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-M-IND",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 1,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172271,
+     "legIndex": 1,
+     "contractId": "1063252",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:28:05.181Z",
+     "contract": {
+      "contractId": "1063252",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NFL-2611170115-LAC-BAL-M",
+      "eventName": "Los Angeles C vs Baltimore",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-M-LAC",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:26:27.807Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1172264",
+    "contractName": "Los Angeles C Yes + Houston Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-BC0FC53147DAED60",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-BC0FC53147DAED60-CMB",
+    "expiryDate": "2026-11-22T01:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1172264,
+     "legIndex": 0,
+     "contractId": "1063252",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:28:05.119Z",
+     "contract": {
+      "contractId": "1063252",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NFL-2611170115-LAC-BAL-M",
+      "eventName": "Los Angeles C vs Baltimore",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-M-LAC",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:26:27.807Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172264,
+     "legIndex": 1,
+     "contractId": "1136831",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136831",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NFL-2611200115-IND-HOU-M",
+      "eventName": "Indianapolis vs Houston",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-M-HOU",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 2,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172264,
+     "legIndex": 2,
+     "contractId": "1150809",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150809",
+      "contractName": "Duke",
+      "contractTicker": "DUK",
+      "eventTicker": "NCAAF-2611210030-CLE-DUK-M",
+      "eventName": "Clemson vs Duke",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-CLE-DUK-M-DUK",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "8bd7ef9b-90bf-4f2e-91e7-e81cc2617fcb",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172264,
+     "legIndex": 3,
+     "contractId": "1150823",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150823",
+      "contractName": "Toledo",
+      "contractTicker": "TOL",
+      "eventTicker": "NCAAF-2611210030-BGU-TOL-M",
+      "eventName": "Bowling Green vs Toledo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-BGU-TOL-M-TOL",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "a7757eac-a035-4f81-96fa-d1c77f29cc53",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172264,
+     "legIndex": 4,
+     "contractId": "1150836",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150836",
+      "contractName": "Oregon",
+      "contractTicker": "ORE",
+      "eventTicker": "NCAAF-2611210100-ORE-MSU-M",
+      "eventName": "Oregon vs Michigan State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210100-ORE-MSU-M-ORE",
+      "expiryDate": "2026-11-22T01:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "44cf3771-cf49-4768-96bf-495e2f57baee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172264,
+     "legIndex": 5,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1172092",
+    "contractName": "Cornell Yes + UNC Wilmington Yes + Oregon Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261117-DD9029AC06ABF401",
+    "eventName": "",
+    "category": "College Basketball",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261117-DD9029AC06ABF401-CMB",
+    "expiryDate": "2026-11-17T22:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1172092,
+     "legIndex": 0,
+     "contractId": "1105717",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1105717",
+      "contractName": "Cornell",
+      "contractTicker": "CORN",
+      "eventTicker": "NCAAM-2611141600-UNCG-CORN-M",
+      "eventName": "UNC Greensboro vs Cornell",
+      "category": "College Basketball",
+      "contractStatus": "Under Review",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611141600-UNCG-CORN-M-CORN",
+      "expiryDate": "2026-11-16T16:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "f60099a6-01cf-4dd7-b502-90b5178adf6e",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172092,
+     "legIndex": 1,
+     "contractId": "1105806",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1105806",
+      "contractName": "UNC Wilmington",
+      "contractTicker": "UNCW",
+      "eventTicker": "NCAAM-2611150000-ULL-UNCW-M",
+      "eventName": "Louisiana vs UNC Wilmington",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611150000-ULL-UNCW-M-UNCW",
+      "expiryDate": "2026-11-30T05:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "c98b0039-2460-4ec8-8ba0-531aa4e815e6",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172092,
+     "legIndex": 2,
+     "contractId": "1123593",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1123593",
+      "contractName": "Oregon",
+      "contractTicker": "ORE",
+      "eventTicker": "NCAAM-2611152200-PEPP-ORE-M",
+      "eventName": "Pepperdine vs Oregon",
+      "category": "College Basketball",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAM-2611152200-PEPP-ORE-M-ORE",
+      "expiryDate": "2026-11-30T05:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "651b8977-d1b8-4240-aeda-1fae5fff4d84",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1172089",
+    "contractName": "Duke Yes + Buffalo Yes + Miami (OH) Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-CF40D324B415A9BB",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-CF40D324B415A9BB-CMB",
+    "expiryDate": "2026-11-22T00:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1172089,
+     "legIndex": 0,
+     "contractId": "1150809",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150809",
+      "contractName": "Duke",
+      "contractTicker": "DUK",
+      "eventTicker": "NCAAF-2611210030-CLE-DUK-M",
+      "eventName": "Clemson vs Duke",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-CLE-DUK-M-DUK",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "8bd7ef9b-90bf-4f2e-91e7-e81cc2617fcb",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172089,
+     "legIndex": 1,
+     "contractId": "1118780",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1118780",
+      "contractName": "Buffalo",
+      "contractTicker": "BUF",
+      "eventTicker": "NCAAF-2611190030-CMN-BUF-M",
+      "eventName": "Central Michigan vs Buffalo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190030-CMN-BUF-M-BUF",
+      "expiryDate": "2026-11-20T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "5d11f5be-082b-456d-8261-e8cb62c2895c",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172089,
+     "legIndex": 2,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1172068",
+    "contractName": "Los Angeles C Yes + Western Michigan Yes + 2 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-640AEBAC2E99F6CC",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-640AEBAC2E99F6CC-CMB",
+    "expiryDate": "2026-11-19T00:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1172068,
+     "legIndex": 0,
+     "contractId": "1063252",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T04:28:04.511Z",
+     "contract": {
+      "contractId": "1063252",
+      "contractName": "Los Angeles C",
+      "contractTicker": "LAC",
+      "eventTicker": "NFL-2611170115-LAC-BAL-M",
+      "eventName": "Los Angeles C vs Baltimore",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611170115-LAC-BAL-M-LAC",
+      "expiryDate": "2026-11-18T13:15:00.000Z",
+      "resolvedAt": "2026-11-17T04:26:27.807Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "a3a5d99c-d9f4-4f14-b022-c420d93acd75",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172068,
+     "legIndex": 1,
+     "contractId": "1093089",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093089",
+      "contractName": "Western Michigan",
+      "contractTicker": "WMI",
+      "eventTicker": "NCAAF-2611180000-EMN-WMI-M",
+      "eventName": "Eastern Michigan vs Western Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-EMN-WMI-M-WMI",
+      "expiryDate": "2026-11-18T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3eda4b4a-9a69-4616-80f2-0198da692d6a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1172068,
+     "legIndex": 2,
+     "contractId": "1116539",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1116539",
+      "contractName": "Miami (OH) wins by more than 9.5 points",
+      "contractTicker": "MOH9",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-S",
+      "eventName": "Miami (OH) vs Kent State: Point Spread",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-S-MOH9",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 18,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "spread",
+       "subject": "team",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    },
+    {
+     "comboId": 1172068,
+     "legIndex": 3,
+     "contractId": "1093087",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093087",
+      "contractName": "Ohio",
+      "contractTicker": "OHI",
+      "eventTicker": "NCAAF-2611180000-BALL-OHI-M",
+      "eventName": "Ball State vs Ohio",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-BALL-OHI-M-OHI",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "395cc62a-371f-42f7-9518-c6c253cb3ab0",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1171988",
+    "contractName": "Western Michigan Yes + Miami (OH) Yes + 3 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261120-D0B67F0A5DB5A121",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261120-D0B67F0A5DB5A121-CMB",
+    "expiryDate": "2026-11-20T00:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1171988,
+     "legIndex": 0,
+     "contractId": "1093089",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093089",
+      "contractName": "Western Michigan",
+      "contractTicker": "WMI",
+      "eventTicker": "NCAAF-2611180000-EMN-WMI-M",
+      "eventName": "Eastern Michigan vs Western Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-EMN-WMI-M-WMI",
+      "expiryDate": "2026-11-18T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3eda4b4a-9a69-4616-80f2-0198da692d6a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171988,
+     "legIndex": 1,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171988,
+     "legIndex": 2,
+     "contractId": "1093087",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093087",
+      "contractName": "Ohio",
+      "contractTicker": "OHI",
+      "eventTicker": "NCAAF-2611180000-BALL-OHI-M",
+      "eventName": "Ball State vs Ohio",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-BALL-OHI-M-OHI",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "395cc62a-371f-42f7-9518-c6c253cb3ab0",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171988,
+     "legIndex": 3,
+     "contractId": "1124057",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1124057",
+      "contractName": "More than 43.5 points scored",
+      "contractTicker": "O43",
+      "eventTicker": "NCAAF-2611190030-CMN-BUF-T",
+      "eventName": "Central Michigan vs Buffalo: Total Points",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190030-CMN-BUF-T-O43",
+      "expiryDate": "2026-11-20T00:30:00.000Z",
+      "sortOrder": 13,
+      "gameId": "5d11f5be-082b-456d-8261-e8cb62c2895c",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "total",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    },
+    {
+     "comboId": 1171988,
+     "legIndex": 4,
+     "contractId": "1116948",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1116948",
+      "contractName": "More than 47.5 points scored",
+      "contractTicker": "O47",
+      "eventTicker": "NCAAF-2611190000-AKR-MAS-T",
+      "eventName": "Akron vs Massachusetts: Total Points",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190000-AKR-MAS-T-O47",
+      "expiryDate": "2026-11-20T00:00:00.000Z",
+      "sortOrder": 5,
+      "gameId": "bdd07f6e-ded6-4f19-b35f-6a20dca00cee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "total",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       },
+       "metric": "points"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1171987",
+    "contractName": "Massachusetts Yes + Buffalo Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-E325FB11C4DC624A",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-E325FB11C4DC624A-CMB",
+    "expiryDate": "2026-11-22T01:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1171987,
+     "legIndex": 0,
+     "contractId": "1105649",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1105649",
+      "contractName": "Massachusetts",
+      "contractTicker": "MAS",
+      "eventTicker": "NCAAF-2611190000-AKR-MAS-M",
+      "eventName": "Akron vs Massachusetts",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190000-AKR-MAS-M-MAS",
+      "expiryDate": "2026-11-20T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "bdd07f6e-ded6-4f19-b35f-6a20dca00cee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171987,
+     "legIndex": 1,
+     "contractId": "1118780",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1118780",
+      "contractName": "Buffalo",
+      "contractTicker": "BUF",
+      "eventTicker": "NCAAF-2611190030-CMN-BUF-M",
+      "eventName": "Central Michigan vs Buffalo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190030-CMN-BUF-M-BUF",
+      "expiryDate": "2026-11-20T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "5d11f5be-082b-456d-8261-e8cb62c2895c",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171987,
+     "legIndex": 2,
+     "contractId": "1136867",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136867",
+      "contractName": "Temple",
+      "contractTicker": "TEM",
+      "eventTicker": "NCAAF-2611200030-RIC-TEM-M",
+      "eventName": "Rice vs Temple",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611200030-RIC-TEM-M-TEM",
+      "expiryDate": "2026-11-21T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "696f7b3f-0fc1-48d6-9e3e-8f4d0cc83c5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171987,
+     "legIndex": 3,
+     "contractId": "1136870",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136870",
+      "contractName": "UCF",
+      "contractTicker": "UCF",
+      "eventTicker": "NCAAF-2611202300-ISU-UCF-M",
+      "eventName": "Iowa State vs UCF",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611202300-ISU-UCF-M-UCF",
+      "expiryDate": "2026-11-21T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "e8679097-f40e-4f6e-852c-4772f6f6f865",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171987,
+     "legIndex": 4,
+     "contractId": "1150830",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150830",
+      "contractName": "Air Force",
+      "contractTicker": "AF",
+      "eventTicker": "NCAAF-2611210100-UTE-AF-M",
+      "eventName": "UTEP vs Air Force",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210100-UTE-AF-M-AF",
+      "expiryDate": "2026-11-22T01:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "0b3bee01-0a1b-4285-8563-62efd6b6cbce",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171987,
+     "legIndex": 5,
+     "contractId": "1150836",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150836",
+      "contractName": "Oregon",
+      "contractTicker": "ORE",
+      "eventTicker": "NCAAF-2611210100-ORE-MSU-M",
+      "eventName": "Oregon vs Michigan State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210100-ORE-MSU-M-ORE",
+      "expiryDate": "2026-11-22T01:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "44cf3771-cf49-4768-96bf-495e2f57baee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1171973",
+    "contractName": "Massachusetts Yes + Central Michigan Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-F840EA52380ECDDD",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-F840EA52380ECDDD-CMB",
+    "expiryDate": "2026-11-22T00:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1171973,
+     "legIndex": 0,
+     "contractId": "1105649",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1105649",
+      "contractName": "Massachusetts",
+      "contractTicker": "MAS",
+      "eventTicker": "NCAAF-2611190000-AKR-MAS-M",
+      "eventName": "Akron vs Massachusetts",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190000-AKR-MAS-M-MAS",
+      "expiryDate": "2026-11-20T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "bdd07f6e-ded6-4f19-b35f-6a20dca00cee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171973,
+     "legIndex": 1,
+     "contractId": "1118760",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1118760",
+      "contractName": "Central Michigan",
+      "contractTicker": "CMN",
+      "eventTicker": "NCAAF-2611190030-CMN-BUF-M",
+      "eventName": "Central Michigan vs Buffalo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190030-CMN-BUF-M-CMN",
+      "expiryDate": "2026-11-20T00:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "5d11f5be-082b-456d-8261-e8cb62c2895c",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171973,
+     "legIndex": 2,
+     "contractId": "1136867",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136867",
+      "contractName": "Temple",
+      "contractTicker": "TEM",
+      "eventTicker": "NCAAF-2611200030-RIC-TEM-M",
+      "eventName": "Rice vs Temple",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611200030-RIC-TEM-M-TEM",
+      "expiryDate": "2026-11-21T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "696f7b3f-0fc1-48d6-9e3e-8f4d0cc83c5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171973,
+     "legIndex": 3,
+     "contractId": "1136869",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136869",
+      "contractName": "Iowa State",
+      "contractTicker": "ISU",
+      "eventTicker": "NCAAF-2611202300-ISU-UCF-M",
+      "eventName": "Iowa State vs UCF",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611202300-ISU-UCF-M-ISU",
+      "expiryDate": "2026-11-21T23:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "e8679097-f40e-4f6e-852c-4772f6f6f865",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171973,
+     "legIndex": 4,
+     "contractId": "1150809",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150809",
+      "contractName": "Duke",
+      "contractTicker": "DUK",
+      "eventTicker": "NCAAF-2611210030-CLE-DUK-M",
+      "eventName": "Clemson vs Duke",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-CLE-DUK-M-DUK",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "8bd7ef9b-90bf-4f2e-91e7-e81cc2617fcb",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171973,
+     "legIndex": 5,
+     "contractId": "1150823",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150823",
+      "contractName": "Toledo",
+      "contractTicker": "TOL",
+      "eventTicker": "NCAAF-2611210030-BGU-TOL-M",
+      "eventName": "Bowling Green vs Toledo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210030-BGU-TOL-M-TOL",
+      "expiryDate": "2026-11-22T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "a7757eac-a035-4f81-96fa-d1c77f29cc53",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1171859",
+    "contractName": "LSU Yes + Texas Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-F7DDBCD72C180BD8",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-F7DDBCD72C180BD8-CMB",
+    "expiryDate": "2026-11-22T23:15:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1171859,
+     "legIndex": 0,
+     "contractId": "1150991",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150991",
+      "contractName": "LSU",
+      "contractTicker": "LSU",
+      "eventTicker": "NCAAF-2611212030-LSU-TEN-M",
+      "eventName": "LSU vs Tennessee",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-LSU-TEN-M-LSU",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "cd00a9c5-9d02-4be6-957d-96d8ef43da44",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171859,
+     "legIndex": 1,
+     "contractId": "1150996",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150996",
+      "contractName": "Texas",
+      "contractTicker": "TEX",
+      "eventTicker": "NCAAF-2611212030-ARK-TEX-M",
+      "eventName": "Arkansas vs Texas",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-ARK-TEX-M-TEX",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "f7ee826d-9c21-4b1c-9462-61adef2404f9",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171859,
+     "legIndex": 2,
+     "contractId": "1167150",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167150",
+      "contractName": "Indiana",
+      "contractTicker": "IND",
+      "eventTicker": "NCAAF-2611212030-IND-WAS-M",
+      "eventName": "Indiana vs Washington",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-IND-WAS-M-IND",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "1c6f5da8-a6a1-433d-a2bf-5b81e818c688",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171859,
+     "legIndex": 3,
+     "contractId": "1151000",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1151000",
+      "contractName": "North Dakota State",
+      "contractTicker": "NOR",
+      "eventTicker": "NCAAF-2611212100-NIU-NOR-M",
+      "eventName": "Northern Illinois vs North Dakota State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212100-NIU-NOR-M-NOR",
+      "expiryDate": "2026-11-22T21:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "164b7ccf-1413-475e-87a1-e29846bb0ce2",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171859,
+     "legIndex": 4,
+     "contractId": "1151028",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1151028",
+      "contractName": "USC",
+      "contractTicker": "USC",
+      "eventTicker": "NCAAF-2611212315-MD-USC-M",
+      "eventName": "Maryland vs USC",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212315-MD-USC-M-USC",
+      "expiryDate": "2026-11-22T23:15:00.000Z",
+      "sortOrder": 2,
+      "gameId": "f2749eeb-7def-49a2-9d1d-07a8149150dc",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171859,
+     "legIndex": 5,
+     "contractId": "1150873",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150873",
+      "contractName": "Northwestern",
+      "contractTicker": "NUW",
+      "eventTicker": "NCAAF-2611211700-NUW-MIN-M",
+      "eventName": "Northwestern vs Minnesota",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-NUW-MIN-M-NUW",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "699df3bd-47ce-49c3-9b1a-b70c3cdfe257",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1171100",
+    "contractName": "Athletic Yes + Tijuana Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261123-203C2C405334043F",
+    "eventName": "",
+    "category": "Soccer",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261123-203C2C405334043F-CMB",
+    "expiryDate": "2026-11-23T03:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1171100,
+     "legIndex": 0,
+     "contractId": "1130349",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130349",
+      "contractName": "Athletic",
+      "contractTicker": "ATH",
+      "eventTicker": "LALIGA-2611202000-ESY-ATH-M",
+      "eventName": "Espanyol vs Athletic",
+      "category": "La Liga",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-LALIGA-2611202000-ESY-ATH-M-ATH",
+      "expiryDate": "2026-11-22T08:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72478708",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171100,
+     "legIndex": 1,
+     "contractId": "1130394",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130394",
+      "contractName": "Tijuana",
+      "contractTicker": "TIJ",
+      "eventTicker": "LIGAMX-2611210300-ATL-TIJ-M",
+      "eventName": "Atlante vs Tijuana",
+      "category": "Liga MX",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-LIGAMX-2611210300-ATL-TIJ-M-TIJ",
+      "expiryDate": "2026-11-21T12:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72055320",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171100,
+     "legIndex": 2,
+     "contractId": "1130389",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130389",
+      "contractName": "Atlas",
+      "contractTicker": "ALA",
+      "eventTicker": "LIGAMX-2611210300-ALA-JUA-M",
+      "eventName": "Atlas vs Juárez",
+      "category": "Liga MX",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-LIGAMX-2611210300-ALA-JUA-M-ALA",
+      "expiryDate": "2026-11-21T10:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "sr:sport_event:72055318",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171100,
+     "legIndex": 3,
+     "contractId": "1072391",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1072391",
+      "contractName": "Man City",
+      "contractTicker": "MCI",
+      "eventTicker": "EPL-2611211230-FUL-MCI-M",
+      "eventName": "Fulham vs Man City",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211230-FUL-MCI-M-MCI",
+      "expiryDate": "2026-11-23T00:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72221406",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171100,
+     "legIndex": 4,
+     "contractId": "1130359",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1130359",
+      "contractName": "Alavés",
+      "contractTicker": "ALA",
+      "eventTicker": "LALIGA-2611211300-DEP-ALA-M",
+      "eventName": "Deportivo vs Alavés",
+      "category": "La Liga",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-LALIGA-2611211300-DEP-ALA-M-ALA",
+      "expiryDate": "2026-11-23T01:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72478706",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1171100,
+     "legIndex": 5,
+     "contractId": "1072397",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1072397",
+      "contractName": "Aston Villa",
+      "contractTicker": "AVL",
+      "eventTicker": "EPL-2611211500-SUN-AVL-M",
+      "eventName": "Sunderland vs Aston Villa",
+      "category": "EPL",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-EPL-2611211500-SUN-AVL-M-AVL",
+      "expiryDate": "2026-11-23T03:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "sr:sport_event:72221392",
+      "sportsMarket": {
+       "sport": "soccer",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "regulation"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1170027",
+    "contractName": "Cincinnati Yes + Houston Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261121-DA24E3B15BC80B97",
+    "eventName": "",
+    "category": "Pro Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261121-DA24E3B15BC80B97-CMB",
+    "expiryDate": "2026-11-21T13:15:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1170027,
+     "legIndex": 0,
+     "contractId": "1063226",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-16T04:28:11.059Z",
+     "contract": {
+      "contractId": "1063226",
+      "contractName": "Cincinnati",
+      "contractTicker": "CIN",
+      "eventTicker": "NFL-2611160120-PIT-CIN-M",
+      "eventName": "Pittsburgh vs Cincinnati",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611160120-PIT-CIN-M-CIN",
+      "expiryDate": "2026-11-17T13:20:00.000Z",
+      "resolvedAt": "2026-11-16T04:26:41.073Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "bcda63c5-0fe5-4068-8c61-acf01a1fe616",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1170027,
+     "legIndex": 1,
+     "contractId": "1136831",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136831",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NFL-2611200115-IND-HOU-M",
+      "eventName": "Indianapolis vs Houston",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-M-HOU",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 2,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1169944",
+    "contractName": "Northwestern Yes + Ohio State Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-61B90314225C9782",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-61B90314225C9782-CMB",
+    "expiryDate": "2026-11-22T20:45:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1169944,
+     "legIndex": 0,
+     "contractId": "1150873",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150873",
+      "contractName": "Northwestern",
+      "contractTicker": "NUW",
+      "eventTicker": "NCAAF-2611211700-NUW-MIN-M",
+      "eventName": "Northwestern vs Minnesota",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-NUW-MIN-M-NUW",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "699df3bd-47ce-49c3-9b1a-b70c3cdfe257",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1169944,
+     "legIndex": 1,
+     "contractId": "1167030",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167030",
+      "contractName": "Ohio State",
+      "contractTicker": "OSU",
+      "eventTicker": "NCAAF-2611211700-OSU-NEB-M",
+      "eventName": "Ohio State vs Nebraska",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-OSU-NEB-M-OSU",
+      "expiryDate": "2026-11-22T17:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "ad0cce61-798d-4d09-bb64-443dc60fee17",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1169944,
+     "legIndex": 2,
+     "contractId": "1167075",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167075",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NCAAF-2611211800-HOU-WVU-M",
+      "eventName": "Houston vs West Virginia",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211800-HOU-WVU-M-HOU",
+      "expiryDate": "2026-11-22T18:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "8ae255dc-b284-445a-9345-ee78b8fdcdb1",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1169944,
+     "legIndex": 3,
+     "contractId": "1167150",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167150",
+      "contractName": "Indiana",
+      "contractTicker": "IND",
+      "eventTicker": "NCAAF-2611212030-IND-WAS-M",
+      "eventName": "Indiana vs Washington",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-IND-WAS-M-IND",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "1c6f5da8-a6a1-433d-a2bf-5b81e818c688",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1169944,
+     "legIndex": 4,
+     "contractId": "1167202",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1167202",
+      "contractName": "UCLA",
+      "contractTicker": "UCL",
+      "eventTicker": "NCAAF-2611212030-UCL-MIC-M",
+      "eventName": "UCLA vs Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611212030-UCL-MIC-M-UCL",
+      "expiryDate": "2026-11-22T20:30:00.000Z",
+      "sortOrder": 1,
+      "gameId": "aaee40d0-4059-4523-ae48-5ceded237d49",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1169944,
+     "legIndex": 5,
+     "contractId": "1150913",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150913",
+      "contractName": "Oklahoma",
+      "contractTicker": "OU",
+      "eventTicker": "NCAAF-2611211700-TAM-OU-M",
+      "eventName": "Texas A&M vs Oklahoma",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611211700-TAM-OU-M-OU",
+      "expiryDate": "2026-11-22T20:45:00.000Z",
+      "sortOrder": 2,
+      "gameId": "f4b1bbae-8556-4466-b023-e08817a0e554",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1165603",
+    "contractName": "Seattle Yes + Los Angeles R Yes + 4 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-232EB38BB6F1CED6",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-232EB38BB6F1CED6-CMB",
+    "expiryDate": "2026-11-19T00:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1165603,
+     "legIndex": 0,
+     "contractId": "1062994",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-16T00:00:32.104Z",
+     "contract": {
+      "contractId": "1062994",
+      "contractName": "Seattle",
+      "contractTicker": "SEA",
+      "eventTicker": "NFL-2611152105-SEA-LV-M",
+      "eventName": "Seattle vs Las Vegas",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611152105-SEA-LV-M-SEA",
+      "expiryDate": "2026-11-17T09:05:00.000Z",
+      "resolvedAt": "2026-11-16T00:00:12.232Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "60e7225a-425b-4603-8ad6-baec4ec61e29",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1165603,
+     "legIndex": 1,
+     "contractId": "1063024",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-15T23:52:20.930Z",
+     "contract": {
+      "contractId": "1063024",
+      "contractName": "Los Angeles R",
+      "contractTicker": "LAR",
+      "eventTicker": "NFL-2611152105-LAR-ARI-M",
+      "eventName": "Los Angeles R vs Arizona",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611152105-LAR-ARI-M-LAR",
+      "expiryDate": "2026-11-17T09:05:00.000Z",
+      "resolvedAt": "2026-11-15T23:52:05.811Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "6cd5ee29-ad06-4839-bb7a-326d4e3ca5ae",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1165603,
+     "legIndex": 2,
+     "contractId": "1136803",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-17T03:20:04.550Z",
+     "contract": {
+      "contractId": "1136803",
+      "contractName": "Philadelphia",
+      "contractTicker": "PHI",
+      "eventTicker": "NBA-2611170030-PHI-BKN-M",
+      "eventName": "Philadelphia vs Brooklyn",
+      "category": "Pro Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611170030-PHI-BKN-M-PHI",
+      "expiryDate": "2026-11-18T12:30:00.000Z",
+      "resolvedAt": "2026-11-17T03:18:25.999Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "f09fdf06-5bd1-443a-940c-526291f8cddc",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1165603,
+     "legIndex": 3,
+     "contractId": "1105634",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-16T01:12:12.638Z",
+     "contract": {
+      "contractId": "1105634",
+      "contractName": "Boston",
+      "contractTicker": "BOS",
+      "eventTicker": "NBA-2611152300-DAL-BOS-M",
+      "eventName": "Dallas vs Boston",
+      "category": "Pro Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611152300-DAL-BOS-M-BOS",
+      "expiryDate": "2026-11-17T11:00:00.000Z",
+      "resolvedAt": "2026-11-16T01:10:31.568Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "37d1bc3d-93c7-4d03-9823-184322b7f973",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1165603,
+     "legIndex": 4,
+     "contractId": "1093089",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093089",
+      "contractName": "Western Michigan",
+      "contractTicker": "WMI",
+      "eventTicker": "NCAAF-2611180000-EMN-WMI-M",
+      "eventName": "Eastern Michigan vs Western Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-EMN-WMI-M-WMI",
+      "expiryDate": "2026-11-18T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3eda4b4a-9a69-4616-80f2-0198da692d6a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1165603,
+     "legIndex": 5,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1160644",
+    "contractName": "Western Michigan Yes + Miami (OH) Yes + 2 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261120-06D2A436DCBF34A5",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261120-06D2A436DCBF34A5-CMB",
+    "expiryDate": "2026-11-20T00:30:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1160644,
+     "legIndex": 0,
+     "contractId": "1093089",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093089",
+      "contractName": "Western Michigan",
+      "contractTicker": "WMI",
+      "eventTicker": "NCAAF-2611180000-EMN-WMI-M",
+      "eventName": "Eastern Michigan vs Western Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-EMN-WMI-M-WMI",
+      "expiryDate": "2026-11-18T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3eda4b4a-9a69-4616-80f2-0198da692d6a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1160644,
+     "legIndex": 1,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1160644,
+     "legIndex": 2,
+     "contractId": "1093087",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093087",
+      "contractName": "Ohio",
+      "contractTicker": "OHI",
+      "eventTicker": "NCAAF-2611180000-BALL-OHI-M",
+      "eventName": "Ball State vs Ohio",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-BALL-OHI-M-OHI",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "395cc62a-371f-42f7-9518-c6c253cb3ab0",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1160644,
+     "legIndex": 3,
+     "contractId": "1118780",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1118780",
+      "contractName": "Buffalo",
+      "contractTicker": "BUF",
+      "eventTicker": "NCAAF-2611190030-CMN-BUF-M",
+      "eventName": "Central Michigan vs Buffalo",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611190030-CMN-BUF-M-BUF",
+      "expiryDate": "2026-11-20T00:30:00.000Z",
+      "sortOrder": 2,
+      "gameId": "5d11f5be-082b-456d-8261-e8cb62c2895c",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1160638",
+    "contractName": "Western Michigan Yes + Miami (OH) Yes + Ohio Yes",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261119-C315D9ED41733BD0",
+    "eventName": "",
+    "category": "College Football",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261119-C315D9ED41733BD0-CMB",
+    "expiryDate": "2026-11-19T00:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1160638,
+     "legIndex": 0,
+     "contractId": "1093089",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093089",
+      "contractName": "Western Michigan",
+      "contractTicker": "WMI",
+      "eventTicker": "NCAAF-2611180000-EMN-WMI-M",
+      "eventName": "Eastern Michigan vs Western Michigan",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-EMN-WMI-M-WMI",
+      "expiryDate": "2026-11-18T23:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "3eda4b4a-9a69-4616-80f2-0198da692d6a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1160638,
+     "legIndex": 1,
+     "contractId": "1093084",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093084",
+      "contractName": "Miami (OH)",
+      "contractTicker": "MOH",
+      "eventTicker": "NCAAF-2611180000-MOH-KENT-M",
+      "eventName": "Miami (OH) vs Kent State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-MOH-KENT-M-MOH",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "2de18bbd-abe0-44e1-9fee-b95bfd673f96",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1160638,
+     "legIndex": 2,
+     "contractId": "1093087",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1093087",
+      "contractName": "Ohio",
+      "contractTicker": "OHI",
+      "eventTicker": "NCAAF-2611180000-BALL-OHI-M",
+      "eventName": "Ball State vs Ohio",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611180000-BALL-OHI-M-OHI",
+      "expiryDate": "2026-11-19T00:00:00.000Z",
+      "sortOrder": 2,
+      "gameId": "395cc62a-371f-42f7-9518-c6c253cb3ab0",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1154377",
+    "contractName": "Buffalo Yes + Jacksonville Yes + 2 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261122-717DD0B90C6595F8",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261122-717DD0B90C6595F8-CMB",
+    "expiryDate": "2026-11-22T01:00:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1154377,
+     "legIndex": 0,
+     "contractId": "1062854",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-15T21:10:40.235Z",
+     "contract": {
+      "contractId": "1062854",
+      "contractName": "Buffalo",
+      "contractTicker": "BUF",
+      "eventTicker": "NFL-2611151800-BUF-NYJ-M",
+      "eventName": "Buffalo vs New York J",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611151800-BUF-NYJ-M-BUF",
+      "expiryDate": "2026-11-17T06:00:00.000Z",
+      "resolvedAt": "2026-11-15T21:08:37.801Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "ab29f769-e10f-4ec1-ab58-b580ed349acb",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1154377,
+     "legIndex": 1,
+     "contractId": "1062944",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-15T21:16:21.823Z",
+     "contract": {
+      "contractId": "1062944",
+      "contractName": "Jacksonville",
+      "contractTicker": "JAX",
+      "eventTicker": "NFL-2611151800-JAX-TEN-M",
+      "eventName": "Jacksonville vs Tennessee",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611151800-JAX-TEN-M-JAX",
+      "expiryDate": "2026-11-17T06:00:00.000Z",
+      "resolvedAt": "2026-11-15T21:14:33.386Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "f39cb30a-8fc9-4273-9f93-94987d6fbe99",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1154377,
+     "legIndex": 2,
+     "contractId": "1150836",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1150836",
+      "contractName": "Oregon",
+      "contractTicker": "ORE",
+      "eventTicker": "NCAAF-2611210100-ORE-MSU-M",
+      "eventName": "Oregon vs Michigan State",
+      "category": "College Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611210100-ORE-MSU-M-ORE",
+      "expiryDate": "2026-11-22T01:00:00.000Z",
+      "sortOrder": 1,
+      "gameId": "44cf3771-cf49-4768-96bf-495e2f57baee",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1154377,
+     "legIndex": 3,
+     "contractId": "1105634",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-16T01:12:07.007Z",
+     "contract": {
+      "contractId": "1105634",
+      "contractName": "Boston",
+      "contractTicker": "BOS",
+      "eventTicker": "NBA-2611152300-DAL-BOS-M",
+      "eventName": "Dallas vs Boston",
+      "category": "Pro Basketball",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NBA-2611152300-DAL-BOS-M-BOS",
+      "expiryDate": "2026-11-17T11:00:00.000Z",
+      "resolvedAt": "2026-11-16T01:10:31.568Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "37d1bc3d-93c7-4d03-9823-184322b7f973",
+      "sportsMarket": {
+       "sport": "basketball",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "contract": {
+    "contractId": "1145845",
+    "contractName": "Ohio State Yes + Miami Yes + 2 more",
+    "contractTicker": "CMB",
+    "eventTicker": "CMB-261121-16F97051C66A3619",
+    "eventName": "",
+    "category": "Sports",
+    "contractStatus": "Active",
+    "eventType": "binary",
+    "instrumentSymbol": "GEMI-CMB-261121-16F97051C66A3619-CMB",
+    "expiryDate": "2026-11-21T13:15:00.000Z"
+   },
+   "legs": [
+    {
+     "comboId": 1145845,
+     "legIndex": 0,
+     "contractId": "1049372",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-14T20:27:19.744Z",
+     "contract": {
+      "contractId": "1049372",
+      "contractName": "Ohio State",
+      "contractTicker": "OSU",
+      "eventTicker": "NCAAF-2611141700-NUW-OSU-M",
+      "eventName": "Northwestern vs Ohio State",
+      "category": "College Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611141700-NUW-OSU-M-OSU",
+      "expiryDate": "2026-11-15T17:00:00.000Z",
+      "resolvedAt": "2026-11-14T20:25:43.557Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "cba88df7-3f84-42fb-8287-cc5626f0ba5f",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1145845,
+     "legIndex": 1,
+     "contractId": "1049376",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-14T20:48:46.633Z",
+     "contract": {
+      "contractId": "1049376",
+      "contractName": "Miami",
+      "contractTicker": "MIA",
+      "eventTicker": "NCAAF-2611141700-DUK-MIA-M",
+      "eventName": "Duke vs Miami",
+      "category": "College Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NCAAF-2611141700-DUK-MIA-M-MIA",
+      "expiryDate": "2026-11-15T17:00:00.000Z",
+      "resolvedAt": "2026-11-14T20:47:29.352Z",
+      "resolutionSide": "yes",
+      "sortOrder": 2,
+      "gameId": "e798626d-6dc3-47d4-b080-1504676d502c",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1145845,
+     "legIndex": 2,
+     "contractId": "1062944",
+     "requiredOutcome": "Yes",
+     "legOutcome": "Pass",
+     "resolvedAt": "2026-11-15T21:16:17.571Z",
+     "contract": {
+      "contractId": "1062944",
+      "contractName": "Jacksonville",
+      "contractTicker": "JAX",
+      "eventTicker": "NFL-2611151800-JAX-TEN-M",
+      "eventName": "Jacksonville vs Tennessee",
+      "category": "Pro Football",
+      "contractStatus": "Settled",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611151800-JAX-TEN-M-JAX",
+      "expiryDate": "2026-11-17T06:00:00.000Z",
+      "resolvedAt": "2026-11-15T21:14:33.386Z",
+      "resolutionSide": "yes",
+      "sortOrder": 1,
+      "gameId": "f39cb30a-8fc9-4273-9f93-94987d6fbe99",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    },
+    {
+     "comboId": 1145845,
+     "legIndex": 3,
+     "contractId": "1136831",
+     "requiredOutcome": "Yes",
+     "contract": {
+      "contractId": "1136831",
+      "contractName": "Houston",
+      "contractTicker": "HOU",
+      "eventTicker": "NFL-2611200115-IND-HOU-M",
+      "eventName": "Indianapolis vs Houston",
+      "category": "Pro Football",
+      "contractStatus": "Active",
+      "eventType": "binary",
+      "instrumentSymbol": "GEMI-NFL-2611200115-IND-HOU-M-HOU",
+      "expiryDate": "2026-11-21T13:15:00.000Z",
+      "sortOrder": 2,
+      "gameId": "68932cc3-c0ad-4924-8e52-4e403cb4df5a",
+      "sportsMarket": {
+       "sport": "american_football",
+       "type": "moneyline",
+       "subject": "contest",
+       "scope": {
+        "type": "full_contest"
+       }
+      }
+     }
+    }
+   ]
+  }
+ ],
+ "pagination": {
+  "limit": 100,
+  "offset": 0,
+  "total": 47
+ }
+}

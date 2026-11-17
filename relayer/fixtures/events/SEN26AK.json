@@ -1,0 +1,92 @@
+{
+ "id": "93882",
+ "title": "Alaska US Senate Winner",
+ "slug": "alaska-us-senate-winner",
+ "type": "categorical",
+ "category": "Politics",
+ "ticker": "SEN26AK",
+ "status": "active",
+ "createdAt": "2026-06-16T22:55:44.695Z",
+ "contracts": [
+  {
+   "id": "93882-282108",
+   "label": "Mary Peltola",
+   "prices": {
+    "buy": {
+     "yes": "0.99",
+     "no": "0.01"
+    },
+    "sell": {
+     "yes": "0.99",
+     "no": "0.01"
+    },
+    "bestBid": "0.99",
+    "lastTradePrice": "0.99"
+   },
+   "status": "active",
+   "createdAt": "2026-06-16T22:55:44.695Z",
+   "ticker": "MARYPELTOLA",
+   "instrumentSymbol": "GEMI-SEN26AK-MARYPELTOLA",
+   "marketState": "open",
+   "abbreviatedName": "Mary Peltola",
+   "expiryDate": "2026-11-24T04:59:00.000Z",
+   "effectiveDate": "2026-05-14T00:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "93882-282106",
+   "label": "Dan Sullivan",
+   "prices": {
+    "buy": {
+     "yes": "0.01",
+     "no": "0.99"
+    },
+    "sell": {
+     "yes": "0.01",
+     "no": "0.99"
+    },
+    "bestAsk": "0.01",
+    "lastTradePrice": "0.01"
+   },
+   "status": "active",
+   "createdAt": "2026-06-16T22:55:44.695Z",
+   "ticker": "DANSULLIVAN",
+   "instrumentSymbol": "GEMI-SEN26AK-DANSULLIVAN",
+   "marketState": "open",
+   "abbreviatedName": "Dan Sullivan",
+   "expiryDate": "2026-11-24T04:59:00.000Z",
+   "effectiveDate": "2026-05-14T00:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  }
+ ],
+ "effectiveDate": "2026-06-16T22:55:44.695Z",
+ "isLive": true,
+ "volume": "64636",
+ "volume24h": "0",
+ "tags": [
+  "Senate"
+ ],
+ "expiryDate": "2026-11-24T04:59:00.000Z",
+ "startTime": "2026-11-02T21:32:01.200Z",
+ "subcategory": {
+  "id": 174,
+  "slug": "politics_midterms_senate",
+  "name": "Senate",
+  "path": [
+   "Politics",
+   "Midterms",
+   "Senate"
+  ]
+ },
+ "volumeDelta24hPct": "-100"
+}

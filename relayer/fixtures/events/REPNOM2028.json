@@ -1,0 +1,426 @@
+{
+ "id": "1887",
+ "title": "2028 Republican Nominee for President?",
+ "slug": "2028-republican-nominee-for-president",
+ "type": "categorical",
+ "category": "Politics",
+ "ticker": "REPNOM2028",
+ "status": "active",
+ "createdAt": "2026-02-19T21:37:05.749Z",
+ "contracts": [
+  {
+   "id": "1887-10850",
+   "label": "J.D. Vance",
+   "prices": {
+    "buy": {
+     "yes": "0.37",
+     "no": "0.64"
+    },
+    "sell": {
+     "yes": "0.36",
+     "no": "0.63"
+    },
+    "bestBid": "0.36",
+    "bestAsk": "0.37",
+    "lastTradePrice": "0.32"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028JDVANCE",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028JDVANCE",
+   "marketState": "open",
+   "abbreviatedName": "Vance",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10846",
+   "label": "Marco Rubio",
+   "prices": {
+    "buy": {
+     "yes": "0.17",
+     "no": "0.84"
+    },
+    "sell": {
+     "yes": "0.16",
+     "no": "0.83"
+    },
+    "bestBid": "0.16",
+    "bestAsk": "0.17",
+    "lastTradePrice": "0.2"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028MARCORUBIO",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028MARCORUBIO",
+   "marketState": "open",
+   "abbreviatedName": "Rubio",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10849",
+   "label": "Ron DeSantis",
+   "prices": {
+    "buy": {
+     "yes": "0.16",
+     "no": "0.85"
+    },
+    "sell": {
+     "yes": "0.15",
+     "no": "0.84"
+    },
+    "bestBid": "0.15",
+    "bestAsk": "0.16",
+    "lastTradePrice": "0.14"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028RONDESANTIS",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028RONDESANTIS",
+   "marketState": "open",
+   "abbreviatedName": "DeSantis",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10848",
+   "label": "Donald J. Trump",
+   "prices": {
+    "buy": {
+     "yes": "0.05",
+     "no": "0.96"
+    },
+    "sell": {
+     "yes": "0.04",
+     "no": "0.95"
+    },
+    "bestBid": "0.04",
+    "bestAsk": "0.05",
+    "lastTradePrice": "0.04"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028DONALDJTRUMP",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028DONALDJTRUMP",
+   "marketState": "open",
+   "abbreviatedName": "Trump",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10854",
+   "label": "Thomas Massie",
+   "prices": {
+    "buy": {
+     "yes": "0.04",
+     "no": "0.91"
+    },
+    "sell": {
+     "yes": "0.09",
+     "no": "0.96"
+    },
+    "bestAsk": "0.04",
+    "lastTradePrice": "0.09"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028THOMASMASSIE",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028THOMASMASSIE",
+   "marketState": "open",
+   "abbreviatedName": "Massie",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10847",
+   "label": "Donald J. Trump Jr.",
+   "prices": {
+    "buy": {
+     "yes": "0.03",
+     "no": "0.96"
+    },
+    "sell": {
+     "yes": "0.04",
+     "no": "0.97"
+    },
+    "bestAsk": "0.03",
+    "lastTradePrice": "0.04"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028DONALDJTRUMPJR",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028DONALDJTRUMPJR",
+   "marketState": "open",
+   "abbreviatedName": "Trump Jr",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10851",
+   "label": "Marjorie Taylor Greene",
+   "prices": {
+    "buy": {
+     "yes": "0.03",
+     "no": "0.97"
+    },
+    "sell": {
+     "yes": "0.03",
+     "no": "0.97"
+    },
+    "bestAsk": "0.03",
+    "lastTradePrice": "0.03"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028MARJORIETAYLOR",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028MARJORIETAYLOR",
+   "marketState": "open",
+   "abbreviatedName": "MTG",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10852",
+   "label": "Greg Abbott",
+   "prices": {
+    "buy": {
+     "yes": "0.02",
+     "no": "0.98"
+    },
+    "sell": {
+     "yes": "0.02",
+     "no": "0.98"
+    },
+    "bestAsk": "0.02",
+    "lastTradePrice": "0.02"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028GREGABBOTT",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028GREGABBOTT",
+   "marketState": "open",
+   "abbreviatedName": "Abbott",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10853",
+   "label": "Byron Donalds",
+   "prices": {
+    "buy": {
+     "yes": "0.02",
+     "no": "0.98"
+    },
+    "sell": {
+     "yes": "0.02",
+     "no": "0.98"
+    },
+    "bestAsk": "0.02",
+    "lastTradePrice": "0.02"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028BYRONDONALDS",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028BYRONDONALDS",
+   "marketState": "open",
+   "abbreviatedName": "Donalds",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10855",
+   "label": "Brian Kemp",
+   "prices": {
+    "buy": {
+     "yes": "0.02",
+     "no": "0.98"
+    },
+    "sell": {
+     "yes": "0.02",
+     "no": "0.98"
+    },
+    "bestAsk": "0.02",
+    "lastTradePrice": "0.02"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028BRIANKEMP",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028BRIANKEMP",
+   "marketState": "open",
+   "abbreviatedName": "Kemp",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10856",
+   "label": "Glenn Youngkin",
+   "prices": {
+    "buy": {
+     "yes": "0.02",
+     "no": "0.99"
+    },
+    "sell": {
+     "yes": "0.01",
+     "no": "0.98"
+    },
+    "bestBid": "0.01",
+    "bestAsk": "0.02",
+    "lastTradePrice": "0.01"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028GLENNYOUNGKIN",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028GLENNYOUNGKIN",
+   "marketState": "open",
+   "abbreviatedName": "Youngkin",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10857",
+   "label": "Ted Cruz",
+   "prices": {
+    "buy": {
+     "yes": "0.02",
+     "no": "0.99"
+    },
+    "sell": {
+     "yes": "0.01",
+     "no": "0.98"
+    },
+    "bestBid": "0.01",
+    "bestAsk": "0.02",
+    "lastTradePrice": "0.02"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028TEDCRUZ",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028TEDCRUZ",
+   "marketState": "open",
+   "abbreviatedName": "Cruz",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "1887-10858",
+   "label": "Nikki Haley",
+   "prices": {
+    "buy": {
+     "yes": "0.02",
+     "no": "0.98"
+    },
+    "sell": {
+     "yes": "0.02",
+     "no": "0.98"
+    },
+    "bestAsk": "0.02",
+    "lastTradePrice": "0.02"
+   },
+   "status": "active",
+   "createdAt": "2026-02-19T21:37:05.749Z",
+   "ticker": "REPNOM2028NIKKIHALEY",
+   "instrumentSymbol": "GEMI-REPNOM2028-REPNOM2028NIKKIHALEY",
+   "marketState": "open",
+   "abbreviatedName": "Haley",
+   "expiryDate": "2028-11-10T00:00:00.000Z",
+   "effectiveDate": "2026-02-20T14:00:00.000Z",
+   "isCombo": false,
+   "quantityIncrement": "1",
+   "quantityMinimum": "1",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  }
+ ],
+ "effectiveDate": "2026-02-19T21:37:05.749Z",
+ "isLive": false,
+ "volume": "118139",
+ "volume24h": "0",
+ "tags": [
+  "Presidential"
+ ],
+ "expiryDate": "2028-11-10T00:00:00.000Z",
+ "subcategory": {
+  "id": 150,
+  "slug": "politics_presidential",
+  "name": "Presidential",
+  "path": [
+   "Politics",
+   "Presidential"
+  ]
+ },
+ "volumeDelta24hPct": "-100"
+}

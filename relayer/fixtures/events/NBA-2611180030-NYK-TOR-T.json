@@ -1,0 +1,887 @@
+{
+ "id": "471988",
+ "title": "New York vs Toronto: Total Points",
+ "slug": "new-york-vs-toronto-total-points",
+ "type": "categorical",
+ "category": "Sports",
+ "ticker": "NBA-2611180030-NYK-TOR-T",
+ "status": "active",
+ "createdAt": "2026-11-17T00:41:47.779Z",
+ "contracts": [
+  {
+   "id": "471988-1182112",
+   "label": "More than 206.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.73",
+     "no": "0.31"
+    },
+    "sell": {
+     "yes": "0.69",
+     "no": "0.27"
+    },
+    "bestBid": "0.69",
+    "bestAsk": "0.73"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O206",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O206",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 22,
+   "strike": {
+    "type": "over",
+    "value": "206.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182114",
+   "label": "More than 208.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.68",
+     "no": "0.35"
+    },
+    "sell": {
+     "yes": "0.65",
+     "no": "0.32"
+    },
+    "bestBid": "0.65",
+    "bestAsk": "0.68"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O208",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O208",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 23,
+   "strike": {
+    "type": "over",
+    "value": "208.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182115",
+   "label": "More than 210.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.64",
+     "no": "0.39"
+    },
+    "sell": {
+     "yes": "0.61",
+     "no": "0.36"
+    },
+    "bestBid": "0.61",
+    "bestAsk": "0.64"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O210",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O210",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 24,
+   "strike": {
+    "type": "over",
+    "value": "210.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182063",
+   "label": "More than 212.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.61",
+     "no": "0.44"
+    },
+    "sell": {
+     "yes": "0.56",
+     "no": "0.39"
+    },
+    "bestBid": "0.56",
+    "bestAsk": "0.61"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O212",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O212",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 0,
+   "strike": {
+    "type": "over",
+    "value": "212.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182096",
+   "label": "More than 214.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.55",
+     "no": "0.47"
+    },
+    "sell": {
+     "yes": "0.53",
+     "no": "0.45"
+    },
+    "bestBid": "0.53",
+    "bestAsk": "0.55"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O214",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O214",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 15,
+   "strike": {
+    "type": "over",
+    "value": "214.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182098",
+   "label": "More than 216.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.51",
+     "no": "0.51"
+    },
+    "sell": {
+     "yes": "0.49",
+     "no": "0.49"
+    },
+    "bestBid": "0.49",
+    "bestAsk": "0.51"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O216",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O216",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 16,
+   "strike": {
+    "type": "over",
+    "value": "216.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182100",
+   "label": "More than 218.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.47",
+     "no": "0.56"
+    },
+    "sell": {
+     "yes": "0.44",
+     "no": "0.53"
+    },
+    "bestBid": "0.44",
+    "bestAsk": "0.47"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O218",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O218",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 17,
+   "strike": {
+    "type": "over",
+    "value": "218.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182122",
+   "label": "More than 220.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.44",
+     "no": "0.61"
+    },
+    "sell": {
+     "yes": "0.39",
+     "no": "0.56"
+    },
+    "bestBid": "0.39",
+    "bestAsk": "0.44"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O220",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O220",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 27,
+   "strike": {
+    "type": "over",
+    "value": "220.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182124",
+   "label": "More than 222.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.39",
+     "no": "0.65"
+    },
+    "sell": {
+     "yes": "0.35",
+     "no": "0.61"
+    },
+    "bestBid": "0.35",
+    "bestAsk": "0.39"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O222",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O222",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 28,
+   "strike": {
+    "type": "over",
+    "value": "222.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182065",
+   "label": "More than 224.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.35",
+     "no": "0.68"
+    },
+    "sell": {
+     "yes": "0.32",
+     "no": "0.65"
+    },
+    "bestBid": "0.32",
+    "bestAsk": "0.35"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O224",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O224",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 1,
+   "strike": {
+    "type": "over",
+    "value": "224.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182068",
+   "label": "More than 226.5 points scored",
+   "prices": {
+    "buy": {
+     "yes": "0.31",
+     "no": "0.73"
+    },
+    "sell": {
+     "yes": "0.27",
+     "no": "0.69"
+    },
+    "bestBid": "0.27",
+    "bestAsk": "0.31"
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O226",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O226",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 2,
+   "strike": {
+    "type": "over",
+    "value": "226.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182070",
+   "label": "More than 236.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O236",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O236",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 3,
+   "strike": {
+    "type": "over",
+    "value": "236.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182073",
+   "label": "More than 188.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O188",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O188",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 4,
+   "strike": {
+    "type": "over",
+    "value": "188.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182075",
+   "label": "More than 190.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O190",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O190",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 5,
+   "strike": {
+    "type": "over",
+    "value": "190.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182077",
+   "label": "More than 192.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O192",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O192",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 6,
+   "strike": {
+    "type": "over",
+    "value": "192.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182080",
+   "label": "More than 194.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O194",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O194",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 7,
+   "strike": {
+    "type": "over",
+    "value": "194.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182082",
+   "label": "More than 200.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O200",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O200",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 8,
+   "strike": {
+    "type": "over",
+    "value": "200.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182084",
+   "label": "More than 202.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O202",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O202",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 9,
+   "strike": {
+    "type": "over",
+    "value": "202.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182086",
+   "label": "More than 204.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O204",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O204",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 10,
+   "strike": {
+    "type": "over",
+    "value": "204.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182088",
+   "label": "More than 238.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O238",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O238",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 11,
+   "strike": {
+    "type": "over",
+    "value": "238.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182090",
+   "label": "More than 240.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O240",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O240",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 12,
+   "strike": {
+    "type": "over",
+    "value": "240.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182092",
+   "label": "More than 228.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O228",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O228",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 13,
+   "strike": {
+    "type": "over",
+    "value": "228.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182094",
+   "label": "More than 230.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O230",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O230",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 14,
+   "strike": {
+    "type": "over",
+    "value": "230.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182102",
+   "label": "More than 196.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O196",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O196",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 18,
+   "strike": {
+    "type": "over",
+    "value": "196.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182104",
+   "label": "More than 232.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O232",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O232",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 19,
+   "strike": {
+    "type": "over",
+    "value": "232.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182107",
+   "label": "More than 234.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O234",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O234",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 20,
+   "strike": {
+    "type": "over",
+    "value": "234.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182109",
+   "label": "More than 242.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O242",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O242",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 21,
+   "strike": {
+    "type": "over",
+    "value": "242.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182117",
+   "label": "More than 198.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O198",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O198",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 25,
+   "strike": {
+    "type": "over",
+    "value": "198.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "471988-1182119",
+   "label": "More than 244.5 points scored",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "active",
+   "createdAt": "2026-11-17T00:41:47.779Z",
+   "ticker": "O244",
+   "instrumentSymbol": "GEMI-NBA-2611180030-NYK-TOR-T-O244",
+   "marketState": "open",
+   "expiryDate": "2026-11-19T12:30:00.000Z",
+   "effectiveDate": "2026-11-15T00:00:06.000Z",
+   "sortOrder": 26,
+   "strike": {
+    "type": "over",
+    "value": "244.5"
+   },
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  }
+ ],
+ "effectiveDate": "2026-11-17T00:41:47.779Z",
+ "isLive": false,
+ "volume": "0",
+ "volume24h": "0",
+ "tags": [
+  "Pro Basketball"
+ ],
+ "expiryDate": "2026-11-19T12:30:00.000Z",
+ "startTime": "2026-11-18T00:30:00.000Z",
+ "subcategory": {
+  "id": 14,
+  "slug": "sports_pro-basketball",
+  "name": "Pro Basketball",
+  "path": [
+   "Sports",
+   "Pro Basketball"
+  ]
+ },
+ "gameId": "39ea68e3-9082-4078-8203-59dfc95be33f",
+ "sourceDetails": {
+  "agency": "statscore-rest-api",
+  "index": "Basketball"
+ },
+ "volumeDelta24hPct": "0",
+ "sportsMarket": {
+  "sport": "basketball",
+  "type": "total",
+  "subject": "contest",
+  "scope": {
+   "type": "full_contest"
+  },
+  "metric": "points"
+ }
+}

@@ -54,3 +54,24 @@ jobs:
 
       - name: Test (math property tests + program tests in LiteSVM)
         run: cargo test --workspace
+
+      # The TypeScript math is checked against these vectors; make sure they
+      # are the ones the current Rust code produces.
+      - name: Golden vectors are up to date
+        run: cargo run -q -p pmec-math --example vectors | diff - packages/sdk/test/vectors.json
+
+  node:
+    name: sdk + services tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Type-check
+        run: npm run typecheck
+      - name: Test
+        run: npm test

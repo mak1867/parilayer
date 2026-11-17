@@ -1,0 +1,73 @@
+{
+ "id": "472563",
+ "title": "BTC price today at 12am EST",
+ "slug": "btc-price-today-at-12am-est",
+ "type": "binary",
+ "category": "Crypto",
+ "ticker": "BTC05M2611170500",
+ "status": "settled",
+ "createdAt": "2026-11-17T03:50:29.179Z",
+ "contracts": [
+  {
+   "id": "472563-1184077",
+   "label": "Up",
+   "prices": {
+    "buy": {},
+    "sell": {}
+   },
+   "status": "settled",
+   "createdAt": "2026-11-17T03:50:29.179Z",
+   "ticker": "UP",
+   "instrumentSymbol": "GEMI-BTC05M2611170500-UP",
+   "marketState": "closed",
+   "abbreviatedName": "Up",
+   "expiryDate": "2026-11-17T05:00:00.000Z",
+   "resolutionSide": "yes",
+   "resolvedAt": "2026-11-17T05:00:08.018Z",
+   "effectiveDate": "2026-11-17T04:55:00.000Z",
+   "sortOrder": 0,
+   "strike": {
+    "type": "reference",
+    "value": "64967.39",
+    "availableAt": "2026-11-17T04:55:00.000Z"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "settlementValue": "65010.17483333333",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  }
+ ],
+ "effectiveDate": "2026-11-17T03:50:29.179Z",
+ "isLive": false,
+ "series": "BTC05M",
+ "resolvedAt": "2026-11-17T05:00:08.018Z",
+ "volume": "698.2",
+ "volume24h": "698.2",
+ "tags": [
+  "Bitcoin"
+ ],
+ "expiryDate": "2026-11-17T05:00:00.000Z",
+ "startTime": "2026-11-17T04:55:00.000Z",
+ "subcategory": {
+  "id": 32,
+  "slug": "crypto_bitcoin",
+  "name": "Bitcoin",
+  "path": [
+   "Crypto",
+   "Bitcoin"
+  ]
+ },
+ "source": "LS-LRRR-XBTUSD",
+ "settlement": {
+  "value": "65010.17483333333"
+ },
+ "sourceDetails": {
+  "agency": "lukka",
+  "index": "LS-LRRR-XBTUSD"
+ },
+ "volumeDelta24hPct": "0"
+}

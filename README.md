@@ -19,13 +19,30 @@ A full README (architecture, trust assumptions, prior art) lands with milestone 
 | --- | --- |
 | `crates/pmec-math` | Pure integer pool math and its property tests |
 | `programs/pmec` | The Anchor program (Solana devnet) and its integration tests |
-| `idl/pmec.json` | The program's interface, for the TypeScript services |
+| `packages/sdk` | Shared TypeScript: program interface (IDL), addresses, instruction builders, the pool math in BigInt |
+| `relayer` | Gemini relayer: mirrors events as markets, posts resolutions, serves reference prices, mock-USDC faucet |
 
 ## Run the tests
 
-Needs Rust, the Solana CLI 4.1.x and Anchor 1.2.x.
+Needs Rust, the Solana CLI 4.1.x, Anchor 1.2.x and Node 22.
 
 ```sh
-anchor test          # builds the program, then runs every Rust test
+anchor test               # builds the program, then runs every Rust test
 cargo test -p pmec-math   # just the math
+npm install
+npm test                  # SDK and relayer tests
 ```
+
+## Run the relayer
+
+Keys live in `keys/` (git-ignored) and are loaded by path from `.env`; see `.env.example`.
+
+```sh
+npm run cli -w relayer -- setup      # mock USDC mint, program config, fund the treasury
+npm run cli -w relayer -- discover --category Politics
+npm run cli -w relayer -- mirror     # create the markets in relayer/config/mirror.json at Gemini's prices
+npm run cli -w relayer -- status     # pool odds next to Gemini's
+npm run serve -w relayer             # HTTP API on :8787 + reference and settlement polling
+```
+
+Set `GEMINI_MOCK=1` to serve Gemini data from the recorded fixtures instead of the network.

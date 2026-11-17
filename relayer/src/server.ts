@@ -1,0 +1,124 @@
+import cors from "@fastify/cors";
+import { PROGRAM_ID } from "@pmec/sdk";
+import { PublicKey } from "@solana/web3.js";
+import Fastify, { type FastifyInstance } from "fastify";
+import type { ChainApi } from "./chain";
+import type { GeminiMock } from "./gemini/client";
+import type { Relayer } from "./relayer";
+import type { MarketMeta, Store } from "./store";
+
+export interface ServerDeps {
+  relayer: Relayer;
+  store: Store;
+  chain: ChainApi;
+  rpcUrl: string;
+  seedUsdc: number;
+  /** Present only when a faucet is available (admin key loaded). */
+  faucet?: { usdc: number; cooldownMs: number; drip: (wallet: PublicKey, usdc: number) => Promise<{ signature: string; sol: number }> };
+  /** Present only in mock mode: lets a demo simulate Gemini settling a contract. */
+  mock?: GeminiMock;
+}
+
+const HEX64 = /^[0-9a-f]{64}$/;
+
+export async function buildServer(deps: ServerDeps): Promise<FastifyInstance> {
+  const app = Fastify({ logger: false });
+  await app.register(cors, { origin: true });
+
+  const view = (meta: MarketMeta) => ({ ...meta, reference: deps.relayer.reference(meta.idHex) });
+
+  app.get("/health", async () => ({
+    ok: true,
+    mock: !!deps.mock,
+    markets: deps.store.listMarkets().length,
+    lastRefresh: deps.relayer.lastRefreshAt || null,
+  }));
+
+  /** Everything a client needs to talk to the chain. */
+  app.get("/config", async () => {
+    const cfg = await deps.chain.getConfig();
+    return {
+      programId: PROGRAM_ID.toBase58(),
+      rpcUrl: deps.rpcUrl,
+      usdcMint: cfg?.usdcMint.toBase58() ?? null,
+      oracle: cfg?.oracle.toBase58() ?? null,
+      poolFeeBps: cfg?.poolFeeBps ?? null,
+      secondaryFeeBps: cfg?.secondaryFeeBps ?? null,
+      seedUsdc: deps.seedUsdc,
+      faucet: deps.faucet ? { usdc: deps.faucet.usdc } : null,
+      mock: !!deps.mock,
+    };
+  });
+
+  /** Names, outcome labels and Gemini references for every mirrored market. */
+  app.get("/markets", async () => deps.store.listMarkets().map(view));
+
+  app.get<{ Params: { id: string } }>("/markets/:id", async (req, reply) => {
+    const meta = HEX64.test(req.params.id) ? deps.store.getMarket(req.params.id) : null;
+    if (!meta) return reply.code(404).send({ error: "unknown market" });
+    return view(meta);
+  });
+
+  /** Gemini's price per outcome. For pair pools also the product of the legs and Gemini's combo price. */
+  app.get<{ Params: { id: string } }>("/reference/:id", async (req, reply) => {
+    const meta = HEX64.test(req.params.id) ? deps.store.getMarket(req.params.id) : null;
+    const ref = meta ? deps.relayer.reference(meta.idHex) : null;
+    if (!meta || !ref) return reply.code(404).send({ error: "unknown market" });
+    return {
+      marketId: meta.idHex,
+      asOf: ref.asOf,
+      outcomes: meta.outcomes.map((label, i) => ({
+        index: i,
+        label,
+        gemini: ref.prices[i] ?? null,
+        geminiNormalized: ref.normalized[i] ?? null,
+      })),
+      ...(ref.pair ? { pair: ref.pair } : {}),
+    };
+  });
+
+  /** Mock USDC for a wallet, once per cooldown. */
+  app.post<{ Body: { wallet?: string } }>("/faucet", async (req, reply) => {
+    if (!deps.faucet) return reply.code(503).send({ error: "faucet is not enabled on this relayer" });
+    let wallet: PublicKey;
+    try {
+      wallet = new PublicKey(req.body?.wallet ?? "");
+    } catch {
+      return reply.code(400).send({ error: "wallet must be a Solana address" });
+    }
+    const key = wallet.toBase58();
+    const last = deps.store.lastFaucet(key);
+    const now = Date.now();
+    if (last !== null && now - last < deps.faucet.cooldownMs) {
+      return reply.code(429).send({ error: "faucet already used recently", retryInMs: deps.faucet.cooldownMs - (now - last) });
+    }
+    // Record first so parallel requests cannot both pass the cooldown check.
+    deps.store.recordFaucet(key, now);
+    try {
+      const { signature, sol } = await deps.faucet.drip(wallet, deps.faucet.usdc);
+      return { signature, usdc: deps.faucet.usdc, sol };
+    } catch (e) {
+      deps.store.recordFaucet(key, last ?? 0);
+      return reply.code(502).send({ error: `faucet transaction failed: ${(e as Error).message}` });
+    }
+  });
+
+  if (deps.mock) {
+    const mock = deps.mock;
+    app.post<{ Body: { ticker?: string; instrumentSymbol?: string; side?: string } }>("/mock/settle", async (req, reply) => {
+      const { ticker, instrumentSymbol, side } = req.body ?? {};
+      if (!ticker || !instrumentSymbol || (side !== "yes" && side !== "no")) {
+        return reply.code(400).send({ error: "need ticker, instrumentSymbol and side (yes|no)" });
+      }
+      try {
+        mock.settle(ticker, instrumentSymbol, side);
+      } catch (e) {
+        return reply.code(404).send({ error: (e as Error).message });
+      }
+      await deps.relayer.refresh();
+      return { ok: true, reports: await deps.relayer.settleOnce() };
+    });
+  }
+
+  return app;
+}

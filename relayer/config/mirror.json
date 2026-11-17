@@ -1,0 +1,9 @@
+{
+  "seedUsdc": 500,
+  "markets": [
+    { "kind": "multi", "event": "REPNOM2028" },
+    { "kind": "binary", "event": "BTC2611202200", "contract": "GEMI-BTC2611202200-HI65000" },
+    { "kind": "binary", "event": "NBA-2611180030-NYK-TOR-M", "contract": "GEMI-NBA-2611180030-NYK-TOR-M-TOR" },
+    { "kind": "binary", "event": "NBA-2611180100-POR-MIN-M", "contract": "GEMI-NBA-2611180100-POR-MIN-M-POR" }
+  ]
+}
