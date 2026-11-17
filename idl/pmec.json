@@ -1,0 +1,1903 @@
+{
+  "address": "13ZEq3jQvpn1r9KyaS9NK9HGoqZrHf6BJtwMyEbXbPtJ",
+  "metadata": {
+    "name": "pmec",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "PMEC Exchange: dynamic parimutuel prediction markets (C(q) = ||q||_2)"
+  },
+  "instructions": [
+    {
+      "name": "buy",
+      "docs": [
+        "Buys shares of one outcome from the pool."
+      ],
+      "discriminator": [
+        102,
+        6,
+        61,
+        18,
+        1,
+        218,
+        235,
+        234
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "outcome_mint",
+          "writable": true
+        },
+        {
+          "name": "buyer_usdc",
+          "docs": [
+            "The buyer's USDC."
+          ],
+          "writable": true
+        },
+        {
+          "name": "recipient_shares",
+          "docs": [
+            "Where the new shares go. Any token account of the outcome mint, so a buyer",
+            "can send shares straight to a fresh address."
+          ],
+          "writable": true
+        },
+        {
+          "name": "pot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint",
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "outcome",
+          "type": "u8"
+        },
+        {
+          "name": "usdc_in",
+          "type": "u64"
+        },
+        {
+          "name": "min_shares_out",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_market",
+      "docs": [
+        "Oracle: creates a market and its pot, seeded from the treasury."
+      ],
+      "discriminator": [
+        103,
+        226,
+        97,
+        235,
+        200,
+        188,
+        251,
+        254
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "market_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint",
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "market_id",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "kind",
+          "type": {
+            "defined": {
+              "name": "MarketKind"
+            }
+          }
+        },
+        {
+          "name": "refs",
+          "type": {
+            "vec": "string"
+          }
+        },
+        {
+          "name": "n",
+          "type": "u8"
+        },
+        {
+          "name": "seed_probs_ppm",
+          "type": {
+            "vec": "u32"
+          }
+        },
+        {
+          "name": "seed_usdc",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "halt",
+      "docs": [
+        "Oracle: mirrors a Gemini trading halt."
+      ],
+      "discriminator": [
+        24,
+        156,
+        8,
+        121,
+        65,
+        3,
+        5,
+        82
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init_outcome_mint",
+      "docs": [
+        "Oracle: creates outcome i's mint and mints its seed shares to the treasury."
+      ],
+      "discriminator": [
+        151,
+        123,
+        164,
+        232,
+        195,
+        38,
+        104,
+        132
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "outcome_mint",
+          "docs": [
+            "Outcome i's share mint: a classic SPL token whose only minter is the Market PDA."
+          ],
+          "writable": true
+        },
+        {
+          "name": "seed_shares",
+          "docs": [
+            "The treasury's seed shares of outcome i, owned by the Config PDA."
+          ],
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "i",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "docs": [
+        "Creates Config and the treasury vault."
+      ],
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "treasury_vault",
+          "docs": [
+            "Receives every fee and the seed shares' payouts, and pays every seed."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "oracle",
+          "type": "pubkey"
+        },
+        {
+          "name": "pool_fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "secondary_fee_bps",
+          "type": "u16"
+        }
+      ]
+    },
+    {
+      "name": "redeem",
+      "docs": [
+        "Burns shares for USDC after resolution or void."
+      ],
+      "discriminator": [
+        184,
+        12,
+        86,
+        149,
+        70,
+        196,
+        97,
+        225
+      ],
+      "accounts": [
+        {
+          "name": "holder",
+          "signer": true
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "outcome_mint",
+          "writable": true
+        },
+        {
+          "name": "holder_shares",
+          "writable": true
+        },
+        {
+          "name": "recipient_usdc",
+          "docs": [
+            "Where the USDC goes. Any USDC token account."
+          ],
+          "writable": true
+        },
+        {
+          "name": "pot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "outcome",
+          "type": "u8"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "redeem_seed",
+      "docs": [
+        "Anyone: redeems the treasury's seed shares of one outcome into the treasury vault."
+      ],
+      "discriminator": [
+        57,
+        22,
+        70,
+        172,
+        77,
+        115,
+        231,
+        83
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "outcome_mint",
+          "writable": true
+        },
+        {
+          "name": "seed_shares",
+          "writable": true
+        },
+        {
+          "name": "pot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "outcome",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "resolve",
+      "docs": [
+        "Oracle: settles the market on Gemini's resolution."
+      ],
+      "discriminator": [
+        246,
+        150,
+        236,
+        206,
+        108,
+        63,
+        58,
+        10
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "winner",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "sweep_dust",
+      "docs": [
+        "Admin: after all claims or 30 days, moves what is left in the pot to the treasury."
+      ],
+      "discriminator": [
+        9,
+        49,
+        242,
+        88,
+        156,
+        84,
+        109,
+        15
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "unhalt",
+      "docs": [
+        "Oracle: lifts a halt."
+      ],
+      "discriminator": [
+        249,
+        140,
+        27,
+        213,
+        128,
+        130,
+        207,
+        113
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "update_config",
+      "docs": [
+        "Admin: change the oracle or the fees."
+      ],
+      "discriminator": [
+        29,
+        158,
+        252,
+        191,
+        10,
+        83,
+        219,
+        99
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "oracle",
+          "type": "pubkey"
+        },
+        {
+          "name": "pool_fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "secondary_fee_bps",
+          "type": "u16"
+        }
+      ]
+    },
+    {
+      "name": "void",
+      "docs": [
+        "Oracle: voids the market; every share redeems at its final pool price."
+      ],
+      "discriminator": [
+        55,
+        130,
+        74,
+        24,
+        235,
+        14,
+        16,
+        3
+      ],
+      "accounts": [
+        {
+          "name": "oracle",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Config",
+      "discriminator": [
+        155,
+        12,
+        170,
+        224,
+        30,
+        250,
+        204,
+        130
+      ]
+    },
+    {
+      "name": "Market",
+      "discriminator": [
+        219,
+        190,
+        213,
+        55,
+        0,
+        227,
+        198,
+        154
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "BuyEvent",
+      "discriminator": [
+        103,
+        244,
+        82,
+        31,
+        44,
+        245,
+        119,
+        119
+      ]
+    },
+    {
+      "name": "HaltEvent",
+      "discriminator": [
+        130,
+        20,
+        10,
+        134,
+        230,
+        207,
+        245,
+        233
+      ]
+    },
+    {
+      "name": "MarketCreated",
+      "discriminator": [
+        88,
+        184,
+        130,
+        231,
+        226,
+        84,
+        6,
+        58
+      ]
+    },
+    {
+      "name": "RedeemEvent",
+      "discriminator": [
+        90,
+        114,
+        83,
+        146,
+        212,
+        26,
+        217,
+        59
+      ]
+    },
+    {
+      "name": "ResolveEvent",
+      "discriminator": [
+        11,
+        133,
+        150,
+        70,
+        188,
+        29,
+        100,
+        64
+      ]
+    },
+    {
+      "name": "VoidEvent",
+      "discriminator": [
+        159,
+        119,
+        247,
+        155,
+        89,
+        246,
+        253,
+        241
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NotOracle",
+      "msg": "Only the oracle (relayer) can do this"
+    },
+    {
+      "code": 6001,
+      "name": "NotAdmin",
+      "msg": "Only the admin can do this"
+    },
+    {
+      "code": 6002,
+      "name": "BadCollateralDecimals",
+      "msg": "Collateral mint must have 6 decimals"
+    },
+    {
+      "code": 6003,
+      "name": "BadFee",
+      "msg": "Fee is above the 10% maximum"
+    },
+    {
+      "code": 6004,
+      "name": "BadOutcomeCount",
+      "msg": "Outcome count does not match the market kind (binary 2, multi 3-32, pair 4)"
+    },
+    {
+      "code": 6005,
+      "name": "BadRefs",
+      "msg": "Gemini refs do not match the market kind (pair needs 2, others 1; each 1-64 bytes)"
+    },
+    {
+      "code": 6006,
+      "name": "BadProbabilities",
+      "msg": "Seed probabilities must each be 0.5%-99.5% and sum to 100%"
+    },
+    {
+      "code": 6007,
+      "name": "SeedTooSmall",
+      "msg": "Seed is below the 1 USDC minimum"
+    },
+    {
+      "code": 6008,
+      "name": "TreasuryCannotCoverSeed",
+      "msg": "The treasury cannot cover this seed"
+    },
+    {
+      "code": 6009,
+      "name": "BadOutcome",
+      "msg": "Outcome index is out of range"
+    },
+    {
+      "code": 6010,
+      "name": "MintsNotReady",
+      "msg": "Not every outcome mint has been created yet"
+    },
+    {
+      "code": 6011,
+      "name": "MarketNotOpen",
+      "msg": "Market is not open for buying"
+    },
+    {
+      "code": 6012,
+      "name": "MarketClosed",
+      "msg": "Market is already resolved or voided"
+    },
+    {
+      "code": 6013,
+      "name": "MarketNotSettled",
+      "msg": "Market is not resolved or voided yet"
+    },
+    {
+      "code": 6014,
+      "name": "MarketNotHalted",
+      "msg": "Market is not halted"
+    },
+    {
+      "code": 6015,
+      "name": "ZeroAmount",
+      "msg": "Amount is zero or too small to mint a share"
+    },
+    {
+      "code": 6016,
+      "name": "SlippageExceeded",
+      "msg": "Shares out is below min_shares_out"
+    },
+    {
+      "code": 6017,
+      "name": "PotCapExceeded",
+      "msg": "This buy would push the pot above its cap"
+    },
+    {
+      "code": 6018,
+      "name": "NotWinningOutcome",
+      "msg": "Only the winning outcome's shares can be redeemed"
+    },
+    {
+      "code": 6019,
+      "name": "SweepTooEarly",
+      "msg": "Dust can be swept only after all claims or 30 days"
+    },
+    {
+      "code": 6020,
+      "name": "Overflow",
+      "msg": "Math overflow"
+    },
+    {
+      "code": 6021,
+      "name": "InvariantPotBelowCost",
+      "msg": "Invariant violated: pot must cover the cost function"
+    },
+    {
+      "code": 6022,
+      "name": "InvariantVaultBelowPot",
+      "msg": "Invariant violated: pot vault balance is below the recorded pot"
+    },
+    {
+      "code": 6023,
+      "name": "InvariantSupplyMismatch",
+      "msg": "Invariant violated: mint supply plus burned shares must equal q"
+    },
+    {
+      "code": 6024,
+      "name": "InvariantPayoutAbovePot",
+      "msg": "Invariant violated: payouts would exceed the pot"
+    }
+  ],
+  "types": [
+    {
+      "name": "BuyEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "buyer",
+            "type": "pubkey"
+          },
+          {
+            "name": "outcome",
+            "type": "u8"
+          },
+          {
+            "name": "usdc_in",
+            "docs": [
+              "Gross USDC paid, fee included."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "fee",
+            "type": "u64"
+          },
+          {
+            "name": "shares_out",
+            "type": "u64"
+          },
+          {
+            "name": "price_after",
+            "docs": [
+              "Pool price of the outcome after the buy (1e6 = 1 USDC)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "prob_after",
+            "docs": [
+              "Implied probability after the buy, in ppm."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "pot_after",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Config",
+      "docs": [
+        "Global settings and the treasury's running totals. PDA: [\"config\"]."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "oracle",
+            "docs": [
+              "The relayer key. Trusted: it creates markets and posts Gemini's resolutions."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "usdc_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "pool_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "secondary_fee_bps",
+            "docs": [
+              "Charged off-chain by the RFQ service inside each secondary settlement."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "fees_collected",
+            "docs": [
+              "Pool fees received by the treasury vault."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "seeds_paid",
+            "docs": [
+              "Seeds the treasury vault has paid into pots."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "seed_payouts",
+            "docs": [
+              "Payouts the treasury has received for its seed shares."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "dust_swept",
+            "docs": [
+              "Leftover pot dust swept to the treasury."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "market_count",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "treasury_bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HaltEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "halted",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Market",
+      "docs": [
+        "One market = one pot. PDA: [\"market\", market_id]."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market_id",
+            "docs": [
+              "Deterministic id: sha256 of the sorted Gemini refs (computed by the relayer)."
+            ],
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "kind",
+            "type": {
+              "defined": {
+                "name": "MarketKind"
+              }
+            }
+          },
+          {
+            "name": "gemini_refs",
+            "docs": [
+              "Gemini tickers this market mirrors (1, or 2 for a pair pool)."
+            ],
+            "type": {
+              "vec": "string"
+            }
+          },
+          {
+            "name": "n_outcomes",
+            "type": "u8"
+          },
+          {
+            "name": "q",
+            "docs": [
+              "Shares outstanding per outcome, seed included. Never decreases."
+            ],
+            "type": {
+              "array": [
+                "u128",
+                32
+              ]
+            }
+          },
+          {
+            "name": "pot",
+            "docs": [
+              "USDC the pot owes to holders (fees excluded). Goes down only on redeem and sweep."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "MarketStatus"
+              }
+            }
+          },
+          {
+            "name": "winner",
+            "docs": [
+              "Winning outcome index, or 255 before resolution."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "payout_per_share",
+            "docs": [
+              "USDC per winning share, scaled 1e12. Set by resolve."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "final_prices",
+            "docs": [
+              "Void price per share for each outcome, scaled 1e12. Set by void."
+            ],
+            "type": {
+              "array": [
+                "u64",
+                32
+              ]
+            }
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "resolved_at",
+            "docs": [
+              "When the market was resolved or voided (0 before)."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "seed_usdc",
+            "type": "u64"
+          },
+          {
+            "name": "burned",
+            "docs": [
+              "Shares burned by redemptions, per outcome. mint supply + burned = q."
+            ],
+            "type": {
+              "array": [
+                "u64",
+                32
+              ]
+            }
+          },
+          {
+            "name": "mints_ready",
+            "docs": [
+              "Bit i is set once outcome i's mint exists."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "vault_bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "market_id",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "kind",
+            "type": {
+              "defined": {
+                "name": "MarketKind"
+              }
+            }
+          },
+          {
+            "name": "n_outcomes",
+            "type": "u8"
+          },
+          {
+            "name": "seed_usdc",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketKind",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Binary"
+          },
+          {
+            "name": "Multi"
+          },
+          {
+            "name": "Pair"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Open"
+          },
+          {
+            "name": "Halted"
+          },
+          {
+            "name": "Resolved"
+          },
+          {
+            "name": "Voided"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RedeemEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "holder",
+            "type": "pubkey"
+          },
+          {
+            "name": "outcome",
+            "type": "u8"
+          },
+          {
+            "name": "shares",
+            "type": "u64"
+          },
+          {
+            "name": "usdc_out",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ResolveEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "winner",
+            "type": "u8"
+          },
+          {
+            "name": "payout_per_share",
+            "docs": [
+              "USDC per winning share, scaled 1e12."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "pot",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "VoidEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "pot",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "constants": [
+    {
+      "name": "CONFIG_SEED",
+      "type": "bytes",
+      "value": "[99, 111, 110, 102, 105, 103]"
+    },
+    {
+      "name": "DECIMALS",
+      "docs": [
+        "Outcome shares and USDC both use 6 decimals."
+      ],
+      "type": "u8",
+      "value": "6"
+    },
+    {
+      "name": "MARKET_SEED",
+      "type": "bytes",
+      "value": "[109, 97, 114, 107, 101, 116]"
+    },
+    {
+      "name": "MAX_REF_LEN",
+      "docs": [
+        "Longest Gemini ticker stored on a market."
+      ],
+      "type": "u32",
+      "value": "64"
+    },
+    {
+      "name": "MINT_SEED",
+      "type": "bytes",
+      "value": "[109, 105, 110, 116]"
+    },
+    {
+      "name": "NO_WINNER",
+      "docs": [
+        "`Market.winner` before resolution."
+      ],
+      "type": "u8",
+      "value": "255"
+    },
+    {
+      "name": "SEED_SHARES_SEED",
+      "type": "bytes",
+      "value": "[115, 101, 101, 100, 95, 115, 104, 97, 114, 101, 115]"
+    },
+    {
+      "name": "SWEEP_DELAY_SECS",
+      "docs": [
+        "Unclaimed pot funds can be swept to the treasury this long after resolution."
+      ],
+      "type": "i64",
+      "value": "2592000"
+    },
+    {
+      "name": "TREASURY_SEED",
+      "type": "bytes",
+      "value": "[102, 101, 101, 115]"
+    },
+    {
+      "name": "VAULT_SEED",
+      "type": "bytes",
+      "value": "[118, 97, 117, 108, 116]"
+    }
+  ]
+}

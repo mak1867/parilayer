@@ -18,7 +18,8 @@ A full README (architecture, trust assumptions, prior art) lands with milestone 
 | Path | What |
 | --- | --- |
 | `crates/pmec-math` | Pure integer pool math and its property tests |
-| `programs/pmec` | The Anchor program (Solana devnet) |
+| `programs/pmec` | The Anchor program (Solana devnet) and its integration tests |
+| `idl/pmec.json` | The program's interface, for the TypeScript services |
 
 ## Run the tests
 
