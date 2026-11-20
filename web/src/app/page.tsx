@@ -19,8 +19,8 @@ export default function MarketsPage() {
         <div className="hero-inner">
           <h1 id="hero-h">Your call, locked in.</h1>
           <p>
-            Prediction markets on Solana, opened at Gemini’s odds. Whatever money comes in after you, a winning share still pays at
-            least 1 USDC. <Link href="/how-it-works">How it works</Link>
+            Parimutuel wagering markets on Solana, opened at Gemini’s odds. Each market is one shared pot, and whatever money comes in
+            after you, a winning share still pays at least 1 USDC. <Link href="/how-it-works">How it works</Link>
           </p>
         </div>
       </section>

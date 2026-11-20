@@ -1582,3 +1582,15 @@ table {
     padding: 0;
   }
 }
+
+.refs {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+.refs li + li {
+  margin-top: 0.6rem;
+}
+.refs cite,
+.prose-page cite {
+  font-style: italic;
+}
