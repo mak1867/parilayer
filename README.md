@@ -1,6 +1,6 @@
 # PariLayer
 
-A parimutuel wagering market on Solana devnet where **a share costs at most 1 USDC and a
+A dynamic parimutuel wagering market on Solana devnet where **a share costs at most 1 USDC and a
 winning share pays at least 1 USDC, whatever happens after you buy.**
 
 It prices outcomes with Pennock's dynamic parimutuel market maker (cost function
