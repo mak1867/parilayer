@@ -48,6 +48,15 @@ pub struct CreateMarket<'info> {
     pub system_program: Program<'info, System>,
 }
 
+/// `create_market` (oracle only). Creates a market and its pot vault, seeded
+/// from the treasury at Gemini's probabilities.
+/// Checks: outcome count and Gemini refs fit the kind (binary 2, multi 3-32,
+/// pair 4 with two refs); probabilities are each 0.5%-99.5% and sum to 100%;
+/// the seed is at least 1 USDC; the treasury can cover it.
+/// Moves: `seed_usdc` from the treasury vault to the pot vault, signed by the
+/// Config PDA. Formula: qᵢ = S·√πᵢ, which costs exactly C(q) = S (spec,
+/// Seeding). The market's address is a PDA of `market_id`, so the same Gemini
+/// refs can never create two markets. Invariant 2 is checked at the end.
 pub fn handle_create_market(
     ctx: Context<CreateMarket>,
     market_id: [u8; 32],
@@ -190,6 +199,11 @@ pub struct InitOutcomeMint<'info> {
     pub system_program: Program<'info, System>,
 }
 
+/// `init_outcome_mint` (oracle only). Creates outcome i's share mint (an SPL
+/// token, like one ERC-20 per outcome, with the Market PDA as mint authority)
+/// and mints its seed shares qᵢ into a treasury-owned account. Called in
+/// batches so a 32-outcome market fits in transaction limits; nobody can buy
+/// or sell until every mint exists. Invariant 3 is checked at the end.
 pub fn handle_init_outcome_mint(ctx: Context<InitOutcomeMint>, i: u8) -> Result<()> {
     let market = &ctx.accounts.market;
     require!(i < market.n_outcomes, ErrorCode::BadOutcome);
@@ -244,6 +258,10 @@ pub struct OracleMarket<'info> {
     pub market: Box<Account<'info, Market>>,
 }
 
+/// `halt` / `unhalt` (oracle only). Mirrors Gemini stopping or restarting
+/// trading on the event. Halted: no buys and no sells; resolve and void still
+/// work. Checks: the market is not settled, and is Open (to halt) or Halted
+/// (to unhalt). Moves: nothing.
 pub fn handle_set_halted(ctx: Context<OracleMarket>, halted: bool) -> Result<()> {
     let market_key = ctx.accounts.market.key();
     let market = &mut ctx.accounts.market;
@@ -268,6 +286,12 @@ pub fn handle_set_halted(ctx: Context<OracleMarket>, halted: bool) -> Result<()>
     Ok(())
 }
 
+/// `resolve(winner)` (oracle only). Records Gemini's result.
+/// Checks: not already settled, every mint exists, the winner index exists.
+/// Sets payout_per_share = floor(M × 1e12 / q_winner), which is at least 1 USDC
+/// because M ≥ C(q) ≥ q_winner (invariant 1). Checks invariant 4
+/// (payout_per_share × q_winner ≤ M) before saving. Moves: nothing; holders
+/// collect with `redeem`.
 pub fn handle_resolve(ctx: Context<OracleMarket>, winner: u8) -> Result<()> {
     let market_key = ctx.accounts.market.key();
     let market = &mut ctx.accounts.market;
@@ -302,6 +326,9 @@ pub fn handle_resolve(ctx: Context<OracleMarket>, winner: u8) -> Result<()> {
     Ok(())
 }
 
+/// `void` (oracle only). Gemini voided the event: every share of outcome i
+/// will redeem at its final pool price pᵢ = qᵢ / N (stored scaled by 1e12).
+/// Because Σ pᵢqᵢ = C(q) ≤ M, the pot covers every claim. Moves: nothing.
 pub fn handle_void(ctx: Context<OracleMarket>) -> Result<()> {
     let market_key = ctx.accounts.market.key();
     let market = &mut ctx.accounts.market;

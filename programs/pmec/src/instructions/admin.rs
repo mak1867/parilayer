@@ -31,6 +31,11 @@ pub struct Initialize<'info> {
     pub system_program: Program<'info, System>,
 }
 
+/// `initialize` (admin, once). Creates the Config account and the treasury
+/// vault, a USDC token account owned by the Config PDA.
+/// Checks: the collateral mint has 6 decimals; each fee is at most 10%.
+/// Moves: nothing. Solidity analogy: the constructor, except that on Solana the
+/// "storage" (Config) is a separate account created here and paid for (rent).
 pub fn handle_initialize(
     ctx: Context<Initialize>,
     oracle: Pubkey,
@@ -75,6 +80,9 @@ pub struct UpdateConfig<'info> {
     pub config: Box<Account<'info, Config>>,
 }
 
+/// `update_config` (admin only). Changes the oracle key and the two fees.
+/// Checks: the signer is Config.admin (`has_one = admin`, like `onlyOwner`);
+/// each fee is at most 10%. Moves: nothing.
 pub fn handle_update_config(
     ctx: Context<UpdateConfig>,
     oracle: Pubkey,

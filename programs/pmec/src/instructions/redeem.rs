@@ -64,6 +64,11 @@ pub struct Redeem<'info> {
     pub token_program: Program<'info, Token>,
 }
 
+/// `redeem` (any holder). After resolution or void, burns shares and pays USDC
+/// from the pot vault: amount × payout_per_share / 1e12 for winning shares, or
+/// the void price. Checks: the market is settled, the amount is not zero, and
+/// (when resolved) the outcome is the winner; losing shares pay nothing and
+/// cannot be redeemed. Rounds down. Invariants 2 and 3 are re-checked.
 pub fn handle_redeem(ctx: Context<Redeem>, outcome: u8, amount: u64) -> Result<()> {
     require!(amount > 0, ErrorCode::ZeroAmount);
     let market = &ctx.accounts.market;
@@ -163,6 +168,10 @@ pub struct RedeemSeed<'info> {
     pub token_program: Program<'info, Token>,
 }
 
+/// `redeem_seed` (anyone). Same payout rule as `redeem`, for the treasury's
+/// seed shares of one outcome: burns them and pays the treasury vault, so seed
+/// money comes home to fund future markets. A PDA cannot sign a normal redeem,
+/// which is why this separate, permissionless instruction exists.
 pub fn handle_redeem_seed(ctx: Context<RedeemSeed>, outcome: u8) -> Result<()> {
     let amount = ctx.accounts.seed_shares.amount;
     require!(amount > 0, ErrorCode::ZeroAmount);
@@ -256,6 +265,10 @@ pub struct SweepDust<'info> {
     pub token_program: Program<'info, Token>,
 }
 
+/// `sweep_dust` (admin only). Moves whatever is left in a settled market's pot
+/// (rounding dust, sell fees left behind, unclaimed winnings) to the treasury.
+/// Checks: every claim has been paid (all winning shares, or on void all
+/// shares, are burned) or 30 days have passed since settlement.
 pub fn handle_sweep_dust(ctx: Context<SweepDust>) -> Result<()> {
     let market = &ctx.accounts.market;
     require!(market.is_settled(), ErrorCode::MarketNotSettled);
