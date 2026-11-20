@@ -1,0 +1,120 @@
+{
+ "id": "475107",
+ "title": "Sacramento vs Los Angeles L",
+ "slug": "sacramento-vs-los-angeles-l",
+ "type": "categorical",
+ "category": "Sports",
+ "ticker": "NBA-2611210300-SAC-LAL-M",
+ "status": "active",
+ "createdAt": "2026-11-18T00:02:23.468Z",
+ "contracts": [
+  {
+   "id": "475107-1195326",
+   "label": "Los Angeles L",
+   "prices": {
+    "buy": {
+     "yes": "0.89",
+     "no": "0.12"
+    },
+    "sell": {
+     "yes": "0.88",
+     "no": "0.11"
+    },
+    "bestBid": "0.88",
+    "bestAsk": "0.89",
+    "lastTradePrice": "0.89"
+   },
+   "status": "active",
+   "createdAt": "2026-11-18T00:02:23.468Z",
+   "ticker": "LAL",
+   "instrumentSymbol": "GEMI-NBA-2611210300-SAC-LAL-M-LAL",
+   "marketState": "open",
+   "abbreviatedName": "LAL",
+   "expiryDate": "2026-11-22T15:00:00.000Z",
+   "effectiveDate": "2026-11-18T00:00:08.000Z",
+   "sortOrder": 2,
+   "sportsSide": "home",
+   "teamId": "583ecae2-fb46-11e1-82cb-f4ce4684ea4c",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "475107-1195265",
+   "label": "Sacramento",
+   "prices": {
+    "buy": {
+     "yes": "0.12",
+     "no": "0.89"
+    },
+    "sell": {
+     "yes": "0.11",
+     "no": "0.88"
+    },
+    "bestBid": "0.11",
+    "bestAsk": "0.12",
+    "lastTradePrice": "0.13"
+   },
+   "status": "active",
+   "createdAt": "2026-11-18T00:02:23.468Z",
+   "ticker": "SAC",
+   "instrumentSymbol": "GEMI-NBA-2611210300-SAC-LAL-M-SAC",
+   "marketState": "open",
+   "abbreviatedName": "SAC",
+   "expiryDate": "2026-11-22T15:00:00.000Z",
+   "effectiveDate": "2026-11-18T00:00:08.000Z",
+   "sortOrder": 1,
+   "sportsSide": "away",
+   "teamId": "583ed0ac-fb46-11e1-82cb-f4ce4684ea4c",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  }
+ ],
+ "effectiveDate": "2026-11-18T00:02:23.468Z",
+ "isLive": false,
+ "volume": "1965.36",
+ "volume24h": "1919.13",
+ "tags": [
+  "Pro Basketball"
+ ],
+ "expiryDate": "2026-11-22T15:00:00.000Z",
+ "startTime": "2026-11-21T03:00:00.000Z",
+ "subcategory": {
+  "id": 14,
+  "slug": "sports_basketball_pro-basketball",
+  "name": "Pro Basketball",
+  "path": [
+   "Sports",
+   "Basketball",
+   "Pro Basketball"
+  ]
+ },
+ "gameId": "7b06f295-a855-4103-9e2f-29fcef8f8e18",
+ "sourceDetails": {
+  "agency": "statscore-rest-api",
+  "index": "Basketball"
+ },
+ "volumeDelta24hPct": "4051.27",
+ "sportsMarket": {
+  "sport": "basketball",
+  "type": "moneyline",
+  "subject": "contest",
+  "scope": {
+   "type": "full_contest"
+  },
+  "team": {
+   "symbol": "LAL",
+   "name": "Los Angeles Lakers",
+   "externalIds": {
+    "sportradarId": "583ecae2-fb46-11e1-82cb-f4ce4684ea4c"
+   }
+  }
+ }
+}

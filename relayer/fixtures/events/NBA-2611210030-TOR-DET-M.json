@@ -1,0 +1,120 @@
+{
+ "id": "475075",
+ "title": "Toronto vs Detroit",
+ "slug": "toronto-vs-detroit",
+ "type": "categorical",
+ "category": "Sports",
+ "ticker": "NBA-2611210030-TOR-DET-M",
+ "status": "active",
+ "createdAt": "2026-11-18T00:01:24.210Z",
+ "contracts": [
+  {
+   "id": "475075-1195003",
+   "label": "Detroit",
+   "prices": {
+    "buy": {
+     "yes": "0.73",
+     "no": "0.28"
+    },
+    "sell": {
+     "yes": "0.72",
+     "no": "0.27"
+    },
+    "bestBid": "0.72",
+    "bestAsk": "0.73",
+    "lastTradePrice": "0.73"
+   },
+   "status": "active",
+   "createdAt": "2026-11-18T00:01:24.210Z",
+   "ticker": "DET",
+   "instrumentSymbol": "GEMI-NBA-2611210030-TOR-DET-M-DET",
+   "marketState": "open",
+   "abbreviatedName": "DET",
+   "expiryDate": "2026-11-22T12:30:00.000Z",
+   "effectiveDate": "2026-11-18T00:00:08.000Z",
+   "sortOrder": 2,
+   "sportsSide": "home",
+   "teamId": "583ec928-fb46-11e1-82cb-f4ce4684ea4c",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "475075-1194969",
+   "label": "Toronto",
+   "prices": {
+    "buy": {
+     "yes": "0.27",
+     "no": "0.74"
+    },
+    "sell": {
+     "yes": "0.26",
+     "no": "0.73"
+    },
+    "bestBid": "0.26",
+    "bestAsk": "0.27",
+    "lastTradePrice": "0.27"
+   },
+   "status": "active",
+   "createdAt": "2026-11-18T00:01:24.210Z",
+   "ticker": "TOR",
+   "instrumentSymbol": "GEMI-NBA-2611210030-TOR-DET-M-TOR",
+   "marketState": "open",
+   "abbreviatedName": "TOR",
+   "expiryDate": "2026-11-22T12:30:00.000Z",
+   "effectiveDate": "2026-11-18T00:00:08.000Z",
+   "sortOrder": 1,
+   "sportsSide": "away",
+   "teamId": "583ecda6-fb46-11e1-82cb-f4ce4684ea4c",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  }
+ ],
+ "effectiveDate": "2026-11-18T00:01:24.210Z",
+ "isLive": false,
+ "volume": "6914.45",
+ "volume24h": "6908.17",
+ "tags": [
+  "Pro Basketball"
+ ],
+ "expiryDate": "2026-11-22T12:30:00.000Z",
+ "startTime": "2026-11-21T00:30:00.000Z",
+ "subcategory": {
+  "id": 14,
+  "slug": "sports_basketball_pro-basketball",
+  "name": "Pro Basketball",
+  "path": [
+   "Sports",
+   "Basketball",
+   "Pro Basketball"
+  ]
+ },
+ "gameId": "8549d122-dcbb-44cb-a586-454f4857da49",
+ "sourceDetails": {
+  "agency": "statscore-rest-api",
+  "index": "Basketball"
+ },
+ "volumeDelta24hPct": "109902.71",
+ "sportsMarket": {
+  "sport": "basketball",
+  "type": "moneyline",
+  "subject": "contest",
+  "scope": {
+   "type": "full_contest"
+  },
+  "team": {
+   "symbol": "TOR",
+   "name": "Toronto Raptors",
+   "externalIds": {
+    "sportradarId": "583ecda6-fb46-11e1-82cb-f4ce4684ea4c"
+   }
+  }
+ }
+}

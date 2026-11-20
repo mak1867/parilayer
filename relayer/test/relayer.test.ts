@@ -263,8 +263,10 @@ describe("HTTP API", () => {
     expect((await app.inject("/config")).json()).toMatchObject({ poolFeeBps: 100, sellFeeBps: 50, seedUsdc: 500 });
     const markets = (await app.inject("/markets")).json() as { title: string; reference: { prices: number[] } }[];
     expect(markets).toHaveLength(4);
-    expect(markets[0]!.title).toMatch(/Republican Nominee/);
-    expect(markets[0]!.reference.prices.length).toBeGreaterThan(3);
+    // Markets created in the same millisecond have no fixed order; look it up.
+    const nominee = markets.find((m) => /Republican Nominee/.test(m.title));
+    expect(nominee).toBeDefined();
+    expect(nominee!.reference.prices.length).toBeGreaterThan(3);
   });
 
   it("GET /reference/:id returns Gemini's price per outcome", async () => {

@@ -1,0 +1,479 @@
+{
+ "id": "406715",
+ "title": "BTC price on November 30",
+ "slug": "btc-price-on-november-30",
+ "type": "categorical",
+ "category": "Crypto",
+ "ticker": "BTC2611302200",
+ "status": "active",
+ "createdAt": "2026-10-31T19:56:43.745Z",
+ "contracts": [
+  {
+   "id": "406715-1149698",
+   "label": "$57,500 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.84",
+     "no": "0.19"
+    },
+    "sell": {
+     "yes": "0.81",
+     "no": "0.16"
+    },
+    "bestBid": "0.81",
+    "bestAsk": "0.84",
+    "lastTradePrice": "0.83"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI57500",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI57500",
+   "marketState": "open",
+   "abbreviatedName": ">$57,500",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 11,
+   "strike": {
+    "type": "above",
+    "value": "57500"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-1144559",
+   "label": "$60,000 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.67",
+     "no": "0.34"
+    },
+    "sell": {
+     "yes": "0.66",
+     "no": "0.33"
+    },
+    "bestBid": "0.66",
+    "bestAsk": "0.67",
+    "lastTradePrice": "0.7"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI60000",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI60000",
+   "marketState": "open",
+   "abbreviatedName": ">$60,000",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 10,
+   "strike": {
+    "type": "above",
+    "value": "60000"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-1125738",
+   "label": "$62,500 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.45",
+     "no": "0.58"
+    },
+    "sell": {
+     "yes": "0.42",
+     "no": "0.55"
+    },
+    "bestBid": "0.42",
+    "bestAsk": "0.45",
+    "lastTradePrice": "0.5"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI62500",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI62500",
+   "marketState": "open",
+   "abbreviatedName": ">$62,500",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 9,
+   "strike": {
+    "type": "above",
+    "value": "62500"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-1111959",
+   "label": "$65,000 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.23",
+     "no": "0.79"
+    },
+    "sell": {
+     "yes": "0.21",
+     "no": "0.77"
+    },
+    "bestBid": "0.21",
+    "bestAsk": "0.23",
+    "lastTradePrice": "0.3"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI65000",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI65000",
+   "marketState": "open",
+   "abbreviatedName": ">$65,000",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 8,
+   "strike": {
+    "type": "above",
+    "value": "65000"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-946784",
+   "label": "$67,500 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.1",
+     "no": "0.92"
+    },
+    "sell": {
+     "yes": "0.08",
+     "no": "0.9"
+    },
+    "bestBid": "0.08",
+    "bestAsk": "0.1",
+    "lastTradePrice": "0.13"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI67500",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI67500",
+   "marketState": "open",
+   "abbreviatedName": ">$67,500",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 0,
+   "strike": {
+    "type": "above",
+    "value": "67500"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-946788",
+   "label": "$70,000 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.06",
+     "no": "0.98"
+    },
+    "sell": {
+     "yes": "0.02",
+     "no": "0.94"
+    },
+    "bestBid": "0.02",
+    "bestAsk": "0.06",
+    "lastTradePrice": "0.1"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI70000",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI70000",
+   "marketState": "open",
+   "abbreviatedName": ">$70,000",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 1,
+   "strike": {
+    "type": "above",
+    "value": "70000"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-946792",
+   "label": "$72,500 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.04",
+     "no": "0.99"
+    },
+    "sell": {
+     "yes": "0.01",
+     "no": "0.96"
+    },
+    "bestBid": "0.01",
+    "bestAsk": "0.04",
+    "lastTradePrice": "0.09"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI72500",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI72500",
+   "marketState": "open",
+   "abbreviatedName": ">$72,500",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 2,
+   "strike": {
+    "type": "above",
+    "value": "72500"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-946797",
+   "label": "$75,000 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.03",
+     "no": "0.94"
+    },
+    "sell": {
+     "yes": "0.06",
+     "no": "0.97"
+    },
+    "bestAsk": "0.03",
+    "lastTradePrice": "0.06"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI75000",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI75000",
+   "marketState": "open",
+   "abbreviatedName": ">$75,000",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 3,
+   "strike": {
+    "type": "above",
+    "value": "75000"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-946801",
+   "label": "$77,500 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.03",
+     "no": "0.99"
+    },
+    "sell": {
+     "yes": "0.01",
+     "no": "0.97"
+    },
+    "bestBid": "0.01",
+    "bestAsk": "0.03",
+    "lastTradePrice": "0.03"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI77500",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI77500",
+   "marketState": "open",
+   "abbreviatedName": ">$77,500",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 4,
+   "strike": {
+    "type": "above",
+    "value": "77500"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-946804",
+   "label": "$80,000 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.03",
+     "no": "0.98"
+    },
+    "sell": {
+     "yes": "0.02",
+     "no": "0.97"
+    },
+    "bestAsk": "0.03",
+    "lastTradePrice": "0.02"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI80000",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI80000",
+   "marketState": "open",
+   "abbreviatedName": ">$80,000",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 5,
+   "strike": {
+    "type": "above",
+    "value": "80000"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-946807",
+   "label": "$82,500 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.03",
+     "no": "0.99"
+    },
+    "sell": {
+     "yes": "0.01",
+     "no": "0.97"
+    },
+    "bestBid": "0.01",
+    "bestAsk": "0.03",
+    "lastTradePrice": "0.03"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI82500",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI82500",
+   "marketState": "open",
+   "abbreviatedName": ">$82,500",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 6,
+   "strike": {
+    "type": "above",
+    "value": "82500"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  },
+  {
+   "id": "406715-946812",
+   "label": "$85,000 or above",
+   "prices": {
+    "buy": {
+     "yes": "0.02",
+     "no": "0.99"
+    },
+    "sell": {
+     "yes": "0.01",
+     "no": "0.98"
+    },
+    "bestBid": "0.01",
+    "bestAsk": "0.02",
+    "lastTradePrice": "0.04"
+   },
+   "status": "active",
+   "createdAt": "2026-10-31T19:56:43.745Z",
+   "ticker": "HI85000",
+   "instrumentSymbol": "GEMI-BTC2611302200-HI85000",
+   "marketState": "open",
+   "abbreviatedName": ">$85,000",
+   "expiryDate": "2026-11-30T22:00:00.000Z",
+   "effectiveDate": "2026-10-31T21:00:00.000Z",
+   "sortOrder": 7,
+   "strike": {
+    "type": "above",
+    "value": "85000"
+   },
+   "source": "LS-LRRR-XBTUSD",
+   "isCombo": false,
+   "quantityIncrement": "0.01",
+   "quantityMinimum": "0.01",
+   "priceIncrement": "0.01",
+   "quoteAssetPrecision": 2,
+   "priceMinimum": "0.01"
+  }
+ ],
+ "effectiveDate": "2026-10-31T19:56:43.745Z",
+ "isLive": false,
+ "series": "BTC",
+ "volume": "98390.22",
+ "volume24h": "358",
+ "tags": [
+  "Bitcoin"
+ ],
+ "expiryDate": "2026-11-30T22:00:00.000Z",
+ "startTime": "2026-10-31T21:00:00.000Z",
+ "subcategory": {
+  "id": 32,
+  "slug": "crypto_bitcoin",
+  "name": "Bitcoin",
+  "path": [
+   "Crypto",
+   "Bitcoin"
+  ]
+ },
+ "source": "LS-LRRR-XBTUSD",
+ "sourceDetails": {
+  "agency": "lukka",
+  "index": "LS-LRRR-XBTUSD"
+ },
+ "volumeDelta24hPct": "-52.2"
+}
