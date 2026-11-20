@@ -9,8 +9,8 @@
  *   furthest below Gemini's, which is what an arbitrageur would do.
  * - Some buys are opinions: a random outcome weighted by Gemini's odds, 10-80 USDC.
  * - Sometimes a bot sells part of a position back to the pool.
- * - Gap-closing buys are 10-300 USDC with an occasional 500-1,500 USDC whale,
- *   capped at roughly what closes the gap, so big money pulls toward Gemini.
+ * - Gap-closing buys are sized to close about 60% of the gap (up to 5,000
+ *   USDC), so the pool converges toward Gemini without overshooting.
  *
  * Needs the relayer running (RELAYER_URL, default http://127.0.0.1:8787) and
  * the admin keypair, which funds the bots with SOL and mock USDC. Bot keys are
@@ -194,16 +194,25 @@ async function step(bot: Keypair, markets: MarketMeta[], usdcMint: PublicKey, fe
     if (outcome < 0) outcome = n - 1;
     why = "a hunch";
   }
-  // Opinions are small. Big money only follows a real gap, and only as much
-  // as closes about half of it, so whales pull the pool toward Gemini.
-  const arb = why !== "a hunch";
-  let size = Math.exp(rand(Math.log(10), Math.log(arb ? 300 : 80)));
-  if (arb && Math.random() < 0.15) size = rand(500, 1_500);
-  if (arb) {
-    const potUsdc = Number(m.pot) / Number(UNIT);
-    size = Math.min(size, Math.max(10, potUsdc * gaps[outcome]! * 1.2));
+  // Opinions are small (10-80 USDC). A gap-closing buy is sized exactly, by
+  // binary search on the real quote, to close about 60% of the gap, so the
+  // pool converges toward Gemini without overshooting.
+  let usdcIn: bigint;
+  if (why === "a hunch") {
+    usdcIn = BigInt(Math.round(Math.exp(rand(Math.log(10), Math.log(80))))) * UNIT;
+  } else {
+    const target = pool[outcome]! + 0.6 * gaps[outcome]!;
+    let lo = 1n;
+    let hi = 5_000n;
+    while (hi - lo > 1n) {
+      const mid = (lo + hi) / 2n;
+      const p = quoteBuy(m.q, m.pot, outcome, mid * UNIT, feeBuy).probAfterPpm / 1e6;
+      if (p <= target) lo = mid;
+      else hi = mid;
+    }
+    if (lo < 5n) return null;
+    usdcIn = lo * UNIT;
   }
-  const usdcIn = BigInt(Math.round(size)) * UNIT;
   const q = quoteBuy(m.q, m.pot, outcome, usdcIn, feeBuy);
   await send(
     await buyIxs(program, { buyer: bot.publicKey, market: m.address, usdcMint, outcome, usdcIn, minSharesOut: (q.shares * 97n) / 100n }),
