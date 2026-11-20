@@ -18,10 +18,15 @@ export default function MarketsPage() {
       <section className="hero-band" aria-labelledby="hero-h">
         <div className="hero-inner">
           <h1 id="hero-h">Your call stands.</h1>
+          <p>Parimutuel wagering markets on Solana, opened at Gemini’s odds.</p>
           <p>
-            Parimutuel wagering markets on Solana, opened at Gemini’s odds. Each market is one shared pot, and whatever money comes in
-            after you, a winning share still pays at least 1 USDC. <Link href="/how-it-works">How it works</Link>
+            In an ordinary pot, every dollar bet after you on the same side shrinks your winnings. Here, late money can only dilute
+            you down to a floor fixed when you buy: each winning share pays at least 1 USDC. Get in at 30% and that floor is about
+            1.8 times your stake.
           </p>
+          <Link href="/how-it-works" className="hero-more">
+            How the floor works
+          </Link>
         </div>
       </section>
 
