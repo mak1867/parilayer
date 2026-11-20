@@ -1,14 +1,14 @@
 {
   "pairs": [
     {
-      "a": { "event": "NBA-2611180030-NYK-TOR-M", "contract": "GEMI-NBA-2611180030-NYK-TOR-M-TOR" },
-      "b": { "event": "NBA-2611180100-POR-MIN-M", "contract": "GEMI-NBA-2611180100-POR-MIN-M-POR" },
-      "note": "Two underdogs on the same night. Gemini lists its own combo on these two legs."
+      "a": { "event": "NBA-2611210030-TOR-DET-M", "contract": "GEMI-NBA-2611210030-TOR-DET-M-TOR" },
+      "b": { "event": "NBA-2611210030-TOR-DET-T", "contract": "GEMI-NBA-2611210030-TOR-DET-T-O215" },
+      "note": "Same game: Toronto to beat Detroit, and more than 215.5 points scored. An upset by the underdog tends to come with a high-scoring game, so the legs are not independent."
     },
     {
-      "a": { "event": "NBA-2611180030-NYK-TOR-M", "contract": "GEMI-NBA-2611180030-NYK-TOR-M-TOR" },
-      "b": { "event": "NBA-2611180030-NYK-TOR-T", "contract": "GEMI-NBA-2611180030-NYK-TOR-T-O216" },
-      "note": "Same game: Toronto to win, and more than 216.5 points scored."
+      "a": { "event": "BTC2611302200", "contract": "GEMI-BTC2611302200-HI62500" },
+      "b": { "event": "SOL2611302200", "contract": "GEMI-SOL2611302200-HI75" },
+      "note": "BTC at or above $62,500 and SOL at or above $75 on November 30. The two prices move together, so Yes/Yes is likelier than the product of the legs."
     }
   ]
 }

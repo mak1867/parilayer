@@ -8,6 +8,7 @@
     "cli": "tsx src/cli.ts",
     "serve": "tsx src/cli.ts serve",
     "record-fixtures": "tsx scripts/record-fixtures.ts",
+    "demo": "tsx scripts/demo-activity.ts",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json"
   },

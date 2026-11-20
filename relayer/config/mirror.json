@@ -2,8 +2,11 @@
   "seedUsdc": 500,
   "markets": [
     { "kind": "multi", "event": "REPNOM2028" },
-    { "kind": "binary", "event": "BTC2611202200", "contract": "GEMI-BTC2611202200-HI65000" },
-    { "kind": "binary", "event": "NBA-2611180030-NYK-TOR-M", "contract": "GEMI-NBA-2611180030-NYK-TOR-M-TOR" },
-    { "kind": "binary", "event": "NBA-2611180100-POR-MIN-M", "contract": "GEMI-NBA-2611180100-POR-MIN-M-POR" }
+    { "kind": "binary", "event": "BTC2611302200", "contract": "GEMI-BTC2611302200-HI62500" },
+    { "kind": "binary", "event": "SOL2611302200", "contract": "GEMI-SOL2611302200-HI75" },
+    { "kind": "binary", "event": "NBA-2611210030-TOR-DET-M", "contract": "GEMI-NBA-2611210030-TOR-DET-M-TOR" },
+    { "kind": "binary", "event": "NBA-2611210030-TOR-DET-T", "contract": "GEMI-NBA-2611210030-TOR-DET-T-O215" },
+    { "kind": "binary", "event": "NBA-2611210300-SAC-LAL-M", "contract": "GEMI-NBA-2611210300-SAC-LAL-M-LAL" },
+    { "kind": "binary", "event": "BTC2611202200", "contract": "GEMI-BTC2611202200-HI65000" }
   ]
 }
