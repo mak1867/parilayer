@@ -10,6 +10,8 @@ const fromRoot = (p: string) => (isAbsolute(p) ? p : join(ROOT, p));
 
 export interface Config {
   rpcUrl: string;
+  /** Interface to listen on: 127.0.0.1 locally, 0.0.0.0 in a container. */
+  host: string;
   port: number;
   /** Serve Gemini data from recorded fixtures instead of the network. */
   mock: boolean;
@@ -42,7 +44,9 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
   };
   return {
     rpcUrl: env.SOLANA_RPC_URL || "https://api.devnet.solana.com",
-    port: num("RELAYER_PORT", 8787),
+    host: env.RELAYER_HOST || "127.0.0.1",
+    // Hosts such as Render and Fly pass the port in PORT.
+    port: num("RELAYER_PORT", num("PORT", 8787)),
     mock: env.GEMINI_MOCK === "1" || env.GEMINI_MOCK === "true",
     fixturesDir: fromRoot(env.GEMINI_FIXTURES_DIR || "relayer/fixtures"),
     dataDir: fromRoot(env.RELAYER_DATA_DIR || "relayer/data"),

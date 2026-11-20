@@ -1,0 +1,13 @@
+**/node_modules
+target
+.git
+.local-ledger
+keys
+.env
+.env.*
+web
+rfq
+programs
+crates
+relayer/data
+relayer/data-local

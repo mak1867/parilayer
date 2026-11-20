@@ -35,3 +35,6 @@ rfq/data/
 relayer/data-local/
 rfq/data-local/
 next-env.d.ts
+.vercel
+.env*
+relayer/deploy/seed/*.sqlite

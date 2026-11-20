@@ -170,8 +170,8 @@ async function serve(cfg: Config) {
       gemini: source,
     },
   });
-  await app.listen({ port: cfg.port, host: "127.0.0.1" });
-  log(`relayer listening on http://127.0.0.1:${cfg.port}  (Gemini: ${cfg.mock ? "MOCK fixtures" : "live"}, RPC: ${cfg.rpcUrl})`);
+  await app.listen({ port: cfg.port, host: cfg.host });
+  log(`relayer listening on http://${cfg.host}:${cfg.port}  (Gemini: ${cfg.mock ? "MOCK fixtures" : "live"}, RPC: ${cfg.rpcUrl})`);
   relayer.start(cfg.referencePollMs, cfg.settlementPollMs);
   const indexer = new Indexer(chain.connection, store, log);
   indexer.start(cfg.indexerPollMs);
