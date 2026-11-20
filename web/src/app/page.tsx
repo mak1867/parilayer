@@ -17,7 +17,7 @@ export default function MarketsPage() {
     <>
       <section className="hero-band" aria-labelledby="hero-h">
         <div className="hero-inner">
-          <h1 id="hero-h">Your call, locked in.</h1>
+          <h1 id="hero-h">Your call stands.</h1>
           <p>
             Parimutuel wagering markets on Solana, opened at Gemini’s odds. Each market is one shared pot, and whatever money comes in
             after you, a winning share still pays at least 1 USDC. <Link href="/how-it-works">How it works</Link>

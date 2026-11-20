@@ -1,6 +1,6 @@
-//! Integration tests for selling back to the pool (spec: Testing, "Selling",
-//! and milestone M4: "a wallet can buy, sell back, and the round-trip cost
-//! equals the two fees").
+//! Integration tests for selling back to the pool: the round trip costs
+//! exactly the two fees, every rejection, a fresh payout address, and random
+//! buys and sells keeping the invariants on-chain.
 
 mod common;
 

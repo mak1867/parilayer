@@ -1,4 +1,4 @@
-//! The floor simulation (spec deliverable 5): what happens to an early buyer
+//! The floor simulation: what happens to an early buyer
 //! when late money floods the outcome they bet on, in a plain parimutuel pot
 //! versus this pool (n = 2 dynamic parimutuel, C(q) = ||q||).
 //!

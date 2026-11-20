@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <main id="main">{children}</main>
           <footer className="site-footer">
             <p>
-              PariLayer runs on Solana devnet with play money. Markets are seeded at Gemini Predictions prices and settled on
+              PariLayer runs on Solana devnet with test USDC. Markets are seeded at Gemini Predictions prices and settled on
               Gemini’s resolutions by a trusted relayer. Built for UBC 2026.
             </p>
           </footer>

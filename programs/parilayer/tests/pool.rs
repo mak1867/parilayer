@@ -1,5 +1,6 @@
-//! Integration tests for the pool program: the paths listed in the build spec
-//! under "Program (Anchor integration tests)", plus the edges around them.
+//! Integration tests for the pool program, run in LiteSVM: create, buy,
+//! resolve, void and redeem, oracle and admin permissions, halts, slippage,
+//! a full 32-outcome market, and random buys checked against the math.
 
 mod common;
 

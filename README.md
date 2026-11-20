@@ -12,7 +12,7 @@ Built for UBC 2026, Track 02 (DeFi & Onchain Apps).
 
 - **Try it:** https://parilayer.vercel.app (relayer API: https://parilayer-relayer.fly.dev). Pick "Burner wallet" (no install), then "Get test USDC" in the wallet menu.
 - **How the guarantee works:** the How it works page, or [PROGRAM_WALKTHROUGH.md](PROGRAM_WALKTHROUGH.md) for the program itself.
-- **Build log and every decision:** [PROGRESS.md](PROGRESS.md).
+- **Tests:** the program re-checks its invariants on-chain after every trade, and property tests run thousands of random trades against them; [PROGRAM_WALKTHROUGH.md](PROGRAM_WALKTHROUGH.md) maps each one to its tests.
 
 ## What it does
 
@@ -70,7 +70,7 @@ the program, and every trade is signed by the trader's own wallet.
 - **The relayer is a trusted oracle.** Its key creates markets at Gemini's prices, halts trading when Gemini does, and posts Gemini's results. A dishonest relayer could post a wrong result. It cannot move anyone's funds: no instruction lets the oracle withdraw from a pot. Every result it posts is logged with the full Gemini response and its SHA-256 (`relayer/data/audit.jsonl`).
 - **The admin key** can change the oracle and the fees (each capped at 10%), and can sweep a settled market's leftover dust to the treasury after every claim is paid or after 30 days.
 - **Devnet only.** USDC here is a mock 6-decimal token minted by the admin for testing; it has no value.
-- **Gemini is the source of truth** for prices at creation and for results. Where Gemini's docs are silent (voids, mutually exclusive events) the rules used are written down in PROGRESS.md (decisions D3 to D6).
+- **Gemini is the source of truth** for prices at creation and for results. Where Gemini's docs are silent, two rules apply. An event becomes one multi-outcome market only when it is configured as mutually exclusive and its Yes prices sum to about 100%; otherwise each contract is its own yes/no market. A contract Gemini marks `invalid`, or settles without a side, is treated as void, and every share redeems at its final pool price.
 
 ## Run it locally
 
@@ -94,7 +94,7 @@ generates realistic trading activity with a few bot wallets.
 ## Hosting
 
 - **Frontend:** Vercel project `parilayer`, root directory `web/`. Deploy with `vercel deploy --prod` from the repo root (`.vercelignore` keeps keys and local data out of the upload). Public settings only: `NEXT_PUBLIC_RPC_URL`, `NEXT_PUBLIC_RELAYER_URL`.
-- **Relayer:** Fly.io app `parilayer-relayer` (`fly.toml`, `relayer/deploy/`), always on, with a 1 GB volume for its database. The oracle and admin keys are Fly secrets. Deploy with `flyctl deploy --remote-only`.
+- **Relayer:** Fly.io app `parilayer-relayer` (`fly.toml`, `relayer/deploy/`), with a 1 GB volume for its database. The oracle and admin keys are Fly secrets, never files in the image. Deploy with `flyctl deploy --remote-only`.
 
 ## Devnet
 

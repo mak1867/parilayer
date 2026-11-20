@@ -55,7 +55,7 @@ describe("mirror", () => {
       const meta = store.getMarket(r.idHex)!;
       expect(meta.outcomes).toHaveLength(m.n);
       expect(meta.address).toBe(m.address.toBase58());
-      // The M2 acceptance check: opening pool probabilities match Gemini within 0.5 points.
+      // Opening pool probabilities must match Gemini within 0.5 points.
       r.plan.geminiProbs.forEach((g, i) => {
         expect(Math.abs(probPpm(m.q, i) / PPM - g)).toBeLessThan(0.005);
       });

@@ -94,7 +94,7 @@ That is what keeps invariant 1 true after every instruction.
 | 3. Mint supply + burned = qᵢ | No share exists that the math does not know about | after every mint or burn | `Env::assert_invariants`; the random-trade tests |
 | 4. payout_per_share × q_winner ≤ M | Resolution never promises more than the pot | `resolve` | `create_buy_resolve_redeem`; the payout checks at the end of the property tests |
 
-Other properties from the spec and where they are tested:
+Other properties and where they are tested:
 
 | Property | Tests |
 | --- | --- |

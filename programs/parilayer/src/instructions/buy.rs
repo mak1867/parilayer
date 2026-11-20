@@ -50,8 +50,8 @@ pub struct Buy<'info> {
 /// shares minted are at least `min_shares_out` (slippage protection).
 /// Moves: the fee (1% by default, rounded up) from the buyer to the treasury
 /// vault; the rest into the pot vault; mints Δ new shares to `recipient_shares`.
-/// Formula: Δ = sqrt((N + X)² − (N² − qᵢ²)) − qᵢ, rounded down (spec, Core
-/// mechanism). Invariants re-checked after the transfers: 1 (inside pool.buy),
+/// Formula: Δ = sqrt((N + X)² − (N² − qᵢ²)) − qᵢ, rounded down (see
+/// PROGRAM_WALKTHROUGH.md, "The math"). Invariants re-checked after the transfers: 1 (inside pool.buy),
 /// 2 (pot vault covers the pot) and 3 (mint supply + burned = qᵢ).
 pub fn handle_buy(ctx: Context<Buy>, outcome: u8, usdc_in: u64, min_shares_out: u64) -> Result<()> {
     let market = &ctx.accounts.market;

@@ -2,7 +2,7 @@
 //!
 //! In plain English: the pool runs its buy formula backwards. The seller burns
 //! `shares` of one outcome and gets back what those shares added to the cost
-//! function, `R = C(q) - C(q')` (spec, Core mechanism, "Exits"), minus a sell
+//! function, `R = C(q) - C(q')` (PROGRAM_WALKTHROUGH.md, "The math"), minus a sell
 //! fee. The fee is NOT sent anywhere: it stays in the pot, so the remaining
 //! holders are paid for the seller leaving.
 //!
@@ -66,9 +66,9 @@ pub struct Sell<'info> {
 pub fn handle_sell(ctx: Context<Sell>, outcome: u8, shares: u64, min_usdc_out: u64) -> Result<()> {
     let market = &ctx.accounts.market;
 
-    // Checks. Sells only while Open: never once Halted, Resolved or Voided
-    // (spec, Exits). A halt mirrors Gemini stopping trading, which is exactly
-    // when a late seller could otherwise front-run the result.
+    // Checks. Sells only while Open: never once Halted, Resolved or Voided.
+    // A halt mirrors Gemini stopping trading, which is exactly when a late
+    // seller could otherwise front-run the result.
     require!(market.status == MarketStatus::Open, ErrorCode::MarketNotOpen);
     require!(market.all_mints_ready(), ErrorCode::MintsNotReady);
     require!(outcome < market.n_outcomes, ErrorCode::BadOutcome);

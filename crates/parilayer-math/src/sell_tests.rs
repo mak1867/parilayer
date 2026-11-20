@@ -1,4 +1,4 @@
-//! Tests for selling back to the pool. These are the spec's "Selling" tests:
+//! Tests for selling back to the pool:
 //! a buy followed by an immediate sell of the same shares returns the cost
 //! minus both fees; random buy/sell sequences keep every invariant; sells
 //! below the seed are rejected; rounding never favours the seller.

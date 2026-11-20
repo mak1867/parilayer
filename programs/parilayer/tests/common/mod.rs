@@ -515,7 +515,7 @@ impl Env {
         (shares_acct, self.balance(shares_acct))
     }
 
-    /// Checks invariants 1-3 from the spec against the real token accounts, plus
+    /// Checks invariants 1-3 (PROGRAM_WALKTHROUGH.md) against the real token accounts, plus
     /// the treasury identity (invariant 2, second half).
     pub fn assert_invariants(&self, market: Pubkey) {
         let m = self.market(market);

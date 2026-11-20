@@ -54,8 +54,7 @@ pub struct CreateMarket<'info> {
 /// pair 4 with two refs); probabilities are each 0.5%-99.5% and sum to 100%;
 /// the seed is at least 1 USDC; the treasury can cover it.
 /// Moves: `seed_usdc` from the treasury vault to the pot vault, signed by the
-/// Config PDA. Formula: qᵢ = S·√πᵢ, which costs exactly C(q) = S (spec,
-/// Seeding). The market's address is a PDA of `market_id`, so the same Gemini
+/// Config PDA. Formula: qᵢ = S·√πᵢ, which costs exactly C(q) = S. The market's address is a PDA of `market_id`, so the same Gemini
 /// refs can never create two markets. Invariant 2 is checked at the end.
 pub fn handle_create_market(
     ctx: Context<CreateMarket>,

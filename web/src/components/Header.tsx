@@ -96,7 +96,7 @@ function WalletMenu() {
             <button role="menuitem" className="menu-item" onClick={getUsdc} disabled={faucet.busy}>
               <span>
                 {faucet.busy ? "Sending…" : `Get ${config.faucet.usdc.toLocaleString()} test USDC`}
-                <small>Devnet play money, once an hour per wallet.</small>
+                <small>Devnet test USDC, once an hour per wallet.</small>
               </span>
             </button>
           )}
@@ -149,9 +149,9 @@ export function Header() {
         <WalletMenu />
       </div>
       <div className="notice-bar">
-        Solana devnet. Play money only.
+        Running on Solana devnet.
         {config?.mock && " Gemini prices are recorded samples (offline mode)."}
-        {relayerError && <strong> Cannot reach the relayer, so market names and Gemini prices are unavailable.</strong>}
+        {relayerError && <strong> The market service is not reachable, so market names and Gemini prices are unavailable.</strong>}
       </div>
     </header>
   );

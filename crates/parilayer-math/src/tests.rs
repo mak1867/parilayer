@@ -1,5 +1,6 @@
-//! Unit and property tests for the pool math. These are the tests the build
-//! spec lists under "Program (Rust unit and property tests)".
+//! Unit and property tests for the pool math: the closed-form buy, seeding,
+//! rounding, and invariants 1-4 under 1,000 random buys (PROGRAM_WALKTHROUGH.md
+//! maps each invariant to its tests).
 
 use super::*;
 use proptest::prelude::*;
