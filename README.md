@@ -10,7 +10,7 @@ market is open.
 
 Built for UBC 2026, Track 02 (DeFi & Onchain Apps).
 
-- **Try it:** _live link added at deploy_. Pick "Burner wallet" (no install), then "Get test USDC" in the wallet menu.
+- **Try it:** https://pmec-exchange.vercel.app (relayer API: https://pmec-relayer.fly.dev). Pick "Burner wallet" (no install), then "Get test USDC" in the wallet menu.
 - **How the guarantee works:** the How it works page, or [PROGRAM_WALKTHROUGH.md](PROGRAM_WALKTHROUGH.md) for the program itself.
 - **Build log and every decision:** [PROGRESS.md](PROGRESS.md).
 
@@ -90,6 +90,11 @@ NEXT_PUBLIC_RPC_URL=http://127.0.0.1:8899 npm run dev -w web     # http://localh
 
 Keys live in `keys/` (git-ignored) and are loaded by path. `npm run demo -w relayer`
 generates realistic trading activity with a few bot wallets.
+
+## Hosting
+
+- **Frontend:** Vercel project `pmec-exchange`, root directory `web/`. Deploy with `vercel deploy --prod` from the repo root (`.vercelignore` keeps keys and local data out of the upload). Public settings only: `NEXT_PUBLIC_RPC_URL`, `NEXT_PUBLIC_RELAYER_URL`.
+- **Relayer:** Fly.io app `pmec-relayer` (`fly.toml`, `relayer/deploy/`), always on, with a 1 GB volume for its database. The oracle and admin keys are Fly secrets. Deploy with `flyctl deploy --remote-only`.
 
 ## Devnet
 

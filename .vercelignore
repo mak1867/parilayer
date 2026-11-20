@@ -1,0 +1,13 @@
+# Never upload keys, local chains, build output or local data.
+keys
+.local-ledger
+target
+**/node_modules
+.env
+.env.*
+relayer/data
+relayer/data-local
+relayer/deploy/seed
+rfq/data-local
+programs
+crates
