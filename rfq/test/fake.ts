@@ -1,5 +1,5 @@
 import { ed25519 } from "@noble/curves/ed25519";
-import { type RfqServerMsg, UNIT, ata, rfqHelloMessage, rfqQuoterMessage } from "@pmec/sdk";
+import { type RfqServerMsg, UNIT, ata, rfqHelloMessage, rfqQuoterMessage } from "@parilayer/sdk";
 import { TOKEN_PROGRAM_ID, decodeTransferCheckedInstruction } from "@solana/spl-token";
 import { Keypair, PublicKey, Transaction } from "@solana/web3.js";
 import type { MarketInfo, Outbox, RfqChain } from "../src/engine";

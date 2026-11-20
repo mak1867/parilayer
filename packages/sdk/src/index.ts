@@ -5,5 +5,5 @@ export * from "./marketId";
 export * from "./pda";
 export * from "./client";
 export * from "./rfq";
-export type { Pmec } from "./idl/pmec";
-export { default as IDL } from "./idl/pmec.json";
+export type { Parilayer } from "./idl/parilayer";
+export { default as IDL } from "./idl/parilayer.json";

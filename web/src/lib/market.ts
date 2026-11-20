@@ -1,4 +1,4 @@
-import { type MarketState, PPM, payoutRateE12, priceE6, probPpm } from "@pmec/sdk";
+import { type MarketState, PPM, payoutRateE12, priceE6, probPpm } from "@parilayer/sdk";
 import type { MarketView } from "./data";
 
 /** Pool implied probability of outcome i, 0..1. */
@@ -40,3 +40,40 @@ export function statusLabel(v: MarketView): string {
   if (c.status === "voided") return "Voided";
   return c.winner !== null ? `Resolved: ${v.meta.outcomes[c.winner] ?? "?"}` : "Resolved";
 }
+
+/** A Gemini-style title split into the event (small) and what is being asked (large). */
+export interface TitleParts {
+  /** The event, shown small above. Null when there is none to show. */
+  event: string | null;
+  /** One line per question: one for a market, two (one per leg) for a pair. */
+  lines: string[];
+}
+
+function splitOne(title: string): { event: string | null; name: string } {
+  const i = title.indexOf(": ");
+  return i > 0 ? { event: title.slice(0, i), name: title.slice(i + 2) } : { event: null, name: title };
+}
+
+/**
+ * "Toronto vs Detroit: Toronto" -> event "Toronto vs Detroit", line "Toronto".
+ * A pair of legs from the same event keeps the event once; a pair across
+ * events shows each leg in full.
+ */
+export function titleParts(title: string, kind: string): TitleParts {
+  if (kind === "pair") {
+    const legs = title.split(" × ").map(splitOne);
+    if (legs.length === 2 && legs[0]!.event && legs[0]!.event === legs[1]!.event) {
+      return { event: legs[0]!.event, lines: legs.map((l) => l.name) };
+    }
+    return { event: null, lines: title.split(" × ") };
+  }
+  const { event, name } = splitOne(title);
+  return { event, lines: [name] };
+}
+
+/** Board sections, in display order. Pairs get their own section. */
+export function boardGroup(v: MarketView): string {
+  if (v.meta.kind === "pair") return "Pairs";
+  return v.meta.category || "Other";
+}
+export const GROUP_ORDER = ["Crypto", "Sports", "Politics", "Pairs"];

@@ -1,12 +1,12 @@
 "use client";
 
-import { UNIT, payoutRateE12, quoteBuy, redeemValue, seedShares, splitFee } from "@pmec/sdk";
+import { UNIT, payoutRateE12, quoteBuy, redeemValue, seedShares, splitFee } from "@parilayer/sdk";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 /**
  * The floor chart: an early buyer's return if their outcome wins, as late money
  * floods that same outcome. Plain parimutuel versus this pool, computed with the
- * same integer math the program runs (crates/pmec-math/examples/simulate.rs
+ * same integer math the program runs (crates/parilayer-math/examples/simulate.rs
  * prints the identical table).
  */
 

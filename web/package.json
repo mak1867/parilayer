@@ -1,5 +1,5 @@
 {
-  "name": "@pmec/web",
+  "name": "@parilayer/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@noble/curves": "^1.9.0",
-    "@pmec/sdk": "*",
+    "@parilayer/sdk": "*",
     "@solana/spl-token": "^0.4.15",
     "@solana/wallet-adapter-base": "^0.9.27",
     "@solana/wallet-adapter-react": "^0.15.40",

@@ -1,4 +1,4 @@
-import type { RfqClientMsg, RfqServerMsg } from "@pmec/sdk";
+import type { RfqClientMsg, RfqServerMsg } from "@parilayer/sdk";
 import WebSocket from "ws";
 
 /** A WebSocket client that remembers what it received and can wait for a message type. */

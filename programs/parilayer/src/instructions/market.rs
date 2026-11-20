@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Mint, MintTo, Token, TokenAccount, TransferChecked};
-use pmec_math::Pool;
+use parilayer_math::Pool;
 
 use crate::{
     constants::*,
@@ -308,7 +308,7 @@ pub fn handle_resolve(ctx: Context<OracleMarket>, winner: u8) -> Result<()> {
     require!(
         rate.checked_mul(market.q[winner as usize])
             .ok_or(ErrorCode::Overflow)?
-            <= (market.pot as u128) * pmec_math::RATE_SCALE,
+            <= (market.pot as u128) * parilayer_math::RATE_SCALE,
         ErrorCode::InvariantPayoutAbovePot
     );
 

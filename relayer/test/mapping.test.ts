@@ -1,4 +1,4 @@
-import { PPM, validateProbs } from "@pmec/sdk";
+import { PPM, validateProbs } from "@parilayer/sdk";
 import { describe, expect, it } from "vitest";
 import {
   OTHER_LABEL,

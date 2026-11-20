@@ -5,8 +5,8 @@ mod common;
 
 use {
     common::*,
-    pmec::state::{MarketKind, MarketStatus},
-    pmec_math::{redeem_value, Pool, RATE_SCALE},
+    parilayer::state::{MarketKind, MarketStatus},
+    parilayer_math::{redeem_value, Pool, RATE_SCALE},
     solana_signer::Signer,
 };
 
@@ -37,7 +37,7 @@ fn create_buy_resolve_redeem() {
     assert_eq!(m.n_outcomes, 2);
     assert_eq!(m.q, model.q);
     assert_eq!(m.pot, SEED);
-    assert_eq!(m.winner, pmec::constants::NO_WINNER);
+    assert_eq!(m.winner, parilayer::constants::NO_WINNER);
     assert_eq!(env.balance(env.treasury), TREASURY_FUNDING - SEED);
     for i in 0..2u8 {
         assert_eq!(
@@ -227,7 +227,7 @@ fn void_path() {
     let admin = env.admin.insecure_clone();
     let ix = env.sweep_ix(admin.pubkey(), market);
     fails_with(env.send(&[ix], &admin, &[]), "SweepTooEarly");
-    env.warp_seconds(pmec::constants::SWEEP_DELAY_SECS - 10);
+    env.warp_seconds(parilayer::constants::SWEEP_DELAY_SECS - 10);
     let ix = env.sweep_ix(admin.pubkey(), market);
     fails_with(env.send(&[ix], &admin, &[]), "SweepTooEarly");
     env.warp_seconds(20);
@@ -271,14 +271,14 @@ fn only_the_oracle_can_resolve_void_or_halt() {
 
     // Config changes are admin-only.
     let ix = anchor_lang::solana_program::instruction::Instruction::new_with_bytes(
-        pmec::id(),
-        &anchor_lang::InstructionData::data(&pmec::instruction::UpdateConfig {
+        parilayer::id(),
+        &anchor_lang::InstructionData::data(&parilayer::instruction::UpdateConfig {
             oracle: mallory.pubkey(),
             pool_fee_bps: 0,
             sell_fee_bps: 0,
         }),
         anchor_lang::ToAccountMetas::to_account_metas(
-            &pmec::accounts::UpdateConfig {
+            &parilayer::accounts::UpdateConfig {
                 admin: mallory.pubkey(),
                 config: env.config,
             },
@@ -458,7 +458,7 @@ fn create_market_validation() {
     assert_eq!(m.kind, MarketKind::Pair);
     assert_eq!(m.gemini_refs.len(), 2);
     for i in 0..4 {
-        let got = pmec_math::prob_ppm(&m.q[..4], i).unwrap() as i64;
+        let got = parilayer_math::prob_ppm(&m.q[..4], i).unwrap() as i64;
         assert!((got - probs[i] as i64).abs() <= 1_000, "seed reproduces the probability");
     }
     // The same market id cannot be created twice.

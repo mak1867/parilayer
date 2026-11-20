@@ -1,7 +1,7 @@
 import { mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { DatabaseSync } from "node:sqlite";
-import type { RfqFill } from "@pmec/sdk";
+import type { RfqFill } from "@parilayer/sdk";
 
 export interface RfqRow {
   id: string;

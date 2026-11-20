@@ -2,15 +2,15 @@
  * Program IDL in camelCase format in order to be used in JS/TS.
  *
  * Note that this is only a type helper and is not the actual IDL. The original
- * IDL can be found at `target/idl/pmec.json`.
+ * IDL can be found at `target/idl/parilayer.json`.
  */
-export type Pmec = {
+export type Parilayer = {
   "address": "13ZEq3jQvpn1r9KyaS9NK9HGoqZrHf6BJtwMyEbXbPtJ",
   "metadata": {
-    "name": "pmec",
+    "name": "parilayer",
     "version": "0.1.0",
     "spec": "0.1.0",
-    "description": "PMEC Exchange: dynamic parimutuel prediction markets (C(q) = ||q||_2)"
+    "description": "PariLayer: dynamic parimutuel prediction markets (C(q) = ||q||_2)"
   },
   "instructions": [
     {

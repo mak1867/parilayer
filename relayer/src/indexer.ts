@@ -1,5 +1,5 @@
 import { EventParser } from "@anchor-lang/core";
-import { PROGRAM_ID, getProgram } from "@pmec/sdk";
+import { PROGRAM_ID, getProgram } from "@parilayer/sdk";
 import { Connection } from "@solana/web3.js";
 import type { PoolTrade, Store } from "./store";
 

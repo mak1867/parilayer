@@ -1,5 +1,5 @@
 import { PublicKey } from "@solana/web3.js";
-import idl from "./idl/pmec.json";
+import idl from "./idl/parilayer.json";
 
 /** The deployed program. Comes from the IDL so there is one source of truth. */
 export const PROGRAM_ID = new PublicKey(idl.address);

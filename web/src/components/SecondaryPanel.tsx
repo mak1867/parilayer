@@ -1,6 +1,6 @@
 "use client";
 
-import { UNIT, outcomeMintPda, priceE6, secondaryFee, swapValue } from "@pmec/sdk";
+import { UNIT, outcomeMintPda, priceE6, secondaryFee, swapValue } from "@parilayer/sdk";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { PublicKey } from "@solana/web3.js";
 import { useEffect, useState } from "react";

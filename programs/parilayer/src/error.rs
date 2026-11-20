@@ -1,5 +1,5 @@
 use anchor_lang::prelude::*;
-use pmec_math::MathError;
+use parilayer_math::MathError;
 
 #[error_code]
 pub enum ErrorCode {

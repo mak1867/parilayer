@@ -1,6 +1,6 @@
 "use client";
 
-import { type MarketState, outcomeMintPda, payoutRateE12, redeemIxs, redeemValue } from "@pmec/sdk";
+import { type MarketState, outcomeMintPda, payoutRateE12, redeemIxs, redeemValue } from "@parilayer/sdk";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";

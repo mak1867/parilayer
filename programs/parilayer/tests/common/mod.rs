@@ -10,7 +10,7 @@ use {
         AccountDeserialize, InstructionData, ToAccountMetas,
     },
     litesvm::{types::TransactionResult, LiteSVM},
-    pmec::state::{Config, Market, MarketKind},
+    parilayer::state::{Config, Market, MarketKind},
     solana_account::Account as SolAccount,
     solana_keypair::Keypair,
     solana_message::{Message, VersionedMessage},
@@ -61,8 +61,8 @@ impl Env {
 
     pub fn with_usdc_decimals(decimals: u8) -> Result<Self, String> {
         let mut svm = LiteSVM::new();
-        let bytes = include_bytes!(concat!(env!("CARGO_TARGET_TMPDIR"), "/../deploy/pmec.so"));
-        svm.add_program(pmec::id(), bytes).unwrap();
+        let bytes = include_bytes!(concat!(env!("CARGO_TARGET_TMPDIR"), "/../deploy/parilayer.so"));
+        svm.add_program(parilayer::id(), bytes).unwrap();
 
         let admin = Keypair::new();
         let oracle = Keypair::new();
@@ -70,9 +70,9 @@ impl Env {
         svm.airdrop(&oracle.pubkey(), 100_000_000_000).unwrap();
 
         let usdc_mint = Pubkey::new_unique();
-        let config = Pubkey::find_program_address(&[pmec::constants::CONFIG_SEED], &pmec::id()).0;
+        let config = Pubkey::find_program_address(&[parilayer::constants::CONFIG_SEED], &parilayer::id()).0;
         let treasury =
-            Pubkey::find_program_address(&[pmec::constants::TREASURY_SEED], &pmec::id()).0;
+            Pubkey::find_program_address(&[parilayer::constants::TREASURY_SEED], &parilayer::id()).0;
 
         let mut env = Env {
             svm,
@@ -86,14 +86,14 @@ impl Env {
         env.put_account(usdc_mint, mint_data(&admin_key, 0, decimals));
 
         let ix = Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::Initialize {
+            parilayer::id(),
+            &parilayer::instruction::Initialize {
                 oracle: env.oracle.pubkey(),
                 pool_fee_bps: POOL_FEE_BPS,
                 sell_fee_bps: SELL_FEE_BPS,
             }
             .data(),
-            pmec::accounts::Initialize {
+            parilayer::accounts::Initialize {
                 admin: admin_key,
                 config,
                 usdc_mint,
@@ -204,26 +204,26 @@ impl Env {
     // ---------- addresses ----------
 
     pub fn market_pda(id: [u8; 32]) -> Pubkey {
-        Pubkey::find_program_address(&[pmec::constants::MARKET_SEED, &id], &pmec::id()).0
+        Pubkey::find_program_address(&[parilayer::constants::MARKET_SEED, &id], &parilayer::id()).0
     }
 
     pub fn vault_pda(market: Pubkey) -> Pubkey {
-        Pubkey::find_program_address(&[pmec::constants::VAULT_SEED, market.as_ref()], &pmec::id())
+        Pubkey::find_program_address(&[parilayer::constants::VAULT_SEED, market.as_ref()], &parilayer::id())
             .0
     }
 
     pub fn mint_pda(market: Pubkey, i: u8) -> Pubkey {
         Pubkey::find_program_address(
-            &[pmec::constants::MINT_SEED, market.as_ref(), &[i]],
-            &pmec::id(),
+            &[parilayer::constants::MINT_SEED, market.as_ref(), &[i]],
+            &parilayer::id(),
         )
         .0
     }
 
     pub fn seed_shares_pda(market: Pubkey, i: u8) -> Pubkey {
         Pubkey::find_program_address(
-            &[pmec::constants::SEED_SHARES_SEED, market.as_ref(), &[i]],
-            &pmec::id(),
+            &[parilayer::constants::SEED_SHARES_SEED, market.as_ref(), &[i]],
+            &parilayer::id(),
         )
         .0
     }
@@ -242,8 +242,8 @@ impl Env {
     ) -> Instruction {
         let market = Self::market_pda(id);
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::CreateMarket {
+            parilayer::id(),
+            &parilayer::instruction::CreateMarket {
                 market_id: id,
                 kind,
                 refs,
@@ -252,7 +252,7 @@ impl Env {
                 seed_usdc: seed,
             }
             .data(),
-            pmec::accounts::CreateMarket {
+            parilayer::accounts::CreateMarket {
                 oracle,
                 config: self.config,
                 market,
@@ -268,9 +268,9 @@ impl Env {
 
     pub fn init_mint_ix(&self, oracle: Pubkey, market: Pubkey, i: u8) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::InitOutcomeMint { i }.data(),
-            pmec::accounts::InitOutcomeMint {
+            parilayer::id(),
+            &parilayer::instruction::InitOutcomeMint { i }.data(),
+            parilayer::accounts::InitOutcomeMint {
                 oracle,
                 config: self.config,
                 market,
@@ -295,14 +295,14 @@ impl Env {
         min_shares_out: u64,
     ) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::Buy {
+            parilayer::id(),
+            &parilayer::instruction::Buy {
                 outcome,
                 usdc_in,
                 min_shares_out,
             }
             .data(),
-            pmec::accounts::Buy {
+            parilayer::accounts::Buy {
                 buyer,
                 config: self.config,
                 market,
@@ -330,14 +330,14 @@ impl Env {
         min_usdc_out: u64,
     ) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::Sell {
+            parilayer::id(),
+            &parilayer::instruction::Sell {
                 outcome,
                 shares,
                 min_usdc_out,
             }
             .data(),
-            pmec::accounts::Sell {
+            parilayer::accounts::Sell {
                 seller,
                 config: self.config,
                 market,
@@ -354,7 +354,7 @@ impl Env {
     }
 
     fn oracle_market_accounts(&self, oracle: Pubkey, market: Pubkey) -> Vec<anchor_lang::prelude::AccountMeta> {
-        pmec::accounts::OracleMarket {
+        parilayer::accounts::OracleMarket {
             oracle,
             config: self.config,
             market,
@@ -364,32 +364,32 @@ impl Env {
 
     pub fn halt_ix(&self, oracle: Pubkey, market: Pubkey) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::Halt {}.data(),
+            parilayer::id(),
+            &parilayer::instruction::Halt {}.data(),
             self.oracle_market_accounts(oracle, market),
         )
     }
 
     pub fn unhalt_ix(&self, oracle: Pubkey, market: Pubkey) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::Unhalt {}.data(),
+            parilayer::id(),
+            &parilayer::instruction::Unhalt {}.data(),
             self.oracle_market_accounts(oracle, market),
         )
     }
 
     pub fn resolve_ix(&self, oracle: Pubkey, market: Pubkey, winner: u8) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::Resolve { winner }.data(),
+            parilayer::id(),
+            &parilayer::instruction::Resolve { winner }.data(),
             self.oracle_market_accounts(oracle, market),
         )
     }
 
     pub fn void_ix(&self, oracle: Pubkey, market: Pubkey) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::Void {}.data(),
+            parilayer::id(),
+            &parilayer::instruction::Void {}.data(),
             self.oracle_market_accounts(oracle, market),
         )
     }
@@ -404,9 +404,9 @@ impl Env {
         amount: u64,
     ) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::Redeem { outcome, amount }.data(),
-            pmec::accounts::Redeem {
+            parilayer::id(),
+            &parilayer::instruction::Redeem { outcome, amount }.data(),
+            parilayer::accounts::Redeem {
                 holder,
                 market,
                 outcome_mint: Self::mint_pda(market, outcome),
@@ -422,9 +422,9 @@ impl Env {
 
     pub fn redeem_seed_ix(&self, market: Pubkey, outcome: u8) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::RedeemSeed { outcome }.data(),
-            pmec::accounts::RedeemSeed {
+            parilayer::id(),
+            &parilayer::instruction::RedeemSeed { outcome }.data(),
+            parilayer::accounts::RedeemSeed {
                 config: self.config,
                 market,
                 outcome_mint: Self::mint_pda(market, outcome),
@@ -440,9 +440,9 @@ impl Env {
 
     pub fn sweep_ix(&self, admin: Pubkey, market: Pubkey) -> Instruction {
         Instruction::new_with_bytes(
-            pmec::id(),
-            &pmec::instruction::SweepDust {}.data(),
-            pmec::accounts::SweepDust {
+            parilayer::id(),
+            &parilayer::instruction::SweepDust {}.data(),
+            parilayer::accounts::SweepDust {
                 admin,
                 config: self.config,
                 market,

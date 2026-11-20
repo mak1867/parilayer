@@ -1,7 +1,7 @@
 {
-  "name": "pmec-exchange",
+  "name": "parilayer",
   "private": true,
-  "description": "PMEC Exchange: dynamic parimutuel prediction markets on Solana devnet",
+  "description": "PariLayer: dynamic parimutuel prediction markets on Solana devnet",
   "workspaces": [
     "packages/*",
     "relayer",
@@ -9,7 +9,7 @@
     "web"
   ],
   "scripts": {
-    "idl": "cp target/idl/pmec.json packages/sdk/src/idl/pmec.json && cp target/types/pmec.ts packages/sdk/src/idl/pmec.ts",
+    "idl": "cp target/idl/parilayer.json packages/sdk/src/idl/parilayer.json && cp target/types/parilayer.ts packages/sdk/src/idl/parilayer.ts",
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present"
   },

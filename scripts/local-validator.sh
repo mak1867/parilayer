@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Runs a local Solana validator with the PMEC program loaded, for development
+# Runs a local Solana validator with the PariLayer program loaded, for development
 # and offline demos. Leave it running; stop it with Ctrl-C.
 #
 #   ./scripts/local-validator.sh            # ledger in .local-ledger (reset every start)
@@ -9,9 +9,9 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-SO=target/deploy/pmec.so
+SO=target/deploy/parilayer.so
 [ -f "$SO" ] || { echo "Build the program first: anchor build" >&2; exit 1; }
-PROGRAM_ID=$(python3 -c "import json;print(json.load(open('packages/sdk/src/idl/pmec.json'))['address'])")
+PROGRAM_ID=$(python3 -c "import json;print(json.load(open('packages/sdk/src/idl/parilayer.json'))['address'])")
 
 # --limit-ledger-size keeps transaction history around; the default prunes it
 # within minutes, which empties the trade tape.

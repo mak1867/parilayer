@@ -1,4 +1,4 @@
-import { type PmecProgram, ata, fetchConfig, fetchMarketById, fromHex, getProgram, outcomeMintPda, treasuryPda } from "@pmec/sdk";
+import { type ParilayerProgram, ata, fetchConfig, fetchMarketById, fromHex, getProgram, outcomeMintPda, treasuryPda } from "@parilayer/sdk";
 /** The RFQ prototype charges a fixed 0.5% fee. The on-chain config now holds the pool sell fee instead. */
 const RFQ_FEE_BPS = 50;
 import { type Connection, PublicKey, type Transaction } from "@solana/web3.js";
@@ -6,7 +6,7 @@ import type { MarketInfo, RfqChain } from "./engine";
 
 /** RfqChain over a Solana RPC connection. Read-only apart from submitting swaps the traders signed. */
 export class SolanaRfqChain implements RfqChain {
-  private readonly program: PmecProgram;
+  private readonly program: ParilayerProgram;
   private readonly markets = new Map<string, { info: MarketInfo; at: number }>();
   private ex: { usdcMint: string; treasuryVault: string; secondaryFeeBps: number; at: number } | null = null;
 

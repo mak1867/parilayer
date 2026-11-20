@@ -13,12 +13,12 @@ import { Connection, PublicKey, SystemProgram, type TransactionInstruction } fro
 // bn.js directly: Node cannot see BN as a named export of the Anchor package.
 import BN from "bn.js";
 import { NO_WINNER } from "./constants";
-import type { Pmec } from "./idl/pmec";
-import idl from "./idl/pmec.json";
+import type { Parilayer } from "./idl/parilayer";
+import idl from "./idl/parilayer.json";
 import { toHex } from "./marketId";
 import { configPda, marketPda, outcomeMintPda, seedSharesPda, treasuryPda, vaultPda } from "./pda";
 
-export type PmecProgram = Program<Pmec>;
+export type ParilayerProgram = Program<Parilayer>;
 
 export type MarketKind = "binary" | "multi" | "pair";
 export type MarketStatus = "open" | "halted" | "resolved" | "voided";
@@ -64,8 +64,8 @@ export interface MarketState {
 }
 
 /** A program handle. Without a wallet it can read accounts and build instructions. */
-export function getProgram(connection: Connection): PmecProgram {
-  return new Program<Pmec>(idl as Pmec, { connection });
+export function getProgram(connection: Connection): ParilayerProgram {
+  return new Program<Parilayer>(idl as Parilayer, { connection });
 }
 
 const big = (x: { toString(): string }) => BigInt(x.toString());
@@ -113,29 +113,29 @@ export function decodeMarket(address: PublicKey, raw: any): MarketState {
   };
 }
 
-export async function fetchConfig(program: PmecProgram): Promise<ConfigState | null> {
+export async function fetchConfig(program: ParilayerProgram): Promise<ConfigState | null> {
   const address = configPda();
   const raw = await program.account.config.fetchNullable(address);
   return raw ? decodeConfig(address, raw) : null;
 }
 
-export async function fetchMarket(program: PmecProgram, address: PublicKey): Promise<MarketState | null> {
+export async function fetchMarket(program: ParilayerProgram, address: PublicKey): Promise<MarketState | null> {
   const raw = await program.account.market.fetchNullable(address);
   return raw ? decodeMarket(address, raw) : null;
 }
 
-export async function fetchMarketById(program: PmecProgram, marketId: Uint8Array): Promise<MarketState | null> {
+export async function fetchMarketById(program: ParilayerProgram, marketId: Uint8Array): Promise<MarketState | null> {
   return fetchMarket(program, marketPda(marketId));
 }
 
 /** Reads several markets in one RPC call. Missing accounts are skipped. */
-export async function fetchMarkets(program: PmecProgram, addresses: PublicKey[]): Promise<MarketState[]> {
+export async function fetchMarkets(program: ParilayerProgram, addresses: PublicKey[]): Promise<MarketState[]> {
   if (addresses.length === 0) return [];
   const raws = await program.account.market.fetchMultiple(addresses);
   return raws.flatMap((raw, i) => (raw ? [decodeMarket(addresses[i]!, raw)] : []));
 }
 
-export async function fetchAllMarkets(program: PmecProgram): Promise<MarketState[]> {
+export async function fetchAllMarkets(program: ParilayerProgram): Promise<MarketState[]> {
   const all = await program.account.market.all();
   return all.map((a) => decodeMarket(a.publicKey, a.account)).sort((a, b) => a.createdAt - b.createdAt);
 }
@@ -153,7 +153,7 @@ const bn = (x: bigint | number) => new BN(x.toString());
 // ------------------------------------------------------------------ admin / oracle
 
 export function initializeIx(
-  program: PmecProgram,
+  program: ParilayerProgram,
   args: { admin: PublicKey; oracle: PublicKey; usdcMint: PublicKey; poolFeeBps: number; sellFeeBps: number },
 ): Promise<TransactionInstruction> {
   return program.methods
@@ -171,7 +171,7 @@ export function initializeIx(
 
 /** Admin: change the oracle or the fees (each at most 10%). */
 export function updateConfigIx(
-  program: PmecProgram,
+  program: ParilayerProgram,
   args: { admin: PublicKey; oracle: PublicKey; poolFeeBps: number; sellFeeBps: number },
 ): Promise<TransactionInstruction> {
   return program.methods
@@ -193,7 +193,7 @@ export interface CreateMarketArgs {
 const kindArg = (kind: MarketKind) =>
   kind === "binary" ? { binary: {} } : kind === "multi" ? { multi: {} } : { pair: {} };
 
-export function createMarketIx(program: PmecProgram, a: CreateMarketArgs): Promise<TransactionInstruction> {
+export function createMarketIx(program: ParilayerProgram, a: CreateMarketArgs): Promise<TransactionInstruction> {
   const market = marketPda(a.marketId);
   return program.methods
     .createMarket(Array.from(a.marketId), kindArg(a.kind), a.refs, a.probsPpm.length, a.probsPpm, bn(a.seedUsdc))
@@ -211,7 +211,7 @@ export function createMarketIx(program: PmecProgram, a: CreateMarketArgs): Promi
 }
 
 export function initOutcomeMintIx(
-  program: PmecProgram,
+  program: ParilayerProgram,
   a: { oracle: PublicKey; market: PublicKey; i: number },
 ): Promise<TransactionInstruction> {
   return program.methods
@@ -230,20 +230,20 @@ export function initOutcomeMintIx(
 
 const oracleAccounts = (oracle: PublicKey, market: PublicKey) => ({ oracle, config: configPda(), market });
 
-export const haltIx = (program: PmecProgram, oracle: PublicKey, market: PublicKey) =>
+export const haltIx = (program: ParilayerProgram, oracle: PublicKey, market: PublicKey) =>
   program.methods.halt().accountsStrict(oracleAccounts(oracle, market)).instruction();
 
-export const unhaltIx = (program: PmecProgram, oracle: PublicKey, market: PublicKey) =>
+export const unhaltIx = (program: ParilayerProgram, oracle: PublicKey, market: PublicKey) =>
   program.methods.unhalt().accountsStrict(oracleAccounts(oracle, market)).instruction();
 
-export const resolveIx = (program: PmecProgram, oracle: PublicKey, market: PublicKey, winner: number) =>
+export const resolveIx = (program: ParilayerProgram, oracle: PublicKey, market: PublicKey, winner: number) =>
   program.methods.resolve(winner).accountsStrict(oracleAccounts(oracle, market)).instruction();
 
-export const voidIx = (program: PmecProgram, oracle: PublicKey, market: PublicKey) =>
+export const voidIx = (program: ParilayerProgram, oracle: PublicKey, market: PublicKey) =>
   program.methods.void().accountsStrict(oracleAccounts(oracle, market)).instruction();
 
 export function sweepDustIx(
-  program: PmecProgram,
+  program: ParilayerProgram,
   a: { admin: PublicKey; market: PublicKey; usdcMint: PublicKey },
 ): Promise<TransactionInstruction> {
   return program.methods
@@ -276,7 +276,7 @@ export interface BuyArgs {
 }
 
 /** Instructions for a pool buy: create the share account if needed, then buy. */
-export async function buyIxs(program: PmecProgram, a: BuyArgs): Promise<TransactionInstruction[]> {
+export async function buyIxs(program: ParilayerProgram, a: BuyArgs): Promise<TransactionInstruction[]> {
   const mint = outcomeMintPda(a.market, a.outcome);
   const recipient = a.recipient ?? a.buyer;
   const recipientShares = ata(mint, recipient);
@@ -320,7 +320,7 @@ export interface SellArgs {
 }
 
 /** Instructions to sell shares back to the pool: create the USDC account if needed, then sell. */
-export async function sellIxs(program: PmecProgram, a: SellArgs): Promise<TransactionInstruction[]> {
+export async function sellIxs(program: ParilayerProgram, a: SellArgs): Promise<TransactionInstruction[]> {
   const mint = outcomeMintPda(a.market, a.outcome);
   const recipient = a.recipient ?? a.seller;
   const recipientUsdc = ata(a.usdcMint, recipient);
@@ -360,7 +360,7 @@ export interface RedeemArgs {
 }
 
 /** Instructions to redeem shares after resolution or void. */
-export async function redeemIxs(program: PmecProgram, a: RedeemArgs): Promise<TransactionInstruction[]> {
+export async function redeemIxs(program: ParilayerProgram, a: RedeemArgs): Promise<TransactionInstruction[]> {
   const mint = outcomeMintPda(a.market, a.outcome);
   const recipientUsdc = ata(a.usdcMint, a.holder);
   const createAta = createAssociatedTokenAccountIdempotentInstruction(
@@ -389,7 +389,7 @@ export async function redeemIxs(program: PmecProgram, a: RedeemArgs): Promise<Tr
 
 /** Permissionless: pays the treasury for its seed shares of `outcome`. */
 export function redeemSeedIx(
-  program: PmecProgram,
+  program: ParilayerProgram,
   a: { market: PublicKey; usdcMint: PublicKey; outcome: number },
 ): Promise<TransactionInstruction> {
   return program.methods

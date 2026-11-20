@@ -48,7 +48,7 @@ export class GeminiHttp implements GeminiSource {
         let res: Response;
         try {
           res = await this.fetchImpl(this.base + path, {
-            headers: { accept: "application/json", "user-agent": "pmec-relayer" },
+            headers: { accept: "application/json", "user-agent": "parilayer-relayer" },
             signal: AbortSignal.timeout(20_000),
           });
         } catch (e) {

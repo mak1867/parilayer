@@ -46,9 +46,9 @@ pub fn handle_initialize(
         ctx.accounts.usdc_mint.decimals == DECIMALS,
         ErrorCode::BadCollateralDecimals
     );
-    require!(pool_fee_bps <= pmec_math::MAX_FEE_BPS, ErrorCode::BadFee);
+    require!(pool_fee_bps <= parilayer_math::MAX_FEE_BPS, ErrorCode::BadFee);
     require!(
-        sell_fee_bps <= pmec_math::MAX_FEE_BPS,
+        sell_fee_bps <= parilayer_math::MAX_FEE_BPS,
         ErrorCode::BadFee
     );
 
@@ -89,9 +89,9 @@ pub fn handle_update_config(
     pool_fee_bps: u16,
     sell_fee_bps: u16,
 ) -> Result<()> {
-    require!(pool_fee_bps <= pmec_math::MAX_FEE_BPS, ErrorCode::BadFee);
+    require!(pool_fee_bps <= parilayer_math::MAX_FEE_BPS, ErrorCode::BadFee);
     require!(
-        sell_fee_bps <= pmec_math::MAX_FEE_BPS,
+        sell_fee_bps <= parilayer_math::MAX_FEE_BPS,
         ErrorCode::BadFee
     );
     let config = &mut ctx.accounts.config;

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FloorChart } from "@/components/FloorChart";
 
 export const metadata: Metadata = {
-  title: "How it works · PMEC Exchange",
+  title: "How it works",
   description: "A share costs at most 1 USDC and a winning share pays at least 1 USDC. How the pool prices, pays and buys back.",
 };
 
@@ -11,11 +11,10 @@ export default function HowItWorks() {
   return (
     <div className="page prose-page">
       <header className="how-head">
-        <p className="crumb">How it works</p>
-        <h1>A share costs at most 1 USDC. A winning share pays at least 1 USDC.</h1>
+        <h1>How PariLayer works</h1>
         <p className="lead">
-          Whatever anyone does after you buy. So if you are right, you never lose money on a pool position: the worst case is
-          getting back what you paid per share, and usually you get more.
+          A share costs at most 1 USDC, and a winning share pays at least 1 USDC, whatever anyone does after you buy. If you are
+          right, the worst case is getting back what you paid per share; usually you get more.
         </p>
       </header>
 
@@ -60,7 +59,7 @@ export default function HowItWorks() {
         <p className="table-note">
           If nobody buys after you, the parimutuel pot pays slightly more (2.73× against 2.54× here). The pool gives up a little
           of that best case in exchange for a floor that holds whatever comes in later. The same rows come out of{" "}
-          <code>cargo run -p pmec-math --example simulate</code>, from the integer math the Solana program runs.
+          <code>cargo run -p parilayer-math --example simulate</code>, from the integer math the Solana program runs.
         </p>
       </section>
 
@@ -96,11 +95,11 @@ export default function HowItWorks() {
         </p>
       </section>
 
-      <p>
+      <div className="how-end">
         <Link href="/" className="btn btn-primary">
           See the markets
         </Link>
-      </p>
+      </div>
     </div>
   );
 }

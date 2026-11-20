@@ -22,7 +22,7 @@ import {
   outcomeMintPda,
   probPpm,
   treasuryPda,
-} from "@pmec/sdk";
+} from "@parilayer/sdk";
 import { createAssociatedTokenAccountIdempotentInstruction, createMintToInstruction, createTransferInstruction } from "@solana/spl-token";
 import { Connection, Keypair, LAMPORTS_PER_SOL, PublicKey, Transaction, sendAndConfirmTransaction } from "@solana/web3.js";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";

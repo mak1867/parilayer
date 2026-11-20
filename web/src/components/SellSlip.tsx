@@ -1,6 +1,6 @@
 "use client";
 
-import { MathError, outcomeMintPda, priceE6, quoteSell, sellIxs, seedSharesPda, type SellQuote } from "@pmec/sdk";
+import { MathError, outcomeMintPda, priceE6, quoteSell, sellIxs, seedSharesPda, type SellQuote } from "@parilayer/sdk";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { useEffect, useMemo, useState } from "react";
 import { type MarketView, useData } from "@/lib/data";

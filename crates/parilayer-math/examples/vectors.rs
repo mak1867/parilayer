@@ -1,9 +1,9 @@
 //! Prints golden test vectors as JSON so the TypeScript port of the math
 //! (packages/sdk/src/math.ts) can be checked against this crate bit for bit.
 //!
-//!   cargo run -p pmec-math --example vectors > packages/sdk/test/vectors.json
+//!   cargo run -p parilayer-math --example vectors > packages/sdk/test/vectors.json
 
-use pmec_math::*;
+use parilayer_math::*;
 
 struct Rng(u64);
 impl Rng {

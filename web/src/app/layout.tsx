@@ -10,7 +10,7 @@ const board = Big_Shoulders({ subsets: ["latin"], variable: "--font-board", disp
 const text = Instrument_Sans({ subsets: ["latin"], variable: "--font-text", display: "swap" });
 
 export const metadata: Metadata = {
-  title: { default: "PMEC Exchange", template: "%s | PMEC Exchange" },
+  title: { default: "PariLayer", template: "%s | PariLayer" },
   description:
     "A Solana devnet prediction market where a share costs at most 1 USDC and a winning share pays at least 1 USDC. Seeded and settled by Gemini Predictions.",
 };
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <main id="main">{children}</main>
           <footer className="site-footer">
             <p>
-              PMEC Exchange runs on Solana devnet with play money. Markets are seeded at Gemini Predictions prices and settled on
+              PariLayer runs on Solana devnet with play money. Markets are seeded at Gemini Predictions prices and settled on
               Gemini’s resolutions by a trusted relayer. Built for UBC 2026.
             </p>
           </footer>

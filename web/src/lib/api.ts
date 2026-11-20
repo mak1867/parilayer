@@ -1,4 +1,4 @@
-import type { MarketKind } from "@pmec/sdk";
+import type { MarketKind } from "@parilayer/sdk";
 import { RELAYER_URL } from "./env";
 
 export interface PairReference {

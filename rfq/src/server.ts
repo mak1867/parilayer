@@ -1,5 +1,5 @@
 import cors from "@fastify/cors";
-import type { RfqClientMsg, RfqServerMsg } from "@pmec/sdk";
+import type { RfqClientMsg, RfqServerMsg } from "@parilayer/sdk";
 import Fastify, { type FastifyInstance } from "fastify";
 import { type WebSocket, WebSocketServer } from "ws";
 import { RfqEngine, RfqError, type Outbox, type RfqChain, type EngineOptions } from "./engine";

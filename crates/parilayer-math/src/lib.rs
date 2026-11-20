@@ -1,4 +1,4 @@
-//! Integer math for the PMEC pool: Pennock's dynamic parimutuel market with the
+//! Integer math for the PariLayer pool: Pennock's dynamic parimutuel market with the
 //! cost function `C(q) = ||q||_2` (kappa = 1 USDC).
 //!
 //! Everything here is pure, deterministic integer arithmetic so the on-chain

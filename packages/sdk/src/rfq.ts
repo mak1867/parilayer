@@ -26,11 +26,11 @@ export const RFQ_SIGN_WINDOW_MS = 30_000;
 const enc = (s: string) => new TextEncoder().encode(s);
 
 /** Signed once per connection to prove the socket belongs to the wallet. */
-export const rfqHelloMessage = (wallet: string, ts: number) => enc(`pmec-rfq:hello:${wallet}:${ts}`);
+export const rfqHelloMessage = (wallet: string, ts: number) => enc(`parilayer-rfq:hello:${wallet}:${ts}`);
 
 /** Signed by a holder to opt in as a quoter for one market. */
 export const rfqQuoterMessage = (marketIdHex: string, wallet: string, ts: number) =>
-  enc(`pmec-rfq:quoter:${marketIdHex}:${wallet}:${ts}`);
+  enc(`parilayer-rfq:quoter:${marketIdHex}:${wallet}:${ts}`);
 
 /** Everything that defines one settlement. All amounts are base-unit strings; keys are base58. */
 export interface SwapTerms {

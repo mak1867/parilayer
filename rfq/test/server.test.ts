@@ -1,4 +1,4 @@
-import type { RfqFill } from "@pmec/sdk";
+import type { RfqFill } from "@parilayer/sdk";
 import { afterEach, describe, expect, it } from "vitest";
 import { type RfqServer, buildRfqServer } from "../src/server";
 import { RfqStore } from "../src/store";

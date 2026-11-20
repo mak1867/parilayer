@@ -2,7 +2,7 @@ import {
   type ConfigState,
   type MarketKind,
   type MarketState,
-  type PmecProgram,
+  type ParilayerProgram,
   UNIT,
   ata,
   createMarketIx,
@@ -21,7 +21,7 @@ import {
   treasuryPda,
   unhaltIx,
   voidIx,
-} from "@pmec/sdk";
+} from "@parilayer/sdk";
 import {
   MINT_SIZE,
   TOKEN_PROGRAM_ID,
@@ -75,7 +75,7 @@ export interface ChainApi {
 const MINTS_PER_TX = 6;
 
 export class SolanaChain implements ChainApi {
-  readonly program: PmecProgram;
+  readonly program: ParilayerProgram;
   private usdcMint: PublicKey | null = null;
 
   constructor(

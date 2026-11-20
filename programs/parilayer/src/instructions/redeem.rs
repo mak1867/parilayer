@@ -13,9 +13,9 @@ fn redemption_value(market: &Market, outcome: u8, amount: u64) -> Result<u64> {
     match market.status {
         MarketStatus::Resolved => {
             require!(outcome == market.winner, ErrorCode::NotWinningOutcome);
-            math(pmec_math::redeem_value(amount, market.payout_per_share))
+            math(parilayer_math::redeem_value(amount, market.payout_per_share))
         }
-        MarketStatus::Voided => math(pmec_math::redeem_value(
+        MarketStatus::Voided => math(parilayer_math::redeem_value(
             amount,
             market.final_prices[outcome as usize] as u128,
         )),

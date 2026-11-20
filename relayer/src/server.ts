@@ -1,5 +1,5 @@
 import cors from "@fastify/cors";
-import { PROGRAM_ID } from "@pmec/sdk";
+import { PROGRAM_ID } from "@parilayer/sdk";
 import { PublicKey } from "@solana/web3.js";
 import Fastify, { type FastifyInstance } from "fastify";
 import type { ChainApi } from "./chain";

@@ -26,7 +26,7 @@ import {
   rfqQuoterMessage,
   swapTxMatches,
   swapValue,
-} from "@pmec/sdk";
+} from "@parilayer/sdk";
 import { Connection, Keypair, PublicKey, Transaction } from "@solana/web3.js";
 import WebSocket from "ws";
 

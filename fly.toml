@@ -1,7 +1,7 @@
 # Fly.io app for the relayer. Deploy from the repo root:  flyctl deploy
 # Secrets (set once, never committed):
 #   flyctl secrets set ORACLE_KEYPAIR_JSON="$(cat keys/oracle.json)" ADMIN_KEYPAIR_JSON="$(cat keys/admin.json)"
-app = "pmec-relayer"
+app = "parilayer-relayer"
 primary_region = "ord"
 
 [build]

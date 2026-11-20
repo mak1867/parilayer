@@ -1,6 +1,6 @@
 "use client";
 
-import { PPM, UNIT, buyIxs, fromHex, marketPda } from "@pmec/sdk";
+import { PPM, UNIT, buyIxs, fromHex, marketPda } from "@parilayer/sdk";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { Transaction } from "@solana/web3.js";
 import Link from "next/link";
@@ -9,8 +9,30 @@ import { useEffect, useMemo, useState } from "react";
 import { type LegChoice, type LegRef, type PairPreview, createPair, getCuratedPairs, getPairLegs, preparePair, previewPair } from "@/lib/api";
 import { useData } from "@/lib/data";
 import { fmtPct, fmtWhole, parseAmount } from "@/lib/format";
-import { poolProb } from "@/lib/market";
+import { MarketList } from "@/components/MarketList";
+import { poolProb, titleParts } from "@/lib/market";
 import { explainError } from "@/lib/tx";
+
+/** Short names for the two legs: "Toronto" and "Total Points: More than 215.5 points scored" for a same-game pair. */
+function legNames(p: PairPreview): [string, string] {
+  const t = titleParts(p.title, "pair");
+  return [t.lines[0] ?? p.legs[0]?.label ?? "Leg A", t.lines[1] ?? p.legs[1]?.label ?? "Leg B"];
+}
+
+function PairTitle({ title }: { title: string }) {
+  const t = titleParts(title, "pair");
+  return (
+    <div className="m-title pair-title">
+      {t.event && <span className="m-event">{t.event}</span>}
+      {t.lines.map((l, i) => (
+        <strong key={i} className="m-leg">
+          {i > 0 && <span aria-hidden="true">× </span>}
+          {l}
+        </strong>
+      ))}
+    </div>
+  );
+}
 
 const sameLeg = (a: LegRef, b: LegRef) => a.event === b.event && a.contract === b.contract;
 const toB64 = (bytes: Uint8Array) => btoa(String.fromCharCode(...bytes));
@@ -18,13 +40,14 @@ const toB64 = (bytes: Uint8Array) => btoa(String.fromCharCode(...bytes));
 /** The 4 joint outcomes of a pair: seed odds from the legs, the pool's odds if it exists, and Gemini's combo. */
 function JointTable({ p, pool, pick, onPick }: { p: PairPreview; pool: number[] | null; pick?: number; onPick?: (i: number) => void }) {
   const [a, b] = p.legs;
+  const [nameA, nameB] = legNames(p);
   return (
     <div className="table-wrap">
       <table className="board joint">
         <thead>
           <tr>
             <th scope="col">Joint outcome</th>
-            <th scope="col" className="r">Product of the legs</th>
+            <th scope="col" className="r">Legs multiplied</th>
             <th scope="col" className="r">{pool ? "Pool" : "Opens at"}</th>
             <th scope="col" className="r">Gemini combo</th>
           </tr>
@@ -46,7 +69,7 @@ function JointTable({ p, pool, pick, onPick }: { p: PairPreview; pool: number[] 
                     label
                   )}
                   <small>
-                    {a?.label} {yesA ? "yes" : "no"}, {b?.label} {yesB ? "yes" : "no"}
+                    {nameA} {yesA ? "yes" : "no"}, {nameB} {yesB ? "yes" : "no"}
                   </small>
                 </th>
                 <td className="r num">{fmtPct(product)}</td>
@@ -60,7 +83,8 @@ function JointTable({ p, pool, pick, onPick }: { p: PairPreview; pool: number[] 
         </tbody>
       </table>
       <p className="table-note">
-        The product assumes the two legs are independent. Related legs are not, which is the point of trading them as a pair.{" "}
+        “Legs multiplied” is what the odds would be if the two questions were unrelated. Related questions are not, which is the
+        point of trading them as a pair.{" "}
         {p.combo
           ? "Gemini lists its own combo on these legs; its price is shown on the matching row."
           : "Gemini has no combo instrument on these two legs."}
@@ -74,7 +98,7 @@ export default function PairsPage() {
   const wallet = useWallet();
   const { markets, program, usdcMint, usdc, refresh, refreshWallet } = useData();
   const [curated, setCurated] = useState<PairPreview[] | null>(null);
-  const [legs, setLegs] = useState<LegChoice[]>([]);
+  const [legs, setLegs] = useState<LegChoice[] | null>(null);
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [preview, setPreview] = useState<PairPreview | null>(null);
@@ -85,11 +109,13 @@ export default function PairsPage() {
 
   useEffect(() => {
     getCuratedPairs().then(setCurated).catch(() => setCurated([]));
-    getPairLegs().then(setLegs).catch(() => setLegs([]));
+    getPairLegs()
+      .then(setLegs)
+      .catch(() => setLegs([]));
   }, []);
 
-  const legA = legs.find((l) => l.contract === a) ?? null;
-  const legB = legs.find((l) => l.contract === b) ?? null;
+  const legA = legs?.find((l) => l.contract === a) ?? null;
+  const legB = legs?.find((l) => l.contract === b) ?? null;
 
   useEffect(() => {
     setPreview(null);
@@ -105,7 +131,7 @@ export default function PairsPage() {
     };
   }, [legA, legB]);
 
-  const pairPools = markets.filter((v) => v.meta.kind === "pair");
+  const pairPools = markets.filter((v) => v.meta.kind === "pair" && (!v.chain || v.chain.status === "open" || v.chain.status === "halted"));
   const existing = useMemo(() => (preview ? markets.find((v) => v.meta.idHex === preview.idHex) : undefined), [preview, markets]);
   const usdcIn = parseAmount(amount);
   const min = BigInt(preview?.minFirstBuyUsdc ?? 25) * UNIT;
@@ -115,7 +141,10 @@ export default function PairsPage() {
   const choose = (p: PairPreview) => {
     // Curated legs may not be in the pick lists; add them so the selects can show them.
     const add = p.legs.map((l, i) => ({ event: p.legRefs[i]?.event ?? "", contract: l.instrumentSymbol, label: l.label, yes: l.yes }));
-    setLegs((ls) => [...ls, ...add.filter((x) => x.event && !ls.some((l) => l.contract === x.contract))]);
+    setLegs((prev) => {
+      const ls = prev ?? [];
+      return [...ls, ...add.filter((x) => x.event && !ls.some((l) => l.contract === x.contract))];
+    });
     setA(p.legs[0]!.instrumentSymbol);
     setB(p.legs[1]!.instrumentSymbol);
     document.getElementById("build-h")?.scrollIntoView({ behavior: "smooth" });
@@ -155,12 +184,13 @@ export default function PairsPage() {
 
   return (
     <div className="page">
-      <h1>Pair builder</h1>
-      <p className="lede">
-        A pair pool is one pot over two yes/no questions at once, with four outcomes: both yes, both no, or one of each. It opens at
-        the product of the two Gemini prices and moves from there as people buy. The usual guarantee holds: a share costs at most 1
-        USDC before the fee, and a winning share pays at least 1 USDC.
-      </p>
+      <header className="pairs-head">
+        <h1>Pair builder</h1>
+        <p className="lede">
+          Trade two yes/no questions as one: both yes, both no, or one of each. A pair opens at the two Gemini prices multiplied
+          together, then moves as people trade it. Related questions rarely move independently, and that gap is the trade.
+        </p>
+      </header>
 
       <section aria-labelledby="curated-h">
         <h2 id="curated-h">Pairs worth a look</h2>
@@ -170,13 +200,10 @@ export default function PairsPage() {
           {(curated ?? []).map((p) => (
             <li key={p.idHex}>
               <div className="pair-head">
-                <div>
-                  <h3>{p.title}</h3>
-                  {p.note && <p>{p.note}</p>}
-                </div>
+                <PairTitle title={p.title} />
                 {p.exists ? (
                   <Link className="btn btn-primary" href={`/market/${p.idHex}`}>
-                    Open pool
+                    Trade this pair
                   </Link>
                 ) : (
                   <button className="btn btn-primary" onClick={() => choose(p)}>
@@ -184,6 +211,7 @@ export default function PairsPage() {
                   </button>
                 )}
               </div>
+              {p.note && <p className="pair-note">{p.note}</p>}
               <JointTable p={p} pool={poolOdds(markets, p.idHex)} />
             </li>
           ))}
@@ -192,8 +220,10 @@ export default function PairsPage() {
 
       <section aria-labelledby="build-h">
         <h2 id="build-h">Build a pair</h2>
-        {legs.length < 2 ? (
-          <p className="msg">Pairs are built from the yes/no markets listed on the exchange, and there are fewer than two contracts available right now.</p>
+        {legs === null ? (
+          <p className="msg">Loading the questions you can pair…</p>
+        ) : legs.length < 2 ? (
+          <p className="msg">Pairs are built from the open yes/no questions on the exchange, and fewer than two are open right now.</p>
         ) : (
           <div className="pair-pick">
             <label className="field">
@@ -207,6 +237,9 @@ export default function PairsPage() {
                 ))}
               </select>
             </label>
+            <span className="pair-x" aria-hidden="true">
+              ×
+            </span>
             <label className="field">
               <span>Second question</span>
               <select value={b} onChange={(e) => setB(e.target.value)}>
@@ -227,7 +260,7 @@ export default function PairsPage() {
 
         {preview && (
           <div className="pair-build">
-            <h3>{preview.title}</h3>
+            <PairTitle title={preview.title} />
             <JointTable p={preview} pool={poolOdds(markets, preview.idHex)} pick={preview.exists ? undefined : outcome} onPick={preview.exists ? undefined : setOutcome} />
             {preview.exists || existing ? (
               <p className="msg msg-ok">
@@ -266,25 +299,16 @@ export default function PairsPage() {
 
       {pairPools.length > 0 && (
         <section aria-labelledby="pools-h">
-          <h2 id="pools-h">Pair pools already open</h2>
-          <ul className="market-list">
-            {pairPools.map((v) => (
-              <li key={v.meta.idHex}>
-                <Link href={`/market/${v.meta.idHex}`} className="market-row pair-row">
-                  <span className="m-title">
-                    <strong>{v.meta.title}</strong>
-                    <span className="m-sub">{v.chain ? `Pot ${fmtWhole(v.chain.pot)} USDC, ${v.chain.status}` : "Loading"}</span>
-                  </span>
-                  {v.meta.outcomes.map((o, i) => (
-                    <span className="m-num" key={i}>
-                      <span className="m-label">{o}</span>
-                      <span className="num big">{v.chain ? fmtPct(poolProb(v.chain, i)) : "…"}</span>
-                    </span>
-                  ))}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="board-head">
+            <h2 id="pools-h">Pair pools already open</h2>
+            <span className="board-cols" aria-hidden="true">
+              <span>Leading</span>
+              <span className="r">Pool</span>
+              <span className="r">Gemini</span>
+              <span className="r">Pot, USDC</span>
+            </span>
+          </div>
+          <MarketList items={pairPools} />
         </section>
       )}
       <p className="table-note">Pair pools settle when both Gemini contracts have settled. If one leg settles first, buying pauses until the other does.</p>

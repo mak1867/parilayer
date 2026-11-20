@@ -1,4 +1,4 @@
-# PMEC Exchange
+# PariLayer
 
 A prediction market on Solana devnet where **a share costs at most 1 USDC and a
 winning share pays at least 1 USDC, whatever happens after you buy.**
@@ -10,7 +10,7 @@ market is open.
 
 Built for UBC 2026, Track 02 (DeFi & Onchain Apps).
 
-- **Try it:** https://pmec-exchange.vercel.app (relayer API: https://pmec-relayer.fly.dev). Pick "Burner wallet" (no install), then "Get test USDC" in the wallet menu.
+- **Try it:** https://parilayer.vercel.app (relayer API: https://parilayer-relayer.fly.dev). Pick "Burner wallet" (no install), then "Get test USDC" in the wallet menu.
 - **How the guarantee works:** the How it works page, or [PROGRAM_WALKTHROUGH.md](PROGRAM_WALKTHROUGH.md) for the program itself.
 - **Build log and every decision:** [PROGRESS.md](PROGRESS.md).
 
@@ -36,7 +36,7 @@ qᵢ is the number of shares of outcome i, N = ‖q‖ = √(Σ qⱼ²), and M i
 The program checks M ≥ C(q) after every instruction. Against a plain
 parimutuel pot, the difference shows when late money floods your outcome: the
 parimutuel payout is diluted toward break-even (and below, after fees), while
-the pool's payout stops at your floor. `cargo run -p pmec-math --example simulate`
+the pool's payout stops at your floor. `cargo run -p parilayer-math --example simulate`
 prints the comparison; the How it works page charts it.
 
 The probability shown for each outcome is the current value of its shares
@@ -47,7 +47,7 @@ divided by the pot, qᵢ² / N², not the share of money bet on it.
 ```mermaid
 flowchart LR
   G[Gemini Predictions API] -->|events, prices, results| R[Relayer<br/>Node + SQLite]
-  R -->|create_market, resolve, void, halt<br/>signed by the oracle key| P[(PMEC program<br/>Solana devnet)]
+  R -->|create_market, resolve, void, halt<br/>signed by the oracle key| P[(PariLayer program<br/>Solana devnet)]
   R -->|names, Gemini prices, trade history, faucet| W[Web app<br/>Next.js]
   W -->|buy, sell, redeem<br/>signed by the user's wallet| P
   P -->|events| R
@@ -55,8 +55,8 @@ flowchart LR
 
 | Path | What |
 | --- | --- |
-| `crates/pmec-math` | Pure integer pool math, property tests, the golden-vector generator and the floor simulation |
-| `programs/pmec` | The Anchor program and its LiteSVM integration tests |
+| `crates/parilayer-math` | Pure integer pool math, property tests, the golden-vector generator and the floor simulation |
+| `programs/parilayer` | The Anchor program and its LiteSVM integration tests |
 | `packages/sdk` | Shared TypeScript: IDL, PDAs, instruction builders, and a BigInt port of the math checked against the Rust crate |
 | `relayer` | Mirrors Gemini events as markets, posts results, serves reference prices, indexes trades, runs the devnet faucet and pair creation |
 | `web` | The frontend: markets, market page, buy/sell slip, portfolio, pair builder, How it works |
@@ -93,8 +93,8 @@ generates realistic trading activity with a few bot wallets.
 
 ## Hosting
 
-- **Frontend:** Vercel project `pmec-exchange`, root directory `web/`. Deploy with `vercel deploy --prod` from the repo root (`.vercelignore` keeps keys and local data out of the upload). Public settings only: `NEXT_PUBLIC_RPC_URL`, `NEXT_PUBLIC_RELAYER_URL`.
-- **Relayer:** Fly.io app `pmec-relayer` (`fly.toml`, `relayer/deploy/`), always on, with a 1 GB volume for its database. The oracle and admin keys are Fly secrets. Deploy with `flyctl deploy --remote-only`.
+- **Frontend:** Vercel project `parilayer`, root directory `web/`. Deploy with `vercel deploy --prod` from the repo root (`.vercelignore` keeps keys and local data out of the upload). Public settings only: `NEXT_PUBLIC_RPC_URL`, `NEXT_PUBLIC_RELAYER_URL`.
+- **Relayer:** Fly.io app `parilayer-relayer` (`fly.toml`, `relayer/deploy/`), always on, with a 1 GB volume for its database. The oracle and admin keys are Fly secrets. Deploy with `flyctl deploy --remote-only`.
 
 ## Devnet
 
@@ -106,7 +106,7 @@ generates realistic trading activity with a few bot wallets.
 
 ## Prior art
 
-PMEC builds on published work and says so:
+PariLayer builds on published work and says so:
 
 - [Pennock, A Dynamic Pari-Mutuel Market for Hedging, Wagering, and Information Aggregation (EC 2004)](https://courses.cs.duke.edu/spring07/cps296.3/pennock-ec-2004-dynamic-parimutuel.pdf): the mechanism. This project implements the n = 2 cost-function form.
 - [Heidari, Lahaie, Pennock and Vaughan, Integrating Market Makers, Limit Orders, and Continuous Trade in Prediction Markets](https://www.jennwv.com/papers/orderbook.pdf): combining a market maker with orders between traders, the direction of the roadmap.

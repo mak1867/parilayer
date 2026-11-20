@@ -21,7 +21,7 @@ import {
   quoteBuy,
   seedShares,
   toHex,
-} from "@pmec/sdk";
+} from "@parilayer/sdk";
 import { Connection, PublicKey, Transaction } from "@solana/web3.js";
 import type { ChainApi } from "./chain";
 import type { GeminiSource } from "./gemini/client";

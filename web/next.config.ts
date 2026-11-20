@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const config: NextConfig = {
   // The SDK is a TypeScript workspace package consumed from source.
-  transpilePackages: ["@pmec/sdk"],
+  transpilePackages: ["@parilayer/sdk"],
   // Do not write a generated AGENTS.md into the project.
   agentRules: false,
   turbopack: {

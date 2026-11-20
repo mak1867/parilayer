@@ -1,4 +1,4 @@
-import { PPM, UNIT, marketIdFromRefs, probPpm, toHex } from "@pmec/sdk";
+import { PPM, UNIT, marketIdFromRefs, probPpm, toHex } from "@parilayer/sdk";
 import { Keypair, Transaction } from "@solana/web3.js";
 import { describe, expect, it } from "vitest";
 import { GeminiMock } from "../src/gemini/client";

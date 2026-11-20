@@ -8,10 +8,11 @@
  *   npm run cli -w relayer -- serve                       HTTP API + polling loops
  */
 import { join } from "node:path";
-import { PPM, UNIT, probPpm } from "@pmec/sdk";
+import { PPM, UNIT, probPpm } from "@parilayer/sdk";
 import { Connection, LAMPORTS_PER_SOL, SystemProgram, Transaction, sendAndConfirmTransaction } from "@solana/web3.js";
 import { SolanaChain } from "./chain";
 import { type Config, loadConfig, loadKeypair, loadMirrorConfig, loadPairsConfig } from "./config";
+import { CachedGemini } from "./gemini/cached";
 import { GeminiHttp, GeminiMock, type GeminiSource } from "./gemini/client";
 import { Indexer } from "./indexer";
 import { midPrice } from "./mapping";
@@ -156,6 +157,18 @@ async function serve(cfg: Config) {
   const { source, mock } = geminiSource(cfg);
   const chain = chainFor(cfg, true);
   const { relayer, store } = relayerFor(cfg, chain, source);
+  // The pair builder reads many events per page; cache them for a minute and
+  // keep the cache warm so pages load in well under a second.
+  const pairGemini = new CachedGemini(source);
+  const pairEvents = () => [
+    ...new Set([
+      ...store.listMarkets().flatMap((m) => (m.source.type === "binary" ? [m.source.eventTicker] : [])),
+      ...loadPairsConfig(cfg.pairsConfigPath).flatMap((p) => [p.a.event, p.b.event]),
+    ]),
+  ];
+  const warm = () => void pairGemini.warm(pairEvents()).catch(() => undefined);
+  warm();
+  setInterval(warm, 50_000).unref();
   const app = await buildServer({
     relayer,
     store,
@@ -165,9 +178,9 @@ async function serve(cfg: Config) {
     ...(chain.admin ? { faucet: { usdc: cfg.faucetUsdc, cooldownMs: 60 * 60 * 1000, drip: (w, usdc) => chain.faucet(w, usdc) } } : {}),
     ...(mock ? { mock } : {}),
     pairs: {
-      service: new PairService({ relayer, gemini: source, chain, store, seedUsdc: cfg.seedUsdc }),
+      service: new PairService({ relayer, gemini: pairGemini, chain, store, seedUsdc: cfg.seedUsdc }),
       curated: loadPairsConfig(cfg.pairsConfigPath),
-      gemini: source,
+      gemini: pairGemini,
     },
   });
   await app.listen({ port: cfg.port, host: cfg.host });

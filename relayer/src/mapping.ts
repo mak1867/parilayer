@@ -6,7 +6,7 @@
  *   referenceFor       Gemini events -> reference price per outcome
  *   settlementDecision Gemini events -> resolve / void / halt / unhalt / nothing
  */
-import { type MarketKind, type MarketStatus, clampNormalize, pairWeights } from "@pmec/sdk";
+import { type MarketKind, type MarketStatus, clampNormalize, pairWeights } from "@parilayer/sdk";
 import type { GeminiCombo, GeminiContract, GeminiEvent, GeminiPrices } from "./gemini/types";
 
 // ------------------------------------------------------------------ prices

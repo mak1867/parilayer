@@ -14,7 +14,7 @@ import {
   rfqQuoterMessage,
   secondaryFee,
   swapValue,
-} from "@pmec/sdk";
+} from "@parilayer/sdk";
 import { PublicKey, Transaction } from "@solana/web3.js";
 import type { RfqStore } from "./store";
 

@@ -8,7 +8,7 @@ import {
 import { Keypair, type PublicKey, type Transaction, type TransactionVersion, type VersionedTransaction } from "@solana/web3.js";
 
 export const BURNER_NAME = "Burner wallet" as WalletName<"Burner wallet">;
-const STORAGE_KEY = "pmec:burner-wallet";
+const STORAGE_KEY = "parilayer:burner-wallet";
 
 const ICON =
   "data:image/svg+xml;base64," +
@@ -23,7 +23,7 @@ const ICON =
  */
 export class BurnerWalletAdapter extends BaseMessageSignerWalletAdapter {
   name = BURNER_NAME;
-  url = "https://github.com/mak1867/pmec-exchange";
+  url = "https://github.com/mak1867/parilayer";
   icon = ICON;
   supportedTransactionVersions: ReadonlySet<TransactionVersion> = new Set<TransactionVersion>(["legacy", 0]);
 

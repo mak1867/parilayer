@@ -1,6 +1,6 @@
 "use client";
 
-import { MathError, UNIT, buyIxs, priceE6, quoteBuy, payoutRateE12, redeemValue, type BuyQuote } from "@pmec/sdk";
+import { MathError, UNIT, buyIxs, priceE6, quoteBuy, payoutRateE12, redeemValue, type BuyQuote } from "@parilayer/sdk";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { useMemo, useState } from "react";
 import { type MarketView, useData } from "@/lib/data";

@@ -6,8 +6,8 @@ mod common;
 
 use {
     common::*,
-    pmec::state::{MarketKind, MarketStatus},
-    pmec_math::{redeem_value, RATE_SCALE},
+    parilayer::state::{MarketKind, MarketStatus},
+    parilayer_math::{redeem_value, RATE_SCALE},
     solana_signer::Signer,
 };
 

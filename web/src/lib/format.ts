@@ -1,4 +1,4 @@
-import { PPM, UNIT } from "@pmec/sdk";
+import { PPM, UNIT } from "@parilayer/sdk";
 
 const nf = (min: number, max: number) => new Intl.NumberFormat("en-US", { minimumFractionDigits: min, maximumFractionDigits: max });
 

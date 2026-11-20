@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { appendFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { DatabaseSync } from "node:sqlite";
-import type { MarketKind } from "@pmec/sdk";
+import type { MarketKind } from "@parilayer/sdk";
 import type { MarketSource } from "./mapping";
 
 /** What the relayer remembers about a market it created: names and where it came from. */

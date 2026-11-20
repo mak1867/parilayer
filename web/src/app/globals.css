@@ -1,5 +1,5 @@
 /*
- * PMEC Exchange: a tote board.
+ * PariLayer: a tote board.
  *
  * Palette from the racetrack: turf green, chalk, pale ticket stock.
  * Amber is reserved for one thing only: the guaranteed floor.
@@ -148,12 +148,6 @@ small {
   color: var(--chalk);
   text-decoration: none;
   letter-spacing: 0.02em;
-}
-
-.brand span {
-  font-weight: 400;
-  margin-left: 0.3em;
-  opacity: 0.85;
 }
 
 .bar nav {
@@ -322,24 +316,47 @@ small {
   margin-top: 2.75rem;
 }
 
-.hero {
-  margin-top: 0.5rem !important;
-  padding-bottom: 0.5rem;
+/* ---------- landing: the green band and the board ---------- */
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
-.hero h1 {
-  font-size: var(--step-4);
+.hero-band {
+  background: var(--turf);
+  color: var(--chalk);
+}
+
+.hero-inner {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vw, 5rem) var(--gutter) clamp(2rem, 5vw, 3.5rem);
+}
+
+.hero-band h1 {
+  font-size: clamp(3rem, 9vw, 7.5rem);
   font-weight: 800;
-  line-height: 0.98;
-  color: var(--turf);
-  max-width: 20ch;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(--chalk);
 }
 
-.hero p {
-  max-width: var(--measure);
-  margin-top: 1.1rem;
-  font-size: 1.0625rem;
-  color: var(--ink-soft);
+.hero-band p {
+  max-width: 52ch;
+  margin: 1.25rem 0 0;
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--slip);
+}
+
+.hero-band a {
+  color: var(--chalk);
+  text-underline-offset: 0.2em;
 }
 
 .crumb {
@@ -445,21 +462,52 @@ small {
   font-weight: 600;
 }
 
-/* ---------- markets list ---------- */
+/* ---------- markets board ---------- */
+
+.board-page {
+  padding-top: 0.5rem;
+}
+
+.board-group {
+  margin-top: 2.5rem;
+}
+
+.board-head,
+.market-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(9rem, 15rem) 5.5rem 4.5rem 5.5rem;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.board-head {
+  padding: 0 0.75rem 0.5rem;
+  border-bottom: 2px solid var(--turf);
+}
+
+.board-head h2 {
+  margin: 0;
+  color: var(--turf);
+}
+
+.board-cols {
+  display: contents;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.board-cols .r {
+  text-align: right;
+}
 
 .market-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 2px solid var(--turf);
 }
 
 .market-row {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 1.4fr) repeat(3, minmax(4.5rem, 0.6fr));
-  gap: 1rem;
-  align-items: center;
-  padding: 1rem 0.5rem;
+  padding: 0.95rem 0.75rem;
   border-bottom: 1px solid var(--slip-line);
   text-decoration: none;
   color: inherit;
@@ -469,46 +517,110 @@ small {
   background: var(--slip);
 }
 
+.market-row:focus-visible {
+  outline: 3px solid var(--turf);
+  outline-offset: -3px;
+}
+
+.m-title {
+  min-width: 0;
+}
+
+.m-event {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-bottom: 0.1rem;
+}
+
 .m-title strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.1;
   color: var(--turf);
 }
 
-.m-sub {
-  font-size: var(--step--1);
-  color: var(--ink-soft);
+.m-title strong.m-leg {
+  font-size: 1.15rem;
 }
 
-.m-label {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--ink-soft);
+.m-event .tag:not(:first-child) {
+  margin-left: 0.5rem;
+}
+.m-event .tag {
+  vertical-align: 1px;
 }
 
-.m-value {
+.m-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.m-lead-name {
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .m-num {
   text-align: right;
 }
 
-@media (max-width: 720px) {
+.m-gem .num,
+.m-pot .num {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink-soft);
+}
+
+.settled {
+  margin-top: 3rem;
+}
+
+.settled summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--ink-soft);
+  padding: 0.5rem 0.75rem;
+}
+
+.settled .market-list {
+  opacity: 0.75;
+}
+
+@media (max-width: 760px) {
+  .board-head {
+    grid-template-columns: 1fr;
+  }
+  .board-cols {
+    display: none;
+  }
   .market-row {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem 1rem;
   }
-  .m-title {
-    grid-column: 1 / -1;
-  }
+  .m-title,
   .m-lead {
     grid-column: 1 / -1;
   }
   .m-num {
     text-align: left;
+  }
+  .m-num .sr {
+    position: static;
+    width: auto;
+    height: auto;
+    clip-path: none;
+    display: block;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
   }
 }
 
@@ -705,13 +817,23 @@ table {
 /* ---------- the buy slip: a tote ticket ---------- */
 
 .trade-col {
+  /* The slip is taller than most screens. It stays in view and scrolls on its
+     own; the scroll never hands off to the page, so whichever side the pointer
+     is over is the side that scrolls. */
   position: sticky;
   top: 1rem;
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--slip-line) transparent;
 }
 
 @media (max-width: 960px) {
   .trade-col {
     position: static;
+    max-height: none;
+    overflow: visible;
   }
 }
 
@@ -1164,15 +1286,40 @@ table {
 }
 
 /* ---------- how it works ---------- */
+/* How it works: one centred reading column. */
+.prose-page {
+  max-width: 54rem;
+}
 .prose-page p {
-  max-width: var(--measure);
+  max-width: none;
+  margin: 0 0 0.9rem;
+}
+.prose-page .sub h2 {
+  margin-bottom: 0.6rem;
+}
+.how-end {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+.how-head {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
 }
 .how-head h1 {
-  max-width: 22ch;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  color: var(--turf);
 }
 .how-head .lead {
   font-size: var(--step-1);
   color: var(--ink-soft);
+  margin: 1rem auto 0;
+  max-width: 44rem;
+}
+.prose-page .floor-chart {
+  max-width: 100%;
+}
+.prose-page .table-note {
+  max-width: none;
 }
 .floor-chart {
   margin: 20px 0 8px;
@@ -1312,4 +1459,126 @@ table {
 .chart-table table {
   margin-top: 8px;
   max-width: 420px;
+}
+
+/* ---------- pair builder ---------- */
+
+.pairs-head .lede {
+  max-width: 60ch;
+  margin: 0.75rem 0 0;
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.pair-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pair-list > li {
+  padding: 1.5rem 0 0.5rem;
+  border-top: 2px solid var(--turf);
+}
+
+.pair-list > li + li {
+  margin-top: 2rem;
+}
+
+.pair-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.pair-head .btn {
+  flex: none;
+}
+
+.pair-title {
+  flex: 1 1 24rem;
+}
+
+.pair-note {
+  max-width: 70ch;
+  margin: 0.6rem 0 1rem;
+  color: var(--ink-soft);
+}
+
+.joint {
+  margin-top: 0.5rem;
+}
+
+.joint th[scope="row"] small {
+  display: block;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-top: 0.15rem;
+}
+
+.pair-pick {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: end;
+  gap: 1rem;
+  max-width: 64rem;
+}
+
+.pair-x {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  padding-bottom: 0.45rem;
+}
+
+.pair-pick .field {
+  margin: 0;
+}
+
+.pair-pick select {
+  width: 100%;
+  appearance: none;
+  font: inherit;
+  color: var(--ink);
+  background: #fffdf6
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2315231d' stroke-width='2'/%3E%3C/svg%3E")
+    no-repeat right 0.9rem center;
+  border: 1px solid var(--slip-line);
+  border-bottom: 2px solid var(--turf);
+  border-radius: 4px;
+  padding: 0.7rem 2.5rem 0.7rem 0.8rem;
+  cursor: pointer;
+}
+
+.pair-pick select:focus-visible {
+  outline: 3px solid var(--turf);
+  outline-offset: 2px;
+}
+
+.pair-build {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--slip-line);
+}
+
+.first-buy {
+  max-width: 36rem;
+  margin-top: 1.25rem;
+}
+
+.first-buy > p {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 720px) {
+  .pair-pick {
+    grid-template-columns: 1fr;
+  }
+  .pair-x {
+    padding: 0;
+  }
 }

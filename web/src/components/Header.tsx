@@ -133,8 +133,8 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="bar">
-        <Link href="/" className="brand" aria-label="PMEC Exchange, home">
-          PMEC<span>Exchange</span>
+        <Link href="/" className="brand" aria-label="PariLayer, home">
+          PariLayer
         </Link>
         <nav aria-label="Main">
           {NAV.map((n) => {

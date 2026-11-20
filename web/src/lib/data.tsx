@@ -1,6 +1,6 @@
 "use client";
 
-import { type MarketState, type PmecProgram, fetchMarkets, getProgram } from "@pmec/sdk";
+import { type MarketState, type ParilayerProgram, fetchMarkets, getProgram } from "@parilayer/sdk";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
@@ -16,7 +16,7 @@ export interface MarketView {
 interface Data {
   config: RelayerConfig | null;
   usdcMint: PublicKey | null;
-  program: PmecProgram;
+  program: ParilayerProgram;
   markets: MarketView[];
   /** False until the first load finished (successfully or not). */
   ready: boolean;

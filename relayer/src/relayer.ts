@@ -1,4 +1,4 @@
-import { type MarketState, UNIT, fromHex, marketIdFromRefs, toHex } from "@pmec/sdk";
+import { type MarketState, UNIT, fromHex, marketIdFromRefs, toHex } from "@parilayer/sdk";
 import type { ChainApi } from "./chain";
 import type { GeminiSource } from "./gemini/client";
 import type { GeminiCombo, GeminiEvent } from "./gemini/types";

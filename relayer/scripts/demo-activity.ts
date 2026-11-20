@@ -31,7 +31,7 @@ import {
   quoteSell,
   seedSharesPda,
   sellIxs,
-} from "@pmec/sdk";
+} from "@parilayer/sdk";
 import { createAssociatedTokenAccountIdempotentInstruction, createMintToInstruction } from "@solana/spl-token";
 import {
   Connection,

@@ -1,13 +1,13 @@
 [package]
-name = "pmec"
+name = "parilayer"
 version = "0.1.0"
-description = "PMEC Exchange: dynamic parimutuel prediction markets (C(q) = ||q||_2)"
+description = "PariLayer: dynamic parimutuel prediction markets (C(q) = ||q||_2)"
 edition.workspace = true
 rust-version.workspace = true
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "pmec"
+name = "parilayer"
 
 [features]
 default = []
@@ -23,7 +23,7 @@ custom-panic = []
 [dependencies]
 anchor-lang = "1.2.2"
 anchor-spl = "1.2.2"
-pmec-math = { path = "../../crates/pmec-math" }
+parilayer-math = { path = "../../crates/parilayer-math" }
 
 [dev-dependencies]
 # Cargo.lock pins LiteSVM's Rust-1.89-compatible dependency graph.

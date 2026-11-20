@@ -1,5 +1,5 @@
 use anchor_lang::prelude::*;
-use pmec_math::{Pool, MAX_OUTCOMES};
+use parilayer_math::{Pool, MAX_OUTCOMES};
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, PartialEq, Eq, Debug, InitSpace)]
 pub enum MarketKind {

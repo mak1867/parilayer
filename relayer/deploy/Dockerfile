@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 COPY packages/sdk/package.json packages/sdk/
 COPY relayer/package.json relayer/
-RUN npm ci -w @pmec/relayer -w @pmec/sdk --include-workspace-root=false --no-audit --no-fund
+RUN npm ci -w @parilayer/relayer -w @parilayer/sdk --include-workspace-root=false --no-audit --no-fund
 
 COPY tsconfig.base.json ./
 COPY packages/sdk packages/sdk

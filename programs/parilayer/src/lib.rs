@@ -1,10 +1,10 @@
-//! PMEC Exchange: dynamic parimutuel prediction markets on Solana.
+//! PariLayer: dynamic parimutuel prediction markets on Solana.
 //!
 //! Every market is one pot priced by the cost function C(q) = ||q||_2 (1 USDC
 //! per unit). Holders buy from the pool and can sell back to it while the
 //! market is open; a 2% sell fee stays in the pot for the remaining holders.
 //! The pool price of a share is at most 1 USDC and a winning share pays at least
-//! 1 USDC. All arithmetic lives in the `pmec-math` crate.
+//! 1 USDC. All arithmetic lives in the `parilayer-math` crate.
 
 pub mod constants;
 pub mod error;
@@ -20,7 +20,7 @@ pub use state::*;
 declare_id!("13ZEq3jQvpn1r9KyaS9NK9HGoqZrHf6BJtwMyEbXbPtJ");
 
 #[program]
-pub mod pmec {
+pub mod parilayer {
     use super::*;
 
     /// Creates Config and the treasury vault.

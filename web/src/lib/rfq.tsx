@@ -13,7 +13,7 @@ import {
   swapTxMatches,
   swapValue,
   treasuryPda,
-} from "@pmec/sdk";
+} from "@parilayer/sdk";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { Transaction } from "@solana/web3.js";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";

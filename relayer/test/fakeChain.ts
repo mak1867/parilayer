@@ -1,4 +1,4 @@
-import { type ConfigState, type MarketState, UNIT, marketPda, seedShares, toHex } from "@pmec/sdk";
+import { type ConfigState, type MarketState, UNIT, marketPda, seedShares, toHex } from "@parilayer/sdk";
 import { Keypair, PublicKey } from "@solana/web3.js";
 import type { ChainApi, NewMarket } from "../src/chain";
 

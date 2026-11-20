@@ -1,5 +1,5 @@
 /**
- * The pool math in BigInt, mirroring crates/pmec-math bit for bit.
+ * The pool math in BigInt, mirroring crates/parilayer-math bit for bit.
  *
  * Cost function C(q) = ||q||_2. All amounts are base units (1e6 = 1 USDC = 1 share).
  * Every rounding goes against the trader: shares round down, fees round up,

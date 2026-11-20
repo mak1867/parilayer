@@ -2,7 +2,7 @@
 //! when late money floods the outcome they bet on, in a plain parimutuel pot
 //! versus this pool (n = 2 dynamic parimutuel, C(q) = ||q||).
 //!
-//!   cargo run -q -p pmec-math --example simulate > floor.csv
+//!   cargo run -q -p parilayer-math --example simulate > floor.csv
 //!
 //! Scenario: a binary market seeded with 1,000 USDC at 30% for outcome A. An
 //! early buyer spends 100 USDC on A. Then `late` USDC more is bought on A by
@@ -18,7 +18,7 @@
 //! The web app's "How it works" page computes the same rows with the
 //! TypeScript port of this math.
 
-use pmec_math::*;
+use parilayer_math::*;
 
 const SEED: u64 = 1_000 * UNIT;
 const PROB_A_PPM: u32 = 300_000;

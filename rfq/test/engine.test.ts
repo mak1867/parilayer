@@ -1,4 +1,4 @@
-import { type SwapTerms, buildSwapTx, swapTxMatches } from "@pmec/sdk";
+import { type SwapTerms, buildSwapTx, swapTxMatches } from "@parilayer/sdk";
 import { Keypair, Transaction } from "@solana/web3.js";
 import { beforeEach, describe, expect, it } from "vitest";
 import { RfqEngine, RfqError } from "../src/engine";

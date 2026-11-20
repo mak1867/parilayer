@@ -50,7 +50,7 @@ jobs:
       # `anchor test` = build the program for the Solana VM, then `cargo test`.
       # CI runs the same two steps directly so it does not need the Anchor CLI.
       - name: Build program (SBF)
-        run: cargo build-sbf --manifest-path programs/pmec/Cargo.toml
+        run: cargo build-sbf --manifest-path programs/parilayer/Cargo.toml
 
       - name: Test (math property tests + program tests in LiteSVM)
         run: cargo test --workspace
@@ -58,7 +58,7 @@ jobs:
       # The TypeScript math is checked against these vectors; make sure they
       # are the ones the current Rust code produces.
       - name: Golden vectors are up to date
-        run: cargo run -q -p pmec-math --example vectors | diff - packages/sdk/test/vectors.json
+        run: cargo run -q -p parilayer-math --example vectors | diff - packages/sdk/test/vectors.json
 
       # End to end on a real validator: the RFQ service settles a trade between
       # two wallets, and a swap with one failing leg moves nothing.
