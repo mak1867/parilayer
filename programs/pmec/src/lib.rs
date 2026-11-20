@@ -1,7 +1,8 @@
 //! PMEC Exchange: dynamic parimutuel prediction markets on Solana.
 //!
 //! Every market is one pot priced by the cost function C(q) = ||q||_2 (1 USDC
-//! per unit). The pool only sells shares; holders exit on the secondary market.
+//! per unit). Holders buy from the pool and can sell back to it while the
+//! market is open; a 2% sell fee stays in the pot for the remaining holders.
 //! The pool price of a share is at most 1 USDC and a winning share pays at least
 //! 1 USDC. All arithmetic lives in the `pmec-math` crate.
 
@@ -27,9 +28,9 @@ pub mod pmec {
         ctx: Context<Initialize>,
         oracle: Pubkey,
         pool_fee_bps: u16,
-        secondary_fee_bps: u16,
+        sell_fee_bps: u16,
     ) -> Result<()> {
-        instructions::admin::handle_initialize(ctx, oracle, pool_fee_bps, secondary_fee_bps)
+        instructions::admin::handle_initialize(ctx, oracle, pool_fee_bps, sell_fee_bps)
     }
 
     /// Admin: change the oracle or the fees.
@@ -37,9 +38,9 @@ pub mod pmec {
         ctx: Context<UpdateConfig>,
         oracle: Pubkey,
         pool_fee_bps: u16,
-        secondary_fee_bps: u16,
+        sell_fee_bps: u16,
     ) -> Result<()> {
-        instructions::admin::handle_update_config(ctx, oracle, pool_fee_bps, secondary_fee_bps)
+        instructions::admin::handle_update_config(ctx, oracle, pool_fee_bps, sell_fee_bps)
     }
 
     /// Oracle: creates a market and its pot, seeded from the treasury.
@@ -71,6 +72,12 @@ pub mod pmec {
     /// Buys shares of one outcome from the pool.
     pub fn buy(ctx: Context<Buy>, outcome: u8, usdc_in: u64, min_shares_out: u64) -> Result<()> {
         instructions::buy::handle_buy(ctx, outcome, usdc_in, min_shares_out)
+    }
+
+    /// Sells shares back to the pool: burns them and pays the refund
+    /// C(q) - C(q') minus the sell fee, which stays in the pot.
+    pub fn sell(ctx: Context<Sell>, outcome: u8, shares: u64, min_usdc_out: u64) -> Result<()> {
+        instructions::sell::handle_sell(ctx, outcome, shares, min_usdc_out)
     }
 
     /// Oracle: mirrors a Gemini trading halt.

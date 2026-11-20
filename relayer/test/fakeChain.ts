@@ -44,7 +44,7 @@ export class FakeChain implements ChainApi {
       oracle: this.oracle,
       usdcMint: this.usdcMint,
       poolFeeBps: 100,
-      secondaryFeeBps: 50,
+      sellFeeBps: 50,
       feesCollected: 0n,
       seedsPaid: 0n,
       seedPayouts: 0n,

@@ -6,24 +6,16 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { type PositionHistory, getPositionHistory } from "@/lib/api";
 import { type MarketView, useData } from "@/lib/data";
-import { RFQ_URL, explorerTx } from "@/lib/env";
+import { explorerTx } from "@/lib/env";
 import { fmtShares, fmtUsdc } from "@/lib/format";
 import { explainError, sendIxs } from "@/lib/tx";
-
-interface SecondaryFill {
-  marketId: string;
-  outcome: number;
-  size: string;
-  value: string;
-  side: "buy" | "sell";
-}
 
 interface Position {
   view: MarketView;
   chain: MarketState;
   outcome: number;
   shares: bigint;
-  /** Everything this wallet bought of this outcome (pool and secondary) and what it paid. */
+  /** Everything this wallet bought of this outcome from the pool and what it paid (fee included). */
   bought: bigint;
   paid: bigint;
 }
@@ -40,7 +32,6 @@ export default function PortfolioPage() {
   const wallet = useWallet();
   const { markets, tokens, usdc, usdcMint, program, refresh, refreshWallet } = useData();
   const [history, setHistory] = useState<PositionHistory[]>([]);
-  const [secondary, setSecondary] = useState<SecondaryFill[]>([]);
   const [busy, setBusy] = useState<string | null>(null);
   const [note, setNote] = useState<{ kind: "ok" | "error"; text: string; sig?: string } | null>(null);
   const owner = wallet.publicKey?.toBase58();
@@ -50,10 +41,6 @@ export default function PortfolioPage() {
     let live = true;
     getPositionHistory(owner)
       .then((h) => live && setHistory(h))
-      .catch(() => undefined);
-    fetch(`${RFQ_URL}/fills/${owner}`)
-      .then((r) => r.json())
-      .then((f: SecondaryFill[]) => live && setSecondary(f))
       .catch(() => undefined);
     return () => {
       live = false;
@@ -68,21 +55,16 @@ export default function PortfolioPage() {
       for (let i = 0; i < chain.n; i++) {
         const shares = tokens.get(outcomeMintPda(chain.address, i).toBase58()) ?? 0n;
         if (shares === 0n) continue;
-        // Cost basis: pool buys from on-chain history plus secondary buys from the trade tape.
+        // Cost basis: the average price of this wallet's pool buys, from on-chain
+        // history. Sells remove shares at that same average, so it still applies.
         const h = history.find((x) => x.market === view.meta.address && x.outcome === i);
-        let bought = h ? BigInt(h.boughtShares) : 0n;
-        let paid = h ? BigInt(h.boughtUsdc) : 0n;
-        for (const f of secondary) {
-          if (f.marketId === view.meta.idHex && f.outcome === i && f.side === "buy") {
-            bought += BigInt(f.size);
-            paid += BigInt(f.value);
-          }
-        }
+        const bought = h ? BigInt(h.boughtShares) : 0n;
+        const paid = h ? BigInt(h.boughtUsdc) : 0n;
         out.push({ view, chain, outcome: i, shares, bought, paid });
       }
     }
     return out;
-  }, [markets, tokens, history, secondary]);
+  }, [markets, tokens, history]);
 
   const redeem = async (p: Position) => {
     if (!wallet.publicKey || !usdcMint) return;
@@ -227,7 +209,7 @@ export default function PortfolioPage() {
           </table>
           <p className="table-note">
             “Pays at least” is the guarantee: 1 USDC for every share if that outcome wins. Cost is the average this wallet paid,
-            from its on-chain pool buys (fee included) and its secondary trades.
+            from its on-chain pool buys (fee included). To exit before the result, sell back to the pool from the market page.
           </p>
         </div>
       )}

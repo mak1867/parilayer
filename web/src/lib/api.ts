@@ -39,7 +39,7 @@ export interface RelayerConfig {
   usdcMint: string | null;
   oracle: string | null;
   poolFeeBps: number | null;
-  secondaryFeeBps: number | null;
+  sellFeeBps: number | null;
   seedUsdc: number;
   faucet: { usdc: number } | null;
   mock: boolean;
@@ -49,7 +49,7 @@ export interface PoolTrade {
   signature: string;
   blockTime: number | null;
   market: string;
-  kind: "buy" | "redeem";
+  kind: "buy" | "sell" | "redeem";
   wallet: string;
   outcome: number;
   usdc: string;
@@ -64,6 +64,8 @@ export interface PositionHistory {
   outcome: number;
   boughtShares: string;
   boughtUsdc: string;
+  soldShares: string;
+  soldUsdc: string;
   redeemedShares: string;
   redeemedUsdc: string;
 }

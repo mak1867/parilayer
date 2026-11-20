@@ -46,7 +46,7 @@ export async function buildServer(deps: ServerDeps): Promise<FastifyInstance> {
       usdcMint: cfg?.usdcMint.toBase58() ?? null,
       oracle: cfg?.oracle.toBase58() ?? null,
       poolFeeBps: cfg?.poolFeeBps ?? null,
-      secondaryFeeBps: cfg?.secondaryFeeBps ?? null,
+      sellFeeBps: cfg?.sellFeeBps ?? null,
       seedUsdc: deps.seedUsdc,
       faucet: deps.faucet ? { usdc: deps.faucet.usdc } : null,
       mock: !!deps.mock,

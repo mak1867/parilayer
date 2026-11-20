@@ -20,7 +20,7 @@ use {
 
 pub const UNIT: u64 = 1_000_000;
 pub const POOL_FEE_BPS: u16 = 100;
-pub const SECONDARY_FEE_BPS: u16 = 50;
+pub const SELL_FEE_BPS: u16 = 200;
 pub const TREASURY_FUNDING: u64 = 1_000_000 * UNIT;
 pub const TOKEN_PROGRAM: Pubkey = anchor_spl::token::ID;
 
@@ -90,7 +90,7 @@ impl Env {
             &pmec::instruction::Initialize {
                 oracle: env.oracle.pubkey(),
                 pool_fee_bps: POOL_FEE_BPS,
-                secondary_fee_bps: SECONDARY_FEE_BPS,
+                sell_fee_bps: SELL_FEE_BPS,
             }
             .data(),
             pmec::accounts::Initialize {
@@ -311,6 +311,41 @@ impl Env {
                 recipient_shares,
                 pot_vault: Self::vault_pda(market),
                 treasury_vault: self.treasury,
+                usdc_mint: self.usdc_mint,
+                token_program: TOKEN_PROGRAM,
+            }
+            .to_account_metas(None),
+        )
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    pub fn sell_ix(
+        &self,
+        seller: Pubkey,
+        seller_shares: Pubkey,
+        recipient_usdc: Pubkey,
+        market: Pubkey,
+        outcome: u8,
+        shares: u64,
+        min_usdc_out: u64,
+    ) -> Instruction {
+        Instruction::new_with_bytes(
+            pmec::id(),
+            &pmec::instruction::Sell {
+                outcome,
+                shares,
+                min_usdc_out,
+            }
+            .data(),
+            pmec::accounts::Sell {
+                seller,
+                config: self.config,
+                market,
+                outcome_mint: Self::mint_pda(market, outcome),
+                seller_shares,
+                recipient_usdc,
+                seed_shares: Self::seed_shares_pda(market, outcome),
+                pot_vault: Self::vault_pda(market),
                 usdc_mint: self.usdc_mint,
                 token_program: TOKEN_PROGRAM,
             }

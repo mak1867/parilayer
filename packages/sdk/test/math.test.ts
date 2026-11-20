@@ -8,16 +8,21 @@ import {
   priceE6,
   probPpm,
   quoteBuy,
+  quoteSell,
   seedShares,
   voidRatesE12,
 } from "../src";
 
 interface Step {
+  kind?: "sell";
   outcome: number;
-  usdcIn: string;
+  usdcIn?: string;
+  shares?: string;
+  seedFloor?: string;
+  usdcOut?: string;
+  gross?: string;
   feeBps: number;
   ok: boolean;
-  shares?: string;
   net?: string;
   fee?: string;
   priceAfter?: string;
@@ -59,8 +64,32 @@ describe("BigInt math matches the Rust crate (golden vectors)", () => {
       expect(q.map(String)).toEqual(c.q0);
       let pot = BigInt(c.seed);
       for (const s of c.steps) {
+        if (s.kind === "sell") {
+          const run = () =>
+            quoteSell(q, pot, s.outcome, BigInt(s.shares!), s.feeBps, BigInt(s.seedFloor!));
+          if (s.ok) {
+            const quote = run();
+            expect(String(quote.usdcOut)).toBe(s.usdcOut);
+            expect(String(quote.gross)).toBe(s.gross);
+            expect(String(quote.fee)).toBe(s.fee);
+            expect(String(quote.priceAfterE6)).toBe(s.priceAfter);
+            expect(quote.probAfterPpm).toBe(s.probAfter);
+            expect(String(quote.potAfter)).toBe(s.pot);
+            q = quote.qAfter;
+            pot = quote.potAfter;
+          } else {
+            let code: string | undefined;
+            try {
+              run();
+            } catch (e) {
+              code = (e as MathError).code;
+            }
+            expect(code).toBe(s.error);
+          }
+          continue;
+        }
         if (s.ok) {
-          const quote = quoteBuy(q, pot, s.outcome, BigInt(s.usdcIn), s.feeBps);
+          const quote = quoteBuy(q, pot, s.outcome, BigInt(s.usdcIn!), s.feeBps);
           expect(String(quote.shares)).toBe(s.shares);
           expect(String(quote.net)).toBe(s.net);
           expect(String(quote.fee)).toBe(s.fee);
@@ -72,7 +101,7 @@ describe("BigInt math matches the Rust crate (golden vectors)", () => {
         } else {
           let code: string | undefined;
           try {
-            quoteBuy(q, pot, s.outcome, BigInt(s.usdcIn), s.feeBps);
+            quoteBuy(q, pot, s.outcome, BigInt(s.usdcIn!), s.feeBps);
           } catch (e) {
             code = (e as MathError).code;
           }

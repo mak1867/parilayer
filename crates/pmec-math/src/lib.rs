@@ -59,6 +59,10 @@ pub enum MathError {
     EmptyPool,
     /// `pot >= C(q)` would be violated. Never expected; checked defensively.
     InvariantViolated,
+    /// A sell asks for more shares than the outcome has outstanding.
+    NotEnoughShares,
+    /// A sell would push the outcome's shares below its seed.
+    BelowSeed,
 }
 
 pub type Result<T> = core::result::Result<T, MathError>;
@@ -199,6 +203,46 @@ pub fn shares_for_buy(q: &[u128], i: usize, x: u64) -> Result<u64> {
     u64::try_from(delta).map_err(|_| MathError::Overflow)
 }
 
+/// `ceil(sqrt(n))`.
+fn isqrt_ceil(n: u128) -> u128 {
+    let r = isqrt(n);
+    if r * r == n {
+        r
+    } else {
+        r + 1
+    }
+}
+
+/// USDC the pool gives back for `s` shares of outcome `i`, before the sell fee.
+///
+/// This is the buy formula run backwards: `R = C(q) - C(q')` where `q'` is `q`
+/// with `s` fewer shares of `i`, i.e. `R = N - sqrt(N^2 - q_i^2 + (q_i - s)^2)`.
+/// Both square roots are taken with extra fractional bits (the old norm rounded
+/// down, the new one rounded up), so `R` never exceeds the exact value.
+pub fn sell_refund(q: &[u128], i: usize, s: u64) -> Result<u64> {
+    if i >= q.len() {
+        return Err(MathError::BadOutcome);
+    }
+    if s == 0 {
+        return Err(MathError::ZeroAmount);
+    }
+    let s = s as u128;
+    let qi = q[i];
+    if s > qi {
+        return Err(MathError::NotEnoughShares);
+    }
+    let s2 = sum_squares(q)?;
+    let rest = qi - s;
+    let s2_new = s2 - qi * qi + rest * rest; // < s2
+    // One even shift for both norms, chosen so the larger (s2) still fits.
+    let shift = s2.leading_zeros() & !1;
+    let half = shift / 2;
+    let n_old = isqrt(s2 << shift); // floor(N * 2^half)
+    let n_new = isqrt_ceil(s2_new << shift); // ceil(N' * 2^half)
+    let r = n_old.saturating_sub(n_new) >> half;
+    u64::try_from(r).map_err(|_| MathError::Overflow)
+}
+
 /// Pool price of one share of outcome `i`, in base units of USDC (1e6 = 1 USDC).
 /// `p_i = q_i / N`, rounded down. Always <= 1 USDC.
 pub fn price_e6(q: &[u128], i: usize) -> Result<u64> {
@@ -276,6 +320,21 @@ pub struct BuyOutcome {
     pub prob_after_ppm: u32,
 }
 
+/// What a sell did, for events and for the UI.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct SellOutcome {
+    /// USDC paid to the seller (refund minus fee).
+    pub usdc_out: u64,
+    /// Refund before the fee: `C(q) - C(q')`, rounded down.
+    pub gross: u64,
+    /// Sell fee, kept in the pot.
+    pub fee: u64,
+    /// Pool price of the sold outcome after the trade (1e6 = 1 USDC).
+    pub price_after_e6: u64,
+    /// Implied probability of the sold outcome after the trade, in ppm.
+    pub prob_after_ppm: u32,
+}
+
 /// The pool state the math needs: share counts and the pot. The on-chain Market
 /// account stores exactly these and runs every state change through this type.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -349,6 +408,59 @@ impl Pool {
         })
     }
 
+    /// Quote a sell without changing the pool.
+    pub fn quote_sell(
+        &self,
+        outcome: usize,
+        shares: u64,
+        fee_bps: u16,
+        seed_floor: u128,
+    ) -> Result<SellOutcome> {
+        let mut copy = self.clone();
+        copy.sell(outcome, shares, fee_bps, seed_floor)
+    }
+
+    /// Apply a sell: burn `shares` of `outcome`, refund `R` minus the sell fee.
+    /// The fee stays in the pot for the remaining holders. `seed_floor` is the
+    /// outcome's seed shares; no sell may push `q_i` below it.
+    pub fn sell(
+        &mut self,
+        outcome: usize,
+        shares: u64,
+        fee_bps: u16,
+        seed_floor: u128,
+    ) -> Result<SellOutcome> {
+        if outcome >= self.n {
+            return Err(MathError::BadOutcome);
+        }
+        let qi = self.q[outcome];
+        if (shares as u128) > qi {
+            return Err(MathError::NotEnoughShares);
+        }
+        if qi - (shares as u128) < seed_floor {
+            return Err(MathError::BelowSeed);
+        }
+        let gross = sell_refund(self.shares(), outcome, shares)?;
+        let (usdc_out, fee) = split_fee(gross, fee_bps)?;
+        if usdc_out == 0 {
+            return Err(MathError::ZeroAmount);
+        }
+        // usdc_out <= gross <= N <= pot, so this cannot underflow; checked anyway.
+        self.pot = self
+            .pot
+            .checked_sub(usdc_out)
+            .ok_or(MathError::InvariantViolated)?;
+        self.q[outcome] = qi - shares as u128;
+        self.check()?;
+        Ok(SellOutcome {
+            usdc_out,
+            gross,
+            fee,
+            price_after_e6: price_e6(self.shares(), outcome)?,
+            prob_after_ppm: prob_ppm(self.shares(), outcome)?,
+        })
+    }
+
     /// Payout per winning share (scaled 1e12) if `winner` wins now. Always >= 1e12.
     pub fn payout_rate(&self, winner: usize) -> Result<u128> {
         if winner >= self.n {
@@ -365,3 +477,5 @@ impl Pool {
 
 #[cfg(test)]
 mod tests;
+#[cfg(test)]
+mod sell_tests;

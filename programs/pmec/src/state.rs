@@ -28,8 +28,10 @@ pub struct Config {
     pub oracle: Pubkey,
     pub usdc_mint: Pubkey,
     pub pool_fee_bps: u16,
-    /// Charged off-chain by the RFQ service inside each secondary settlement.
-    pub secondary_fee_bps: u16,
+    /// Fee on selling back to the pool. It stays in the pot for the remaining
+    /// holders. (This field was `secondary_fee_bps` before sell-back existed;
+    /// renamed in place so the account layout is unchanged.)
+    pub sell_fee_bps: u16,
     /// Pool fees received by the treasury vault.
     pub fees_collected: u64,
     /// Seeds the treasury vault has paid into pots.
@@ -125,6 +127,26 @@ pub struct BuyEvent {
     /// Pool price of the outcome after the buy (1e6 = 1 USDC).
     pub price_after: u64,
     /// Implied probability after the buy, in ppm.
+    pub prob_after: u32,
+    pub pot_after: u64,
+}
+
+#[event]
+pub struct SellEvent {
+    pub market: Pubkey,
+    pub seller: Pubkey,
+    /// Owner of the USDC account that received the payment.
+    pub recipient: Pubkey,
+    pub outcome: u8,
+    /// Shares burned.
+    pub shares_in: u64,
+    /// Refund before the sell fee: C(q) - C(q').
+    pub refund: u64,
+    /// Sell fee, kept in the pot.
+    pub fee: u64,
+    /// USDC paid to the seller (refund minus fee).
+    pub usdc_out: u64,
+    pub price_after: u64,
     pub prob_after: u32,
     pub pot_after: u64,
 }

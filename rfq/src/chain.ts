@@ -1,4 +1,6 @@
 import { type PmecProgram, ata, fetchConfig, fetchMarketById, fromHex, getProgram, outcomeMintPda, treasuryPda } from "@pmec/sdk";
+/** The RFQ prototype charges a fixed 0.5% fee. The on-chain config now holds the pool sell fee instead. */
+const RFQ_FEE_BPS = 50;
 import { type Connection, PublicKey, type Transaction } from "@solana/web3.js";
 import type { MarketInfo, RfqChain } from "./engine";
 
@@ -32,7 +34,7 @@ export class SolanaRfqChain implements RfqChain {
     if (!this.ex || Date.now() - this.ex.at > 60_000) {
       const cfg = await fetchConfig(this.program);
       if (!cfg) throw new Error("the program is not initialized on this cluster");
-      this.ex = { usdcMint: cfg.usdcMint.toBase58(), treasuryVault: treasuryPda().toBase58(), secondaryFeeBps: cfg.secondaryFeeBps, at: Date.now() };
+      this.ex = { usdcMint: cfg.usdcMint.toBase58(), treasuryVault: treasuryPda().toBase58(), secondaryFeeBps: RFQ_FEE_BPS, at: Date.now() };
     }
     return this.ex;
   }

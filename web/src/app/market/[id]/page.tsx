@@ -2,16 +2,14 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
-import { BuySlip } from "@/components/BuySlip";
-import { PriceTable, type SecondaryMark } from "@/components/PriceTable";
-import { SecondaryPanel } from "@/components/SecondaryPanel";
+import { useEffect, useState } from "react";
+import { TradeSlip } from "@/components/BuySlip";
+import { PriceTable } from "@/components/PriceTable";
 import { type PoolTrade, getActivity } from "@/lib/api";
 import { useData } from "@/lib/data";
 import { explorerTx } from "@/lib/env";
 import { fmtPct, fmtPrice, fmtShares, fmtUsdc, fmtWhole, shortKey, timeAgo } from "@/lib/format";
 import { KIND_LABEL, isThin, leadingOutcome, statusLabel } from "@/lib/market";
-import { useRfq, useTape } from "@/lib/rfq";
 
 export default function MarketPage() {
   const { id } = useParams<{ id: string }>();
@@ -19,16 +17,7 @@ export default function MarketPage() {
   const view = markets.find((v) => v.meta.idHex === id);
   const [selected, setSelected] = useState<number | null>(null);
   const [tape, setTape] = useState<PoolTrade[]>([]);
-  const [tab, setTab] = useState<"pool" | "secondary">("pool");
   const pot = view?.chain?.pot;
-  const { fillTick } = useRfq();
-  const { tape: fills, available: rfqUp } = useTape(id, fillTick);
-  // Last secondary trade per outcome (the tape is newest first).
-  const secondary = useMemo(() => {
-    const marks = new Map<number, SecondaryMark>();
-    for (const f of fills) if (!marks.has(f.outcome)) marks.set(f.outcome, { priceE6: Number(f.priceE6), ts: f.ts });
-    return marks;
-  }, [fills]);
 
   useEffect(() => {
     if (!id) return;
@@ -84,7 +73,7 @@ export default function MarketPage() {
           )}
           {view.meta.expiryDate && <li>Gemini expiry {new Date(view.meta.expiryDate).toLocaleString()}</li>}
         </ul>
-        {m?.status === "halted" && <p className="msg msg-warn">Gemini has paused or closed trading on this event, so buying is paused here too.</p>}
+        {m?.status === "halted" && <p className="msg msg-warn">Gemini has paused or closed trading on this event, so buying and selling are paused here too.</p>}
         {m?.status === "voided" && (
           <p className="msg msg-warn">Gemini voided this event. Every share can be redeemed at its final pool price from the portfolio page.</p>
         )}
@@ -92,56 +81,21 @@ export default function MarketPage() {
 
       <div className="market-grid">
         <div>
-          <PriceTable view={view} selected={outcome} onSelect={setSelected} secondary={secondary} />
+          <PriceTable view={view} selected={outcome} onSelect={setSelected} />
 
-          <section aria-labelledby="sec-h" className="sub">
-            <h2 id="sec-h">Secondary trades</h2>
-            {!rfqUp ? (
-              <p className="msg">The secondary market service is not reachable right now.</p>
-            ) : fills.length === 0 ? (
-              <p className="msg">No shares have changed hands between traders in this market yet.</p>
-            ) : (
-              <table className="tape">
-                <thead>
-                  <tr>
-                    <th scope="col">When</th>
-                    <th scope="col">Outcome</th>
-                    <th scope="col" className="r">Price</th>
-                    <th scope="col" className="r">Shares</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {fills.slice(0, 10).map((f) => (
-                    <tr key={f.signature}>
-                      <td>
-                        <a href={explorerTx(f.signature)} target="_blank" rel="noreferrer">
-                          {timeAgo(f.ts)}
-                        </a>
-                      </td>
-                      <td>{view.meta.outcomes[f.outcome]}</td>
-                      <td className="r num">{fmtPrice(Number(f.priceE6))}</td>
-                      <td className="r num">{fmtShares(BigInt(f.size))}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-            <p className="table-note">
-              Requests and quotes are private. A trade appears here, and on-chain, only after it has settled: price, size and time.
-            </p>
-          </section>
 
           <section aria-labelledby="tape-h" className="sub">
-            <h2 id="tape-h">Recent pool buys</h2>
-            {tape.filter((t) => t.kind === "buy").length === 0 ? (
+            <h2 id="tape-h">Recent pool trades</h2>
+            {tape.filter((t) => t.kind !== "redeem").length === 0 ? (
               <p className="msg">Nobody has bought from this pool yet. The first buy moves the odds the most.</p>
             ) : (
               <table className="tape">
                 <thead>
                   <tr>
                     <th scope="col">When</th>
+                    <th scope="col">Trade</th>
                     <th scope="col">Outcome</th>
-                    <th scope="col" className="r">Paid</th>
+                    <th scope="col" className="r">USDC</th>
                     <th scope="col" className="r">Shares</th>
                     <th scope="col" className="r">Odds after</th>
                     <th scope="col">Wallet</th>
@@ -149,7 +103,7 @@ export default function MarketPage() {
                 </thead>
                 <tbody>
                   {tape
-                    .filter((t) => t.kind === "buy")
+                    .filter((t) => t.kind !== "redeem")
                     .slice(0, 12)
                     .map((t) => (
                       <tr key={`${t.signature}`}>
@@ -158,6 +112,7 @@ export default function MarketPage() {
                             {t.blockTime ? timeAgo(t.blockTime * 1000) : "just now"}
                           </a>
                         </td>
+                        <td className={t.kind === "sell" ? "trade-sell" : "trade-buy"}>{t.kind === "sell" ? "Sold" : "Bought"}</td>
                         <td>{view.meta.outcomes[t.outcome]}</td>
                         <td className="r num">{fmtUsdc(BigInt(t.usdc))}</td>
                         <td className="r num">{fmtShares(BigInt(t.shares))}</td>
@@ -196,19 +151,7 @@ export default function MarketPage() {
         </div>
 
         <div className="trade-col">
-          <div className="tabs" role="tablist" aria-label="How to trade">
-            <button role="tab" aria-selected={tab === "pool"} className={tab === "pool" ? "on" : undefined} onClick={() => setTab("pool")}>
-              Buy from the pool
-            </button>
-            <button role="tab" aria-selected={tab === "secondary"} className={tab === "secondary" ? "on" : undefined} onClick={() => setTab("secondary")}>
-              Trade with traders
-            </button>
-          </div>
-          {tab === "pool" ? (
-            <BuySlip key={`${view.meta.idHex}:${outcome}`} view={view} outcome={outcome} />
-          ) : (
-            <SecondaryPanel view={view} outcome={outcome} />
-          )}
+          <TradeSlip key={`${view.meta.idHex}:${outcome}`} view={view} outcome={outcome} />
         </div>
       </div>
     </div>

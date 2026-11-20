@@ -54,10 +54,34 @@ fn main() {
             _ => 25 * UNIT,
         };
         let mut pool = Pool::seeded(&p, seed).unwrap();
+        let seed_q = pool.q;
         let q0 = list(pool.shares().iter(), true);
         let mut steps = Vec::new();
         for s in 0..40 {
             let outcome = (rng.next() % n as u64) as usize;
+            // Every third step sells part of what traders hold of this outcome
+            // (sometimes a little more, to exercise BelowSeed).
+            if s % 3 == 2 {
+                let held = (pool.q[outcome] - seed_q[outcome]) as u64;
+                let shares = match rng.next() % 6 {
+                    0 => held + 1,
+                    1 => held,
+                    2 => 1,
+                    _ => (held as u128 * (1 + rng.next() % 100) as u128 / 100) as u64,
+                };
+                let fee_bps = [200u16, 0, 200][s % 3];
+                match pool.sell(outcome, shares, fee_bps, seed_q[outcome]) {
+                    Ok(o) => steps.push(format!(
+                        "{{\"kind\":\"sell\",\"outcome\":{outcome},\"shares\":\"{shares}\",\"seedFloor\":\"{}\",\"feeBps\":{fee_bps},\"ok\":true,\"usdcOut\":\"{}\",\"gross\":\"{}\",\"fee\":\"{}\",\"priceAfter\":\"{}\",\"probAfter\":{},\"pot\":\"{}\"}}",
+                        seed_q[outcome], o.usdc_out, o.gross, o.fee, o.price_after_e6, o.prob_after_ppm, pool.pot
+                    )),
+                    Err(e) => steps.push(format!(
+                        "{{\"kind\":\"sell\",\"outcome\":{outcome},\"shares\":\"{shares}\",\"seedFloor\":\"{}\",\"feeBps\":{fee_bps},\"ok\":false,\"error\":\"{e:?}\"}}",
+                        seed_q[outcome]
+                    )),
+                }
+                continue;
+            }
             let usdc_in = match s % 8 {
                 0 => 1 + rng.next() % 100,                      // dust
                 7 => 1_000 * UNIT + rng.next() % (50_000_000 * UNIT), // whale

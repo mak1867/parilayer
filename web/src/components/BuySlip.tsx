@@ -7,6 +7,7 @@ import { type MarketView, useData } from "@/lib/data";
 import { explorerTx } from "@/lib/env";
 import { fmtPct, fmtPrice, fmtShares, fmtUsdc, parseAmount, toNumber } from "@/lib/format";
 import { explainError, sendIxs } from "@/lib/tx";
+import { SellSlip } from "./SellSlip";
 
 const SLIPPAGE_CHOICES = [0.1, 0.5, 1, 3];
 
@@ -14,6 +15,27 @@ const MATH_MESSAGES: Record<string, string> = {
   ZeroAmount: "That amount is too small to buy a share.",
   PotCapExceeded: "That buy would push the pot over its cap.",
 };
+
+/** Buy and Sell tabs for one outcome. */
+export function TradeSlip({ view, outcome }: { view: MarketView; outcome: number }) {
+  const [side, setSide] = useState<"buy" | "sell">("buy");
+  return (
+    <aside className="slip" aria-label="Trade with the pool">
+      <div className="seg slip-tabs" role="tablist" aria-label="Buy or sell">
+        {(["buy", "sell"] as const).map((s) => (
+          <button key={s} type="button" role="tab" aria-selected={side === s} className={side === s ? "on" : undefined} onClick={() => setSide(s)}>
+            {s === "buy" ? "Buy" : "Sell"}
+          </button>
+        ))}
+      </div>
+      {side === "buy" ? <BuySlip view={view} outcome={outcome} /> : <SellSlip view={view} outcome={outcome} />}
+      <p className="slip-foot">
+        Buy new shares from the pool, or sell them back to it at any time while the market is open. A sale returns what your
+        shares added to the pool, minus a 2% fee that stays in the pot for the holders who remain.
+      </p>
+    </aside>
+  );
+}
 
 /** The buy panel: USDC in, shares out, and the guaranteed minimum those shares pay if the outcome wins. */
 export function BuySlip({ view, outcome }: { view: MarketView; outcome: number }) {
@@ -80,7 +102,7 @@ export function BuySlip({ view, outcome }: { view: MarketView; outcome: number }
   };
 
   return (
-    <aside className="slip" aria-label="Buy from the pool">
+    <div aria-label="Buy from the pool">
       <div className="slip-head">
         <h2>Buy {label}</h2>
         <p>
@@ -207,8 +229,7 @@ export function BuySlip({ view, outcome }: { view: MarketView; outcome: number }
           </a>
         </p>
       )}
-      <p className="slip-foot">The pool only sells. To exit before resolution, sell to another trader on the secondary market.</p>
-    </aside>
+    </div>
   );
 }
 

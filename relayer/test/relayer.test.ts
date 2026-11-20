@@ -260,7 +260,7 @@ describe("HTTP API", () => {
   it("GET /health, /config, /markets", async () => {
     const { app } = await server();
     expect((await app.inject("/health")).json()).toMatchObject({ ok: true, mock: true, markets: 4 });
-    expect((await app.inject("/config")).json()).toMatchObject({ poolFeeBps: 100, secondaryFeeBps: 50, seedUsdc: 500 });
+    expect((await app.inject("/config")).json()).toMatchObject({ poolFeeBps: 100, sellFeeBps: 50, seedUsdc: 500 });
     const markets = (await app.inject("/markets")).json() as { title: string; reference: { prices: number[] } }[];
     expect(markets).toHaveLength(4);
     expect(markets[0]!.title).toMatch(/Republican Nominee/);

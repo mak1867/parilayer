@@ -160,7 +160,7 @@ export function RfqProvider({ children }: { children: ReactNode }) {
           t.shareMint === outcomeMintPda(chain.address, outcome).toBase58() &&
           t.usdcMint === usdcMint.toBase58() &&
           t.treasuryVault === treasuryPda().toBase58() &&
-          BigInt(t.fee) <= secondaryFee(value, config?.secondaryFeeBps ?? 50) &&
+          BigInt(t.fee) <= secondaryFee(value, 50) &&
           // A buying requester gets the shares where they asked; a buying quoter at their own wallet.
           (role !== "buyer" || t.receiver === (my ? (my.accepted?.receiver ?? me) : me));
         const tx = Transaction.from(Uint8Array.from(atob(msg.tx), (c) => c.charCodeAt(0)));

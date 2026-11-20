@@ -29,7 +29,7 @@ export interface ConfigState {
   oracle: PublicKey;
   usdcMint: PublicKey;
   poolFeeBps: number;
-  secondaryFeeBps: number;
+  sellFeeBps: number;
   feesCollected: bigint;
   seedsPaid: bigint;
   seedPayouts: bigint;
@@ -79,7 +79,7 @@ export function decodeConfig(address: PublicKey, raw: any): ConfigState {
     oracle: raw.oracle,
     usdcMint: raw.usdcMint,
     poolFeeBps: raw.poolFeeBps,
-    secondaryFeeBps: raw.secondaryFeeBps,
+    sellFeeBps: raw.sellFeeBps,
     feesCollected: big(raw.feesCollected),
     seedsPaid: big(raw.seedsPaid),
     seedPayouts: big(raw.seedPayouts),
@@ -154,10 +154,10 @@ const bn = (x: bigint | number) => new BN(x.toString());
 
 export function initializeIx(
   program: PmecProgram,
-  args: { admin: PublicKey; oracle: PublicKey; usdcMint: PublicKey; poolFeeBps: number; secondaryFeeBps: number },
+  args: { admin: PublicKey; oracle: PublicKey; usdcMint: PublicKey; poolFeeBps: number; sellFeeBps: number },
 ): Promise<TransactionInstruction> {
   return program.methods
-    .initialize(args.oracle, args.poolFeeBps, args.secondaryFeeBps)
+    .initialize(args.oracle, args.poolFeeBps, args.sellFeeBps)
     .accountsStrict({
       admin: args.admin,
       config: configPda(),
@@ -166,6 +166,17 @@ export function initializeIx(
       tokenProgram: TOKEN_PROGRAM_ID,
       systemProgram: SystemProgram.programId,
     })
+    .instruction();
+}
+
+/** Admin: change the oracle or the fees (each at most 10%). */
+export function updateConfigIx(
+  program: PmecProgram,
+  args: { admin: PublicKey; oracle: PublicKey; poolFeeBps: number; sellFeeBps: number },
+): Promise<TransactionInstruction> {
+  return program.methods
+    .updateConfig(args.oracle, args.poolFeeBps, args.sellFeeBps)
+    .accountsPartial({ admin: args.admin, config: configPda() })
     .instruction();
 }
 
@@ -293,6 +304,50 @@ export async function buyIxs(program: PmecProgram, a: BuyArgs): Promise<Transact
     })
     .instruction();
   return [createAta, buy];
+}
+
+export interface SellArgs {
+  seller: PublicKey;
+  market: PublicKey;
+  usdcMint: PublicKey;
+  outcome: number;
+  /** Shares to sell back to the pool (base units). */
+  shares: bigint;
+  /** Fail if the seller would receive less USDC than this (base units). */
+  minUsdcOut: bigint;
+  /** Wallet that receives the USDC. Defaults to the seller. */
+  recipient?: PublicKey;
+}
+
+/** Instructions to sell shares back to the pool: create the USDC account if needed, then sell. */
+export async function sellIxs(program: PmecProgram, a: SellArgs): Promise<TransactionInstruction[]> {
+  const mint = outcomeMintPda(a.market, a.outcome);
+  const recipient = a.recipient ?? a.seller;
+  const recipientUsdc = ata(a.usdcMint, recipient);
+  const createAta = createAssociatedTokenAccountIdempotentInstruction(
+    a.seller,
+    recipientUsdc,
+    recipient,
+    a.usdcMint,
+    TOKEN_PROGRAM_ID,
+    ASSOCIATED_TOKEN_PROGRAM_ID,
+  );
+  const sell = await program.methods
+    .sell(a.outcome, bn(a.shares), bn(a.minUsdcOut))
+    .accountsStrict({
+      seller: a.seller,
+      config: configPda(),
+      market: a.market,
+      outcomeMint: mint,
+      sellerShares: ata(mint, a.seller),
+      recipientUsdc,
+      seedShares: seedSharesPda(a.market, a.outcome),
+      potVault: vaultPda(a.market),
+      usdcMint: a.usdcMint,
+      tokenProgram: TOKEN_PROGRAM_ID,
+    })
+    .instruction();
+  return [createAta, sell];
 }
 
 export interface RedeemArgs {

@@ -35,7 +35,7 @@ pub fn handle_initialize(
     ctx: Context<Initialize>,
     oracle: Pubkey,
     pool_fee_bps: u16,
-    secondary_fee_bps: u16,
+    sell_fee_bps: u16,
 ) -> Result<()> {
     require!(
         ctx.accounts.usdc_mint.decimals == DECIMALS,
@@ -43,7 +43,7 @@ pub fn handle_initialize(
     );
     require!(pool_fee_bps <= pmec_math::MAX_FEE_BPS, ErrorCode::BadFee);
     require!(
-        secondary_fee_bps <= pmec_math::MAX_FEE_BPS,
+        sell_fee_bps <= pmec_math::MAX_FEE_BPS,
         ErrorCode::BadFee
     );
 
@@ -52,7 +52,7 @@ pub fn handle_initialize(
     config.oracle = oracle;
     config.usdc_mint = ctx.accounts.usdc_mint.key();
     config.pool_fee_bps = pool_fee_bps;
-    config.secondary_fee_bps = secondary_fee_bps;
+    config.sell_fee_bps = sell_fee_bps;
     config.fees_collected = 0;
     config.seeds_paid = 0;
     config.seed_payouts = 0;
@@ -79,16 +79,16 @@ pub fn handle_update_config(
     ctx: Context<UpdateConfig>,
     oracle: Pubkey,
     pool_fee_bps: u16,
-    secondary_fee_bps: u16,
+    sell_fee_bps: u16,
 ) -> Result<()> {
     require!(pool_fee_bps <= pmec_math::MAX_FEE_BPS, ErrorCode::BadFee);
     require!(
-        secondary_fee_bps <= pmec_math::MAX_FEE_BPS,
+        sell_fee_bps <= pmec_math::MAX_FEE_BPS,
         ErrorCode::BadFee
     );
     let config = &mut ctx.accounts.config;
     config.oracle = oracle;
     config.pool_fee_bps = pool_fee_bps;
-    config.secondary_fee_bps = secondary_fee_bps;
+    config.sell_fee_bps = sell_fee_bps;
     Ok(())
 }

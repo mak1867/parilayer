@@ -82,8 +82,10 @@ async function setup(cfg: Config) {
     usdcMint = mint;
     log(`${created ? "created" : "found"} mock USDC mint ${mint.toBase58()}`);
   }
-  const initialized = await chain.ensureInitialized(usdcMint, 100, 50);
-  log(initialized ? "initialized program config (pool fee 1%, secondary fee 0.5%)" : "program config already initialized");
+  // Spec fees: buy 1% to the treasury, sell 2% kept in the pot.
+  const initialized = await chain.ensureInitialized(usdcMint, 100, 200);
+  log(initialized ? "initialized program config (buy fee 1%, sell fee 2%)" : "program config already initialized");
+  if (!initialized && (await chain.ensureFees(100, 200))) log("updated fees to buy 1%, sell 2%");
 
   const target = Number(flag("treasury") ?? 100_000);
   const added = await chain.topUpTreasury(target);

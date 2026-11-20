@@ -35,7 +35,7 @@ pub enum ErrorCode {
     MarketNotHalted,
     #[msg("Amount is zero or too small to mint a share")]
     ZeroAmount,
-    #[msg("Shares out is below min_shares_out")]
+    #[msg("Trade is worse than the slippage limit (min_shares_out or min_usdc_out)")]
     SlippageExceeded,
     #[msg("This buy would push the pot above its cap")]
     PotCapExceeded,
@@ -53,6 +53,12 @@ pub enum ErrorCode {
     InvariantSupplyMismatch,
     #[msg("Invariant violated: payouts would exceed the pot")]
     InvariantPayoutAbovePot,
+    #[msg("The treasury's seed shares can never be sold")]
+    TreasuryCannotSell,
+    #[msg("Not enough shares outstanding to sell")]
+    NotEnoughShares,
+    #[msg("This sell would push the outcome below its seed shares")]
+    BelowSeed,
 }
 
 impl From<MathError> for ErrorCode {
@@ -68,6 +74,8 @@ impl From<MathError> for ErrorCode {
             MathError::BadFee => ErrorCode::BadFee,
             MathError::EmptyPool => ErrorCode::ZeroAmount,
             MathError::InvariantViolated => ErrorCode::InvariantPotBelowCost,
+            MathError::NotEnoughShares => ErrorCode::NotEnoughShares,
+            MathError::BelowSeed => ErrorCode::BelowSeed,
         }
     }
 }

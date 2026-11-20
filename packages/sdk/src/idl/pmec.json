@@ -560,7 +560,7 @@
           "type": "u16"
         },
         {
-          "name": "secondary_fee_bps",
+          "name": "sell_fee_bps",
           "type": "u16"
         }
       ]
@@ -860,6 +860,150 @@
       ]
     },
     {
+      "name": "sell",
+      "docs": [
+        "Sells shares back to the pool: burns them and pays the refund",
+        "C(q) - C(q') minus the sell fee, which stays in the pot."
+      ],
+      "discriminator": [
+        51,
+        230,
+        133,
+        164,
+        1,
+        127,
+        131,
+        173
+      ],
+      "accounts": [
+        {
+          "name": "seller",
+          "docs": [
+            "The holder. Must sign, like `msg.sender` must own the tokens in Solidity."
+          ],
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market.market_id",
+                "account": "Market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "outcome_mint",
+          "docs": [
+            "The outcome's share mint (like the ERC-20 contract for that outcome)."
+          ],
+          "writable": true
+        },
+        {
+          "name": "seller_shares",
+          "docs": [
+            "Where the shares come from. Must belong to the signer, which also rules",
+            "out the treasury: its seed shares sit in an account owned by the Config",
+            "PDA, and a PDA can never be a transaction signer."
+          ],
+          "writable": true
+        },
+        {
+          "name": "recipient_usdc",
+          "docs": [
+            "Where the USDC goes. Any USDC account, so a seller can be paid at a fresh address."
+          ],
+          "writable": true
+        },
+        {
+          "name": "seed_shares",
+          "docs": [
+            "The treasury's seed shares of this outcome. Read only, to enforce the",
+            "rule that no sell may push q_i below the seed."
+          ]
+        },
+        {
+          "name": "pot_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint",
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "outcome",
+          "type": "u8"
+        },
+        {
+          "name": "shares",
+          "type": "u64"
+        },
+        {
+          "name": "min_usdc_out",
+          "type": "u64"
+        }
+      ]
+    },
+    {
       "name": "sweep_dust",
       "docs": [
         "Admin: after all claims or 30 days, moves what is left in the pot to the treasury."
@@ -1095,7 +1239,7 @@
           "type": "u16"
         },
         {
-          "name": "secondary_fee_bps",
+          "name": "sell_fee_bps",
           "type": "u16"
         }
       ]
@@ -1264,6 +1408,19 @@
       ]
     },
     {
+      "name": "SellEvent",
+      "discriminator": [
+        62,
+        47,
+        55,
+        10,
+        165,
+        3,
+        220,
+        42
+      ]
+    },
+    {
       "name": "VoidEvent",
       "discriminator": [
         159,
@@ -1361,7 +1518,7 @@
     {
       "code": 6016,
       "name": "SlippageExceeded",
-      "msg": "Shares out is below min_shares_out"
+      "msg": "Trade is worse than the slippage limit (min_shares_out or min_usdc_out)"
     },
     {
       "code": 6017,
@@ -1402,6 +1559,21 @@
       "code": 6024,
       "name": "InvariantPayoutAbovePot",
       "msg": "Invariant violated: payouts would exceed the pot"
+    },
+    {
+      "code": 6025,
+      "name": "TreasuryCannotSell",
+      "msg": "The treasury's seed shares can never be sold"
+    },
+    {
+      "code": 6026,
+      "name": "NotEnoughShares",
+      "msg": "Not enough shares outstanding to sell"
+    },
+    {
+      "code": 6027,
+      "name": "BelowSeed",
+      "msg": "This sell would push the outcome below its seed shares"
     }
   ],
   "types": [
@@ -1496,9 +1668,11 @@
             "type": "u16"
           },
           {
-            "name": "secondary_fee_bps",
+            "name": "sell_fee_bps",
             "docs": [
-              "Charged off-chain by the RFQ service inside each secondary settlement."
+              "Fee on selling back to the pool. It stays in the pot for the remaining",
+              "holders. (This field was `secondary_fee_bps` before sell-back existed;",
+              "renamed in place so the account layout is unchanged.)"
             ],
             "type": "u16"
           },
@@ -1824,6 +1998,73 @@
           },
           {
             "name": "pot",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SellEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "seller",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient",
+            "docs": [
+              "Owner of the USDC account that received the payment."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "outcome",
+            "type": "u8"
+          },
+          {
+            "name": "shares_in",
+            "docs": [
+              "Shares burned."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "refund",
+            "docs": [
+              "Refund before the sell fee: C(q) - C(q')."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "fee",
+            "docs": [
+              "Sell fee, kept in the pot."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "usdc_out",
+            "docs": [
+              "USDC paid to the seller (refund minus fee)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "price_after",
+            "type": "u64"
+          },
+          {
+            "name": "prob_after",
+            "type": "u32"
+          },
+          {
+            "name": "pot_after",
             "type": "u64"
           }
         ]

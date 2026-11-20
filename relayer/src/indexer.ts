@@ -9,7 +9,7 @@ const big = (x: { toString(): string }) => x.toString();
 // "buyEvent" with camelCase fields. No network access happens here.
 const parser = new EventParser(PROGRAM_ID, getProgram(new Connection("http://127.0.0.1:8899")).coder);
 
-/** Turns one transaction's program logs into pool trades (buys and redemptions). */
+/** Turns one transaction's program logs into pool trades (buys, sells and redemptions). */
 export function tradesFromLogs(
   logs: string[],
   ctx: { signature: string; slot: number; blockTime: number | null },
@@ -30,6 +30,20 @@ export function tradesFromLogs(
         usdc: big(d.usdcIn),
         fee: big(d.fee),
         shares: big(d.sharesOut),
+        priceAfter: big(d.priceAfter),
+        probAfter: d.probAfter,
+        potAfter: big(d.potAfter),
+      });
+    } else if (ev.name === "sellEvent") {
+      out.push({
+        ...base,
+        kind: "sell",
+        wallet: d.seller.toBase58(),
+        payer: d.recipient.toBase58(),
+        outcome: d.outcome,
+        usdc: big(d.usdcOut),
+        fee: big(d.fee),
+        shares: big(d.sharesIn),
         priceAfter: big(d.priceAfter),
         probAfter: d.probAfter,
         potAfter: big(d.potAfter),
@@ -56,7 +70,7 @@ export function tradesFromLogs(
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 /**
- * Follows the program's transactions and records every buy and redemption, so
+ * Follows the program's transactions and records every buy, sell and redemption, so
  * the frontend can show a pool trade tape and each wallet's cost basis from
  * on-chain history. Everything stored here can be rebuilt from the chain.
  */

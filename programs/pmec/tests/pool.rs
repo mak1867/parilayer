@@ -275,7 +275,7 @@ fn only_the_oracle_can_resolve_void_or_halt() {
         &anchor_lang::InstructionData::data(&pmec::instruction::UpdateConfig {
             oracle: mallory.pubkey(),
             pool_fee_bps: 0,
-            secondary_fee_bps: 0,
+            sell_fee_bps: 0,
         }),
         anchor_lang::ToAccountMetas::to_account_metas(
             &pmec::accounts::UpdateConfig {

@@ -81,7 +81,7 @@ export function SecondaryPanel({ view, outcome }: { view: MarketView; outcome: n
   const tradable = m.status === "open" || m.status === "halted";
   const size = parseAmount(sizeText);
   const sizeOk = size !== null && size >= rfq.minSize;
-  const feeBps = config?.secondaryFeeBps ?? 50;
+  const feeBps = 50;
   const myShares = tokens.get(outcomeMintPda(m.address, outcome).toBase58()) ?? 0n;
   const holdsAny = Array.from({ length: m.n }, (_, i) => tokens.get(outcomeMintPda(m.address, i).toBase58()) ?? 0n).some((b) => b > 0n);
   const isQuoting = rfq.quoting.has(marketId);

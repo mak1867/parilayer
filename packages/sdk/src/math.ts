@@ -36,7 +36,9 @@ export type MathErrorCode =
   | "PotCapExceeded"
   | "BadFee"
   | "EmptyPool"
-  | "InvariantViolated";
+  | "InvariantViolated"
+  | "NotEnoughShares"
+  | "BelowSeed";
 
 const U64_MAX = (1n << 64n) - 1n;
 const U128_MAX = (1n << 128n) - 1n;
@@ -124,6 +126,33 @@ export function sharesForBuy(q: readonly bigint[], i: number, x: bigint): bigint
   return delta;
 }
 
+/** ceil(sqrt(n)). */
+function isqrtCeil(n: bigint): bigint {
+  const r = isqrt(n);
+  return r * r === n ? r : r + 1n;
+}
+
+/**
+ * USDC the pool gives back for `s` shares of outcome i, before the sell fee:
+ * R = N - sqrt(N^2 - q_i^2 + (q_i - s)^2), rounded down, exactly as the Rust crate.
+ */
+export function sellRefund(q: readonly bigint[], i: number, s: bigint): bigint {
+  if (i < 0 || i >= q.length) throw new MathError("BadOutcome");
+  if (s === 0n) throw new MathError("ZeroAmount");
+  const qi = q[i]!;
+  if (s > qi) throw new MathError("NotEnoughShares");
+  const s2 = sumSquares(q);
+  const rest = qi - s;
+  const s2New = s2 - qi * qi + rest * rest;
+  const shift = (128 - bitLength(s2)) & ~1;
+  const half = BigInt(shift / 2);
+  const nOld = isqrt(s2 << BigInt(shift));
+  const nNew = isqrtCeil(s2New << BigInt(shift));
+  const r = nOld > nNew ? (nOld - nNew) >> half : 0n;
+  if (r > U64_MAX) throw new MathError("Overflow");
+  return r;
+}
+
 /** Pool price of one share of outcome i, in base units (1e6 = 1 USDC). <= 1 USDC. */
 export function priceE6(q: readonly bigint[], i: number): bigint {
   if (i < 0 || i >= q.length) throw new MathError("BadOutcome");
@@ -193,6 +222,54 @@ export function quoteBuy(
   return {
     shares,
     net,
+    fee,
+    priceAfterE6: priceE6(qAfter, outcome),
+    probAfterPpm: probPpm(qAfter, outcome),
+    qAfter,
+    potAfter,
+  };
+}
+
+export interface SellQuote {
+  /** USDC paid to the seller (refund minus fee). */
+  usdcOut: bigint;
+  /** Refund before the fee. */
+  gross: bigint;
+  /** Sell fee, kept in the pot. */
+  fee: bigint;
+  priceAfterE6: bigint;
+  probAfterPpm: number;
+  qAfter: bigint[];
+  potAfter: bigint;
+}
+
+/**
+ * What selling `shares` of `outcome` back to the pool would do. `seedFloor` is
+ * the outcome's seed shares (no sell may go below it). Does not mutate inputs.
+ */
+export function quoteSell(
+  q: readonly bigint[],
+  pot: bigint,
+  outcome: number,
+  shares: bigint,
+  feeBps: number,
+  seedFloor: bigint,
+): SellQuote {
+  if (outcome < 0 || outcome >= q.length) throw new MathError("BadOutcome");
+  const qi = q[outcome]!;
+  if (shares > qi) throw new MathError("NotEnoughShares");
+  if (qi - shares < seedFloor) throw new MathError("BelowSeed");
+  const gross = sellRefund(q, outcome, shares);
+  const [usdcOut, fee] = splitFee(gross, feeBps);
+  if (usdcOut === 0n) throw new MathError("ZeroAmount");
+  if (usdcOut > pot) throw new MathError("InvariantViolated");
+  const potAfter = pot - usdcOut;
+  const qAfter = q.slice();
+  qAfter[outcome] = qi - shares;
+  if (!potCoversCost(potAfter, qAfter)) throw new MathError("InvariantViolated");
+  return {
+    usdcOut,
+    gross,
     fee,
     priceAfterE6: priceE6(qAfter, outcome),
     probAfterPpm: probPpm(qAfter, outcome),

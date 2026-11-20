@@ -38,13 +38,13 @@ export interface PoolTrade {
   blockTime: number | null;
   /** Market account address (base58). */
   market: string;
-  kind: "buy" | "redeem";
-  /** Wallet that received the shares (buy) or redeemed them. */
+  kind: "buy" | "sell" | "redeem";
+  /** Wallet that received the shares (buy), sold them, or redeemed them. */
   wallet: string;
-  /** Wallet that paid for a buy. */
+  /** Wallet that paid for a buy, or received the USDC of a sell. */
   payer: string;
   outcome: number;
-  /** USDC paid (buy, fee included) or received (redeem), base units as a string. */
+  /** USDC paid (buy, fee included) or received (sell after its fee, redeem), base units as a string. */
   usdc: string;
   fee: string;
   shares: string;
@@ -60,6 +60,8 @@ export interface PositionHistory {
   /** Shares bought from the pool and what they cost (fee included). */
   boughtShares: string;
   boughtUsdc: string;
+  soldShares: string;
+  soldUsdc: string;
   redeemedShares: string;
   redeemedUsdc: string;
 }
@@ -115,14 +117,17 @@ export class Store {
   /** Totals per (market, outcome) for one wallet: the basis for cost basis. */
   positionHistory(wallet: string): PositionHistory[] {
     const rows = this.db.prepare("SELECT json FROM pool_trades WHERE wallet = ?").all(wallet) as { json: string }[];
-    const acc = new Map<string, { market: string; outcome: number; bs: bigint; bu: bigint; rs: bigint; ru: bigint }>();
+    const acc = new Map<string, { market: string; outcome: number; bs: bigint; bu: bigint; ss: bigint; su: bigint; rs: bigint; ru: bigint }>();
     for (const r of rows) {
       const t = JSON.parse(r.json) as PoolTrade;
       const key = `${t.market}:${t.outcome}`;
-      const a = acc.get(key) ?? { market: t.market, outcome: t.outcome, bs: 0n, bu: 0n, rs: 0n, ru: 0n };
+      const a = acc.get(key) ?? { market: t.market, outcome: t.outcome, bs: 0n, bu: 0n, ss: 0n, su: 0n, rs: 0n, ru: 0n };
       if (t.kind === "buy") {
         a.bs += BigInt(t.shares);
         a.bu += BigInt(t.usdc);
+      } else if (t.kind === "sell") {
+        a.ss += BigInt(t.shares);
+        a.su += BigInt(t.usdc);
       } else {
         a.rs += BigInt(t.shares);
         a.ru += BigInt(t.usdc);
@@ -134,6 +139,8 @@ export class Store {
       outcome: a.outcome,
       boughtShares: a.bs.toString(),
       boughtUsdc: a.bu.toString(),
+      soldShares: a.ss.toString(),
+      soldUsdc: a.su.toString(),
       redeemedShares: a.rs.toString(),
       redeemedUsdc: a.ru.toString(),
     }));

@@ -1151,3 +1151,14 @@ table {
     animation: none !important;
   }
 }
+
+/* Buy / Sell tabs at the top of the trade slip. */
+.slip-tabs {
+  margin-bottom: 14px;
+}
+.slip-tabs button {
+  flex: 1;
+}
+.trade-sell {
+  color: var(--ink-soft);
+}

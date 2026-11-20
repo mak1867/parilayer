@@ -13,6 +13,7 @@ import {
   haltIx,
   initOutcomeMintIx,
   initializeIx,
+  updateConfigIx,
   marketPda,
   redeemSeedIx,
   resolveIx,
@@ -210,7 +211,7 @@ export class SolanaChain implements ChainApi {
   }
 
   /** Initializes the program's Config and treasury vault if needed. */
-  async ensureInitialized(usdcMint: PublicKey, poolFeeBps: number, secondaryFeeBps: number): Promise<boolean> {
+  async ensureInitialized(usdcMint: PublicKey, poolFeeBps: number, sellFeeBps: number): Promise<boolean> {
     if (await this.getConfig()) return false;
     const admin = this.requireAdmin();
     const ix = await initializeIx(this.program, {
@@ -218,8 +219,19 @@ export class SolanaChain implements ChainApi {
       oracle: this.oracle.publicKey,
       usdcMint,
       poolFeeBps,
-      secondaryFeeBps,
+      sellFeeBps,
     });
+    await this.send([ix], [admin]);
+    return true;
+  }
+
+  /** Sets the fees if they differ from the config's. Returns true if it changed them. */
+  async ensureFees(poolFeeBps: number, sellFeeBps: number): Promise<boolean> {
+    const cfg = await this.getConfig();
+    if (!cfg) throw new Error("program config is not initialized");
+    if (cfg.poolFeeBps === poolFeeBps && cfg.sellFeeBps === sellFeeBps) return false;
+    const admin = this.requireAdmin();
+    const ix = await updateConfigIx(this.program, { admin: admin.publicKey, oracle: cfg.oracle, poolFeeBps, sellFeeBps });
     await this.send([ix], [admin]);
     return true;
   }
